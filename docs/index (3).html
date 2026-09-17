@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Layered Insights GIS — Custom Web Mapping &amp; GIS Systems</title>
+<link rel="canonical" href="https://layeredinsightsgis.com/" />
+<meta name="description" content="Layered Insights GIS builds custom web maps, GIS systems integration, and spatial data pipelines for organizations that run on place." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=14">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Layered Insights GIS",
+  "url": "https://layeredinsightsgis.com/",
+  "email": "contact@layeredinsightsgis.com",
+  "description": "GIS consulting firm offering custom web mapping, GIS systems integration, spatial data pipelines, CAD/GIS integration, and quick-start digitization and mapping engagements.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Dahlonega",
+    "addressRegion": "GA",
+    "addressCountry": "US"
+  },
+  "areaServed": "US"
+}
+</script>
+</head>
+<body class="contour-field">
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="wordmark">
+      <span class="mark"><span></span><span></span><span></span></span>
+      Layered Insights GIS
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html" aria-current="page">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <p class="eyebrow">GIS consulting · custom web mapping</p>
+        <h1>See the ground truth, layer by layer.</h1>
+        <p class="lede">We build the interactive maps, spatial data pipelines, and GIS systems that let organizations see, question, and act on what's happening across their physical footprint.</p>
+        <div class="hero-cta">
+          <a href="contact.html" class="btn btn-primary">Start a project</a>
+          <a href="services.html" class="btn btn-ghost">See what we build</a>
+        </div>
+        <p class="lede" style="margin-top:16px; font-size:0.94rem;">Just need an hour? <a href="services.html#consulting" style="color:var(--ochre); border-bottom:1px solid var(--ochre-dim);">Book flat-rate consulting →</a></p>
+        <p class="coord" style="margin-top:20px;">34.5323° N, 83.9843° W · toggle the layers →</p>
+      </div>
+
+      <div>
+        <div class="stack-stage" aria-hidden="false">
+          <div class="layer-sheet active" data-layer="base">
+            <svg class="chrome" viewBox="0 0 120 40">
+              <path d="M8 30 L8 10 M4 14 L8 10 L12 14" fill="none" stroke="currentColor" stroke-width="1.4"/>
+              <line x1="30" y1="30" x2="70" y2="30" stroke="currentColor" stroke-width="1.4"/>
+              <line x1="30" y1="26" x2="30" y2="30" stroke="currentColor" stroke-width="1.4"/>
+              <line x1="50" y1="26" x2="50" y2="30" stroke="currentColor" stroke-width="1.4"/>
+              <line x1="70" y1="26" x2="70" y2="30" stroke="currentColor" stroke-width="1.4"/>
+              <text x="30" y="18" font-family="IBM Plex Mono" font-size="8" fill="currentColor">0&#160;&#160;&#160;&#160;&#160;&#160;200 m</text>
+            </svg>
+          </div>
+
+          <div class="layer-sheet layer-photo" data-layer="contours" style="--tx:22px; --ty:28px; --rot:-1.2deg; --delay:.08s; background-image:url('imgs/contours.jpg');">
+            <span class="sheet-label"><span class="name">Terrain</span><span class="tech">contours</span></span>
+          </div>
+
+          <div class="layer-sheet layer-photo" data-layer="huc12" style="--tx:45px; --ty:5px; --rot:.8deg; --delay:.16s; background-image:url('imgs/huc12s.jpg');">
+            <span class="sheet-label"><span class="name">Watersheds</span><span class="tech">huc12</span></span>
+          </div>
+
+          <div class="layer-sheet layer-photo" data-layer="parcels" style="--tx:68px; --ty:-18px; --rot:-.6deg; --delay:.24s; background-image:url('imgs/parcels.jpg');">
+            <span class="sheet-label"><span class="name">Ownership</span><span class="tech">parcels</span></span>
+          </div>
+
+          <div class="layer-sheet layer-photo" data-layer="buildings" style="--tx:90px; --ty:-40px; --rot:1deg; --delay:.32s; background-image:url('imgs/buildings.jpg?v=2');">
+            <span class="sheet-label"><span class="name">Footprints</span><span class="tech">buildings</span></span>
+          </div>
+        </div>
+        <div class="layer-toggles">
+          <label class="layer-chip"><input type="checkbox" data-layer="contours"><span class="swatch" style="background:var(--ochre)"></span>Terrain</label>
+          <label class="layer-chip"><input type="checkbox" data-layer="huc12"><span class="swatch" style="background:var(--teal)"></span>Watersheds</label>
+          <label class="layer-chip"><input type="checkbox" data-layer="parcels"><span class="swatch" style="background:var(--olive)"></span>Ownership</label>
+          <label class="layer-chip"><input type="checkbox" data-layer="buildings"><span class="swatch" style="background:var(--clay)"></span>Footprints</label>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="container"><div class="signature-divider" aria-hidden="true"><svg viewBox="0 0 400 16" preserveAspectRatio="none"><path d="M0,8 C50,1 100,15 150,8 C200,1 250,15 300,8 C350,1 380,12 400,8"/></svg></div></div>
+
+  <section class="section-border-top">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">What we do</p>
+        <h2>Four problems, one discipline.</h2>
+        <p class="lede">Most organizations have spatial data somewhere. Few have it working for them. We close that gap.</p>
+      </div>
+      <div class="grid-4">
+        <div class="card">
+          <p class="num">01</p>
+          <h3>Custom web mapping</h3>
+          <p>Interactive maps and browser-based apps — built on Leaflet, ArcGIS Online, or Experience Builder — designed around how your staff and public actually use them.</p>
+        </div>
+        <div class="card">
+          <p class="num">02</p>
+          <h3>Systems integration</h3>
+          <p>We connect spatial data to the systems that already run your operations: scheduling, asset management, directories, work orders.</p>
+        </div>
+        <div class="card">
+          <p class="num">03</p>
+          <h3>Data pipelines</h3>
+          <p>Automated, scripted pipelines that keep your spatial data current, instead of a shapefile that was accurate two years ago.</p>
+        </div>
+        <div class="card">
+          <p class="num">04</p>
+          <h3>CAD/GIS integration</h3>
+          <p>Bridging the CAD drawings your team already trusts into a GIS that can actually query and analyze them, instead of a one-time export that goes stale.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-border-top">
+    <div class="container">
+      <div class="about-grid">
+        <div>
+          <p class="eyebrow">Why Layered Insights</p>
+          <h2 style="font-size:clamp(1.7rem,3vw,2.3rem); margin-top:10px;">Built by a practitioner, not a slide deck.</h2>
+          <p class="lede" style="margin-top:16px;">We've built and run enterprise GIS programs from the inside — not just presented on them. That means we know where the data actually breaks, and where the shortcuts cost you later.</p>
+          <div class="hero-cta">
+            <a href="about.html" class="btn btn-ghost">More about us</a>
+          </div>
+        </div>
+        <div class="stat-row">
+          <div class="stat"><span class="n">5+</span><span class="l">GIS platforms integrated</span></div>
+          <div class="stat"><span class="n">1000s</span><span class="l">of records kept current</span></div>
+          <div class="stat"><span class="n">1</span><span class="l">point of contact, start to finish</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <a href="index.html" class="wordmark">
+        <span class="mark"><span></span><span></span><span></span></span>
+        Layered Insights GIS
+      </a>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Site</h4>
+          <ul>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:contact@layeredinsightsgis.com">contact@layeredinsightsgis.com</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Layered Insights GIS</span>
+      <span>layeredinsightsgis.com</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js?v=8"></script>
+</body>
+</html>
