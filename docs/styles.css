@@ -149,20 +149,34 @@ p { margin: 0; }
 
 .wordmark .mark {
   display: inline-flex;
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   position: relative;
+  flex-shrink: 0;
 }
-.wordmark .mark span {
-  position: absolute;
-  width: 14px;
-  height: 14px;
-  border-radius: 2px;
-  opacity: 0.85;
+.wordmark .mark svg {
+  width: 100%;
+  height: 100%;
 }
-.wordmark .mark span:nth-child(1) { background: var(--ochre); top: 0; left: 0; }
-.wordmark .mark span:nth-child(2) { background: var(--teal); top: 4px; left: 4px; }
-.wordmark .mark span:nth-child(3) { background: var(--olive); top: 8px; left: 8px; }
+.wordmark .mark .mark-top {
+  fill: var(--paper);
+  stroke: var(--ink);
+  stroke-width: 1;
+}
+.wordmark .mark .mark-mid {
+  stroke: var(--teal);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.9;
+}
+.wordmark .mark .mark-low {
+  stroke: var(--ochre);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.75;
+}
 
 .nav-links {
   display: flex;
