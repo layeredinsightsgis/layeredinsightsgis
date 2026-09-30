@@ -781,6 +781,13 @@ section { padding: 76px 0; }
 }
 .form-field textarea { resize: vertical; min-height: 120px; }
 
+/* contact form: honeypot, Turnstile, status line */
+.hp-field { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.cf-turnstile { margin-bottom: 20px; min-height: 65px; }
+.form-status { margin-top: 14px; font-size: 0.95rem; min-height: 1.4em; }
+.form-status.ok { color: var(--olive-pop); }
+.form-status.err { color: var(--clay-pop); }
+
 :focus-visible {
   outline: 2px solid var(--ochre);
   outline-offset: 2px;

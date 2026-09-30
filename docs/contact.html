@@ -18,7 +18,7 @@
 <meta name="twitter:image" content="https://layeredinsightsgis.com/imgs/huc12s.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=15">
+<link rel="stylesheet" href="styles.css?v=16">
 </head>
 <body class="contour-field">
 
@@ -66,10 +66,12 @@
         </div>
       </div>
 
-      <form class="contact-form" action="https://formsubmit.co/contact@layeredinsightsgis.com" method="POST">
-        <input type="hidden" name="_subject" value="New message from layeredinsightsgis.com">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
+      <form class="contact-form" id="contactForm" action="https://forms.layeredinsightsgis.com/contact" method="POST">
+        <!-- Honeypot: hidden from people, bots fill it in and get ignored -->
+        <div class="hp-field" aria-hidden="true">
+          <label for="website">Leave this empty</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
         <div class="form-field">
           <label for="name">Name</label>
           <input type="text" id="name" name="name" required>
@@ -106,7 +108,9 @@
           <label for="message">Message</label>
           <textarea id="message" name="message" required></textarea>
         </div>
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAFJpoBO4DGwxFiaU" data-theme="dark"></div>
         <button type="submit" class="btn btn-primary">Send message</button>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
       </form>
     </div>
   </section>
@@ -143,6 +147,7 @@
   </div>
 </footer>
 
-<script src="script.js?v=8"></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script src="script.js?v=9"></script>
 </body>
 </html>

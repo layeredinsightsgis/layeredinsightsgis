@@ -49,6 +49,48 @@ document.addEventListener("DOMContentLoaded", () => {
     renderStack();
   }
 
+  // contact form: send to the Cloudflare Worker with fetch and show the
+  // result inline. Without JavaScript the form still posts normally and
+  // the Worker redirects back here with ?sent=1 or ?error=...
+  const contactForm = document.getElementById("contactForm");
+  const formStatus = document.getElementById("formStatus");
+  const showStatus = (text, ok) => {
+    if (!formStatus) return;
+    formStatus.textContent = text;
+    formStatus.className = "form-status " + (ok ? "ok" : "err");
+  };
+  if (contactForm && formStatus) {
+    const params = new URLSearchParams(location.search);
+    if (params.get("sent") === "1") {
+      showStatus("Thanks, your message was sent. We'll reply within two business days.", true);
+    } else if (params.get("error")) {
+      showStatus("Your message didn't go through. Please try again, or email contact@layeredinsightsgis.com.", false);
+    }
+
+    contactForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const button = contactForm.querySelector('button[type="submit"]');
+      button.disabled = true;
+      showStatus("Sending…", true);
+      try {
+        const res = await fetch(contactForm.action, {
+          method: "POST",
+          body: new FormData(contactForm),
+          headers: { Accept: "application/json" },
+        });
+        const data = await res.json();
+        showStatus(data.message, data.ok);
+        if (data.ok) contactForm.reset();
+      } catch {
+        showStatus("Your message didn't go through. Please try again, or email contact@layeredinsightsgis.com.", false);
+      } finally {
+        button.disabled = false;
+        // a Turnstile token works only once; get a fresh one for any retry
+        if (window.turnstile) window.turnstile.reset();
+      }
+    });
+  }
+
   // scroll-reveal: fade + lift content into place as it enters the
   // viewport. Respects prefers-reduced-motion via the CSS itself
   // (transition durations are zeroed there), so no JS branch needed.
