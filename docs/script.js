@@ -59,10 +59,11 @@ document.addEventListener("DOMContentLoaded", () => {
     formStatus.textContent = text;
     formStatus.className = "form-status " + (ok ? "ok" : "err");
   };
+  const SENT_MSG = "Thanks, your message was sent. We'll reply shortly.";
   if (contactForm && formStatus) {
     const params = new URLSearchParams(location.search);
     if (params.get("sent") === "1") {
-      showStatus("Thanks, your message was sent. We'll reply within two business days.", true);
+      showStatus(SENT_MSG, true);
     } else if (params.get("error")) {
       showStatus("Your message didn't go through. Please try again, or email contact@layeredinsightsgis.com.", false);
     }
@@ -79,7 +80,8 @@ document.addEventListener("DOMContentLoaded", () => {
           headers: { Accept: "application/json" },
         });
         const data = await res.json();
-        showStatus(data.message, data.ok);
+        // success wording lives here, so it can change without redeploying the Worker
+        showStatus(data.ok ? SENT_MSG : data.message, data.ok);
         if (data.ok) contactForm.reset();
       } catch {
         showStatus("Your message didn't go through. Please try again, or email contact@layeredinsightsgis.com.", false);
