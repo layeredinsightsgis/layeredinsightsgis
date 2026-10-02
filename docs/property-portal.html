@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Property Portal for Building Managers | Layered Insights GIS</title>
+<link rel="canonical" href="https://layeredinsightsgis.com/property-portal.html" />
+<meta name="description" content="A map-based portal for property managers: tenants, vendors, work orders and each building's safety and systems knowledge, on a real plan of every floor. Built on Esri ArcGIS." />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Layered Insights GIS" />
+<meta property="og:title" content="Property Portal for Building Managers | Layered Insights GIS" />
+<meta property="og:description" content="A map-based portal for property managers: tenants, vendors, work orders and each building's safety and systems knowledge, on a real plan of every floor. Built on Esri ArcGIS." />
+<meta property="og:url" content="https://layeredinsightsgis.com/property-portal.html" />
+<meta property="og:image" content="https://layeredinsightsgis.com/imgs/buildings.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Property Portal for Building Managers | Layered Insights GIS" />
+<meta name="twitter:description" content="A map-based portal for property managers: tenants, vendors, work orders and each building's safety and systems knowledge, on a real plan of every floor. Built on Esri ArcGIS." />
+<meta name="twitter:image" content="https://layeredinsightsgis.com/imgs/buildings.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=17">
+</head>
+<body class="contour-field">
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="wordmark">
+      <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path class="mark-top" d="M12 2.6 L21 7.8 L12 13 L3 7.8 Z"/><path class="mark-mid" d="M3 11.6 L12 16.8 L21 11.6" fill="none"/><path class="mark-low" d="M3 15.4 L12 20.6 L21 15.4" fill="none"/></svg></span>
+      Layered Insights GIS
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="property-portal.html" aria-current="page">Property portal</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container portal-hero">
+      <div>
+        <p class="eyebrow">Property portal · early access</p>
+        <h1>Every building's map and memory, in one place.</h1>
+        <p class="lede">For property managers: tenants, vendors, work orders, and the safety and building-system knowledge that usually lives in someone's head or on a marked-up site plan, kept on a real map of each building.</p>
+        <div class="hero-cta">
+          <a href="contact.html?topic=portal#contactForm" class="btn btn-primary">Request a demo</a>
+          <a href="#how" class="btn btn-ghost">How it works</a>
+        </div>
+      </div>
+      <figure class="portal-figure">
+        <svg class="portal-plan" viewBox="0 0 600 380" role="img" aria-label="Illustration of the portal: floor 1 of a demo office building with its suites, core rooms and safety features marked by category, and a What's missing panel listing no generator on record and two features not confirmed in a year.">
+  <defs>
+    <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" class="pp-hatch"/></pattern>
+  </defs>
+  <!-- floor picker -->
+  <g class="pp-chips">
+    <rect x="60" y="22" width="74" height="26" rx="13" class="pp-chip"/><text x="97" y="39" text-anchor="middle" class="pp-chip-t">All floors</text>
+    <rect x="142" y="22" width="30" height="26" rx="13" class="pp-chip pp-chip-on"/><text x="157" y="39" text-anchor="middle" class="pp-chip-t pp-chip-ton">1</text>
+    <rect x="180" y="22" width="30" height="26" rx="13" class="pp-chip"/><text x="195" y="39" text-anchor="middle" class="pp-chip-t">2</text>
+    <rect x="218" y="22" width="30" height="26" rx="13" class="pp-chip"/><text x="233" y="39" text-anchor="middle" class="pp-chip-t">3</text>
+    <rect x="256" y="22" width="50" height="26" rx="13" class="pp-chip"/><text x="281" y="39" text-anchor="middle" class="pp-chip-t">Roof</text>
+  </g>
+  <!-- floor plate -->
+  <rect x="60" y="80" width="320" height="220" class="pp-plate"/>
+  <line x1="180" y1="80" x2="180" y2="300" class="pp-wall"/>
+  <line x1="260" y1="80" x2="260" y2="300" class="pp-wall"/>
+  <line x1="60" y1="190" x2="180" y2="190" class="pp-wall"/>
+  <line x1="260" y1="190" x2="380" y2="190" class="pp-wall"/>
+  <rect x="180" y="150" width="80" height="70" class="pp-core"/>
+  <line x1="220" y1="150" x2="220" y2="220" class="pp-wall"/>
+  <text x="120" y="140" text-anchor="middle" class="pp-room">Suite 101</text>
+  <text x="320" y="140" text-anchor="middle" class="pp-room">Suite 102</text>
+  <text x="120" y="250" text-anchor="middle" class="pp-room">Suite 103</text>
+  <text x="320" y="250" text-anchor="middle" class="pp-room">Vacant</text>
+  <text x="220" y="118" text-anchor="middle" class="pp-room">Lobby</text>
+  <text x="220" y="262" text-anchor="middle" class="pp-room">Corridor</text>
+  <!-- features: utilities = square, life safety = circle, systems = diamond, access = triangle -->
+  <rect x="234" y="310" width="12" height="12" class="pp-util"/>
+  <circle cx="200" cy="185" r="6.5" class="pp-life"/>
+  <circle cx="60" cy="110" r="6.5" class="pp-life"/>
+  <circle cx="290" cy="196" r="6.5" class="pp-life"/>
+  <path d="M240 178 L247 185 L240 192 L233 185 Z" class="pp-sys"/>
+  <path d="M220 72 L227 84 L213 84 Z" class="pp-access"/>
+  <!-- assembly point with radius -->
+  <circle cx="112" cy="342" r="24" class="pp-radius"/>
+  <circle cx="112" cy="342" r="6.5" class="pp-life"/>
+  <!-- callout labels -->
+  <text x="254" y="320" class="pp-tag">Water shut-off</text>
+  <text x="70" y="104" class="pp-tag">FDC</text>
+  <text x="144" y="346" class="pp-tag">Assembly point</text>
+  <!-- what's missing panel -->
+  <rect x="404" y="80" width="176" height="220" rx="6" class="pp-card"/>
+  <text x="420" y="106" class="pp-card-h">What's missing</text>
+  <circle cx="424" cy="128" r="4" class="pp-warn"/>
+  <text x="434" y="132" class="pp-card-t">No generator on record</text>
+  <line x1="420" y1="146" x2="564" y2="146" class="pp-rule"/>
+  <text x="420" y="166" class="pp-card-s">Not confirmed in a year</text>
+  <text x="420" y="186" class="pp-card-t">Fire dept. connection</text>
+  <text x="420" y="201" class="pp-card-m">last confirmed Aug 2025</text>
+  <text x="420" y="221" class="pp-card-t">Sprinkler riser valve</text>
+  <text x="420" y="236" class="pp-card-m">last confirmed Aug 2025</text>
+  <!-- legend -->
+  <g class="pp-legend">
+    <rect x="404" y="320" width="10" height="10" class="pp-util"/><text x="420" y="330" class="pp-leg">Shut-offs</text>
+    <circle cx="502" cy="325" r="5.5" class="pp-life"/><text x="512" y="330" class="pp-leg">Life safety</text>
+    <path d="M409 344 L415 350 L409 356 L403 350 Z" class="pp-sys"/><text x="420" y="355" class="pp-leg">Systems</text>
+    <path d="M502 344 L508 355 L496 355 Z" class="pp-access"/><text x="512" y="355" class="pp-leg">Access</text>
+  </g>
+</svg>
+        <figcaption>Illustration of floor 1 of a demo office building, with its safety features and the "What's missing" check.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="container"><div class="signature-divider" aria-hidden="true"><svg viewBox="0 0 400 16" preserveAspectRatio="none"><path d="M0,8 C50,1 100,15 150,8 C200,1 250,15 300,8 C350,1 380,12 400,8"/></svg></div></div>
+
+  <section class="section-border-top">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">What it keeps track of</p>
+        <h2>The building, and everything a manager needs to know about it.</h2>
+        <p class="lede">Each building is modeled floor by floor: suites, rooms, the core, and the things a responder or a new manager needs to find first.</p>
+      </div>
+      <div class="grid-4">
+        <div class="card">
+          <h3>Building map</h3>
+          <p>Floors, suites and rooms on a real plan, with a stacking view of who is where and what is vacant.</p>
+        </div>
+        <div class="card">
+          <h3>Tenants and contacts</h3>
+          <p>Primary, after-hours and billing contacts for every tenant, with the date each one was last confirmed.</p>
+        </div>
+        <div class="card">
+          <h3>Vendors and work orders</h3>
+          <p>Who services what, how to reach them, and a simple job log tied to the unit, floor or room it happened in.</p>
+        </div>
+        <div class="card">
+          <h3>Safety and systems</h3>
+          <p>Shut-offs, fire alarm panel, FDC, generator, roof access and assembly points, with a check for what's missing or out of date.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-border-top">
+    <div class="container about-grid">
+      <div>
+        <p class="eyebrow">Why it matters</p>
+        <h2 class="portal-h2">The knowledge that leaves with people stays with the building.</h2>
+      </div>
+      <ul class="principle-list">
+        <li><strong>Buildings change hands. The knowledge shouldn't.</strong>Ownership and management turn over every few years, and knowing where the water shut-off is tends to be the first thing lost. Here it stays with the building, ready to hand to the next manager.</li>
+        <li><strong>No GIS person needed.</strong>Staff add a shut-off or a fire panel by picking what it is and clicking the map. Floors, rooms and coordinates are handled for them.</li>
+        <li><strong>Sensitive locations stay internal.</strong>Cameras, lockboxes and network rooms can be marked manager-only and are left off tenant plans and anything shared.</li>
+        <li><strong>Works alongside what you already use.</strong>Accounting and work order systems stay where they are. The portal holds what those systems don't: the building itself.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section-border-top" id="how">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">How it's built</p>
+        <h2>Proven platforms, and your data stays yours.</h2>
+        <p class="lede">Built on Esri's ArcGIS, the mapping platform cities, counties, universities and utilities use for their own facilities, with a secure portal in front of it. Each login only ever sees its own buildings, and that is enforced on the server, not just hidden on the screen.</p>
+      </div>
+      <div class="portal-flow-wrap">
+        <svg class="portal-flow" viewBox="0 0 760 180" role="img" aria-label="Your browser sends every request to a secure portal, which checks it and returns only your buildings' data, read from your building data on Esri ArcGIS. The browser never connects to the data directly.">
+  <defs>
+    <marker id="pf-ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="pf-head"/></marker>
+  </defs>
+  <rect x="10" y="30" width="200" height="120" rx="6" class="pf-box"/>
+  <text x="30" y="66" class="pf-title">Your browser</text>
+  <text x="30" y="92" class="pf-line">Nothing to install</text>
+  <text x="30" y="112" class="pf-line">Laptop or desktop</text>
+
+  <rect x="280" y="20" width="200" height="140" rx="6" class="pf-box pf-key"/>
+  <text x="300" y="56" class="pf-title pf-title-key">Secure portal</text>
+  <text x="300" y="82" class="pf-line">Checks every request</text>
+  <text x="300" y="102" class="pf-line">Only your buildings</text>
+  <text x="300" y="122" class="pf-line">Every edit recorded</text>
+
+  <rect x="550" y="30" width="200" height="120" rx="6" class="pf-box"/>
+  <text x="570" y="66" class="pf-title">Your building data</text>
+  <text x="570" y="92" class="pf-line">On Esri ArcGIS</text>
+  <text x="570" y="112" class="pf-line">Exportable any time</text>
+
+  <line x1="212" y1="74" x2="278" y2="74" class="pf-wire pf-wire-key" marker-end="url(#pf-ah)"/>
+  <line x1="278" y1="112" x2="214" y2="112" class="pf-wire" marker-end="url(#pf-ah)"/>
+  <line x1="482" y1="74" x2="548" y2="74" class="pf-wire pf-wire-key" marker-end="url(#pf-ah)"/>
+  <line x1="548" y1="112" x2="484" y2="112" class="pf-wire" marker-end="url(#pf-ah)"/>
+</svg>
+      </div>
+      <p class="portal-note">Building data is kept in an industry-standard geodatabase. It can be exported and handed over at any time, for example when a building is sold. A detailed security overview is available on request.</p>
+    </div>
+  </section>
+
+  <section class="section-border-top">
+    <div class="container">
+      <div class="featured-callout">
+        <p class="eyebrow">Early access</p>
+        <h3>See it on a demo building.</h3>
+        <p>We're working with a small number of property managers while the portal grows. Ask for a demo and we'll set you up with a login to a fully mapped demo office tower: floors, tenants, vendors, work orders and safety features.</p>
+        <a href="contact.html?topic=portal#contactForm" class="btn btn-primary">Request a demo</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <a href="index.html" class="wordmark">
+        <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path class="mark-top" d="M12 2.6 L21 7.8 L12 13 L3 7.8 Z"/><path class="mark-mid" d="M3 11.6 L12 16.8 L21 11.6" fill="none"/><path class="mark-low" d="M3 15.4 L12 20.6 L21 15.4" fill="none"/></svg></span>
+        Layered Insights GIS
+      </a>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Site</h4>
+          <ul>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="property-portal.html">Property portal</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:contact@layeredinsightsgis.com">contact@layeredinsightsgis.com</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Layered Insights GIS</span>
+      <span>layeredinsightsgis.com</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js?v=11"></script>
+</body>
+</html>
