@@ -14,8 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // "natural" resting position. Not how a real GIS TOC works (draw
   // order is usually fixed there), but far more useful in a demo
   // where the point is actually seeing what you just clicked.
-  const stackOrder = ["buildings", "parcels", "huc12", "contours"];
-  const baseZIndex = { buildings: 5, parcels: 4, huc12: 3, contours: 2 };
+  const stackOrder = ["safety", "rooms", "buildings", "contours"];
+  const baseZIndex = { safety: 5, rooms: 4, buildings: 3, contours: 2 };
   const layerInputs = stackOrder
     .map((name) => document.querySelector(`.layer-chip input[data-layer="${name}"]`))
     .filter(Boolean);
