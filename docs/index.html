@@ -18,7 +18,7 @@
 <meta name="twitter:image" content="https://layeredinsightsgis.com/imgs/buildings.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=19">
+<link rel="stylesheet" href="styles.css?v=20">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -70,7 +70,7 @@
           <a href="services.html" class="btn btn-ghost">See what we build</a>
         </div>
         <p class="lede" style="margin-top:16px; font-size:0.94rem;">Just need an hour? <a href="services.html#consulting" style="color:var(--ochre); border-bottom:1px solid var(--ochre-dim);">Book a flat-rate hour →</a></p>
-        <p class="coord" style="margin-top:20px;">34.5323° N, 83.9843° W · toggle the layers →</p>
+        <p class="coord" style="margin-top:20px;">34.5323° N, 83.9843° W · from the ground to the room · toggle the layers →</p>
       </div>
 
       <div>
@@ -90,23 +90,23 @@
             <span class="sheet-label"><span class="name">Terrain</span><span class="tech">contours</span></span>
           </div>
 
-          <div class="layer-sheet layer-photo" data-layer="huc12" style="--tx:45px; --ty:5px; --rot:.8deg; --delay:.16s; background-image:url('imgs/huc12s.jpg');">
-            <span class="sheet-label"><span class="name">Watersheds</span><span class="tech">huc12</span></span>
-          </div>
-
-          <div class="layer-sheet layer-photo" data-layer="parcels" style="--tx:68px; --ty:-18px; --rot:-.6deg; --delay:.24s; background-image:url('imgs/parcels.jpg');">
-            <span class="sheet-label"><span class="name">Ownership</span><span class="tech">parcels</span></span>
-          </div>
-
-          <div class="layer-sheet layer-photo" data-layer="buildings" style="--tx:90px; --ty:-40px; --rot:1deg; --delay:.32s; background-image:url('imgs/buildings.jpg?v=2');">
+          <div class="layer-sheet layer-photo" data-layer="buildings" style="--tx:45px; --ty:5px; --rot:.8deg; --delay:.16s; background-image:url('imgs/buildings.jpg?v=2');">
             <span class="sheet-label"><span class="name">Footprints</span><span class="tech">buildings</span></span>
+          </div>
+
+          <div class="layer-sheet layer-photo" data-layer="rooms" style="--tx:68px; --ty:-18px; --rot:-.6deg; --delay:.24s; background-image:url('imgs/floorplan.svg');">
+            <span class="sheet-label"><span class="name">Floor plan</span><span class="tech">rooms</span></span>
+          </div>
+
+          <div class="layer-sheet layer-photo" data-layer="safety" style="--tx:90px; --ty:-40px; --rot:1deg; --delay:.32s; background-image:url('imgs/safety.svg');">
+            <span class="sheet-label"><span class="name">Safety</span><span class="tech">features</span></span>
           </div>
         </div>
         <div class="layer-toggles">
           <label class="layer-chip"><input type="checkbox" data-layer="contours"><span class="swatch" style="background:var(--ochre)"></span>Terrain</label>
-          <label class="layer-chip"><input type="checkbox" data-layer="huc12"><span class="swatch" style="background:var(--teal)"></span>Watersheds</label>
-          <label class="layer-chip"><input type="checkbox" data-layer="parcels"><span class="swatch" style="background:var(--olive)"></span>Ownership</label>
-          <label class="layer-chip"><input type="checkbox" data-layer="buildings"><span class="swatch" style="background:var(--clay)"></span>Footprints</label>
+          <label class="layer-chip"><input type="checkbox" data-layer="buildings"><span class="swatch" style="background:var(--olive)"></span>Footprints</label>
+          <label class="layer-chip"><input type="checkbox" data-layer="rooms"><span class="swatch" style="background:var(--teal)"></span>Floor plan</label>
+          <label class="layer-chip"><input type="checkbox" data-layer="safety"><span class="swatch" style="background:var(--clay)"></span>Safety</label>
         </div>
       </div>
 
@@ -272,6 +272,6 @@
   </div>
 </footer>
 
-<script src="script.js?v=11"></script>
+<script src="script.js?v=12"></script>
 </body>
 </html>
