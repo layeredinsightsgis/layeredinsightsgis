@@ -868,3 +868,5 @@ section { padding: 76px 0; }
 .pf-wire-key { stroke: var(--teal); stroke-width: 2; }
 .pf-head { fill: var(--paper-dim); }
 .portal-note { margin-top: 22px; max-width: 70ch; color: var(--paper-dim); font-size: 0.96rem; }
+
+.lede-q { display: block; color: var(--paper); font-weight: 500; margin-bottom: 8px; }
