@@ -60,6 +60,11 @@ document.addEventListener("DOMContentLoaded", () => {
     formStatus.className = "form-status " + (ok ? "ok" : "err");
   };
   const SENT_MSG = "Thanks, your message was sent. We'll reply shortly.";
+  // ?topic=portal (from the property portal page) preselects the demo topic
+  const topicSelect = document.getElementById("topic");
+  if (topicSelect && new URLSearchParams(location.search).get("topic") === "portal") {
+    topicSelect.value = "Property portal demo";
+  }
   if (contactForm && formStatus) {
     const params = new URLSearchParams(location.search);
     if (params.get("sent") === "1") {

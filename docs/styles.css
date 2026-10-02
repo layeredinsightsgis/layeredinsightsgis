@@ -792,3 +792,79 @@ section { padding: 76px 0; }
   outline: 2px solid var(--ochre);
   outline-offset: 2px;
 }
+
+/* ---------------- property portal (product page + homepage feature) ----------------
+   Feature symbols reuse the site's layer colors: teal = shut-offs & utilities,
+   clay = life safety, ochre = building systems, olive = access. */
+
+.portal-hero {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 48px;
+  align-items: center;
+}
+@media (max-width: 920px) {
+  .portal-hero { grid-template-columns: 1fr; }
+}
+.portal-hero > * { min-width: 0; }
+.page-hero .portal-hero h1 { max-width: 16ch; }
+.portal-h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); margin-top: 10px; text-wrap: balance; }
+.portal-lede { margin-top: 16px; color: var(--paper-dim); font-size: 1.02rem; max-width: 52ch; }
+.portal-feature { background: linear-gradient(180deg, rgba(76,151,168,0.05), transparent 70%); }
+
+.portal-figure {
+  margin: 0;
+  display: block;
+  background: var(--ink-2);
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  padding: 18px;
+  text-decoration: none;
+}
+.portal-figure-link { transition: border-color 0.2s ease, transform 0.2s ease; }
+.portal-figure-link:hover { border-color: var(--teal); transform: translateY(-2px); }
+.portal-figure figcaption {
+  margin-top: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+.portal-plan, .portal-flow { display: block; width: 100%; height: auto; font-family: var(--font-body); }
+
+.pp-chip { fill: var(--panel); stroke: var(--border-strong); }
+.pp-chip-on { fill: var(--paper); stroke: var(--paper); }
+.pp-chip-t { font-family: var(--font-mono); font-size: 11px; fill: var(--paper-dim); }
+.pp-chip-ton { fill: var(--ink); }
+.pp-plate { fill: var(--panel); stroke: var(--paper-dim); stroke-width: 2; }
+.pp-wall { stroke: var(--muted); stroke-width: 1.2; }
+.pp-core { fill: url(#hatch); stroke: var(--muted); stroke-width: 1.2; }
+.pp-hatch { stroke: rgba(232, 228, 218, 0.14); stroke-width: 2; }
+.pp-room { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+.pp-util { fill: var(--teal-pop); stroke: var(--ink); stroke-width: 1.5; }
+.pp-life { fill: var(--clay-pop); stroke: var(--ink); stroke-width: 1.5; }
+.pp-sys { fill: var(--ochre-pop); stroke: var(--ink); stroke-width: 1.5; }
+.pp-access { fill: var(--olive-pop); stroke: var(--ink); stroke-width: 1.5; }
+.pp-radius { fill: rgba(229, 107, 84, 0.08); stroke: var(--clay-pop); stroke-width: 1.2; stroke-dasharray: 4 4; }
+.pp-tag { font-family: var(--font-mono); font-size: 10.5px; fill: var(--paper-dim); }
+.pp-card { fill: var(--ink); stroke: var(--ochre-dim); stroke-width: 1.2; }
+.pp-card-h { font-family: var(--font-display); font-size: 15px; fill: var(--paper); }
+.pp-card-t { font-size: 12px; fill: var(--paper); }
+.pp-card-s { font-family: var(--font-mono); font-size: 10.5px; fill: var(--muted); }
+.pp-card-m { font-family: var(--font-mono); font-size: 10px; fill: var(--ochre); }
+.pp-warn { fill: var(--ochre-pop); }
+.pp-rule { stroke: var(--border-strong); }
+.pp-btn { fill: none; stroke: var(--border-strong); }
+.pp-btn-t { font-size: 12px; fill: var(--paper); }
+.pp-leg { font-family: var(--font-mono); font-size: 10.5px; fill: var(--paper-dim); }
+
+.portal-flow-wrap { overflow-x: auto; }
+.portal-flow { min-width: 560px; max-width: 900px; }
+.pf-box { fill: var(--panel); stroke: var(--border-strong); stroke-width: 1.5; }
+.pf-key { fill: var(--panel-2); stroke: var(--teal); stroke-width: 2; }
+.pf-title { font-family: var(--font-display); font-size: 18px; fill: var(--paper); }
+.pf-title-key { fill: var(--teal-pop); }
+.pf-line { font-size: 13.5px; fill: var(--paper-dim); }
+.pf-wire { stroke: var(--paper-dim); stroke-width: 1.5; }
+.pf-wire-key { stroke: var(--teal); stroke-width: 2; }
+.pf-head { fill: var(--paper-dim); }
+.portal-note { margin-top: 22px; max-width: 70ch; color: var(--paper-dim); font-size: 0.96rem; }

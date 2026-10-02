@@ -18,7 +18,7 @@
 <meta name="twitter:image" content="https://layeredinsightsgis.com/imgs/buildings.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=16">
+<link rel="stylesheet" href="styles.css?v=17">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -50,6 +50,7 @@
     <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
     <ul class="nav-links">
       <li><a href="index.html" aria-current="page">Home</a></li>
+      <li><a href="property-portal.html">Property portal</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
@@ -113,6 +114,81 @@
   </section>
 
   <div class="container"><div class="signature-divider" aria-hidden="true"><svg viewBox="0 0 400 16" preserveAspectRatio="none"><path d="M0,8 C50,1 100,15 150,8 C200,1 250,15 300,8 C350,1 380,12 400,8"/></svg></div></div>
+
+  <section class="section-border-top portal-feature">
+    <div class="container portal-hero">
+      <div>
+        <p class="eyebrow">New · Property portal</p>
+        <h2 class="portal-h2">Every building's map and memory, in one place.</h2>
+        <p class="lede portal-lede">A portal for property managers built on our own spatial model of each building: tenants, vendors and work orders, plus the shut-offs, fire panels and assembly points that usually live on a marked-up site plan. With a check that flags what's missing.</p>
+        <div class="hero-cta">
+          <a href="property-portal.html" class="btn btn-primary">See the property portal</a>
+          <a href="contact.html?topic=portal#contactForm" class="btn btn-ghost">Request a demo</a>
+        </div>
+      </div>
+      <a href="property-portal.html" class="portal-figure portal-figure-link" aria-label="See the property portal">
+        <svg class="portal-plan" viewBox="0 0 600 380" role="img" aria-label="Illustration of the portal: floor 1 of a demo office building with its suites, core rooms and safety features marked by category, and a What's missing panel listing no generator on record and two features not confirmed in a year.">
+  <defs>
+    <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" class="pp-hatch"/></pattern>
+  </defs>
+  <!-- floor picker -->
+  <g class="pp-chips">
+    <rect x="60" y="22" width="74" height="26" rx="13" class="pp-chip"/><text x="97" y="39" text-anchor="middle" class="pp-chip-t">All floors</text>
+    <rect x="142" y="22" width="30" height="26" rx="13" class="pp-chip pp-chip-on"/><text x="157" y="39" text-anchor="middle" class="pp-chip-t pp-chip-ton">1</text>
+    <rect x="180" y="22" width="30" height="26" rx="13" class="pp-chip"/><text x="195" y="39" text-anchor="middle" class="pp-chip-t">2</text>
+    <rect x="218" y="22" width="30" height="26" rx="13" class="pp-chip"/><text x="233" y="39" text-anchor="middle" class="pp-chip-t">3</text>
+    <rect x="256" y="22" width="50" height="26" rx="13" class="pp-chip"/><text x="281" y="39" text-anchor="middle" class="pp-chip-t">Roof</text>
+  </g>
+  <!-- floor plate -->
+  <rect x="60" y="80" width="320" height="220" class="pp-plate"/>
+  <line x1="180" y1="80" x2="180" y2="300" class="pp-wall"/>
+  <line x1="260" y1="80" x2="260" y2="300" class="pp-wall"/>
+  <line x1="60" y1="190" x2="180" y2="190" class="pp-wall"/>
+  <line x1="260" y1="190" x2="380" y2="190" class="pp-wall"/>
+  <rect x="180" y="150" width="80" height="70" class="pp-core"/>
+  <line x1="220" y1="150" x2="220" y2="220" class="pp-wall"/>
+  <text x="120" y="140" text-anchor="middle" class="pp-room">Suite 101</text>
+  <text x="320" y="140" text-anchor="middle" class="pp-room">Suite 102</text>
+  <text x="120" y="250" text-anchor="middle" class="pp-room">Suite 103</text>
+  <text x="320" y="250" text-anchor="middle" class="pp-room">Vacant</text>
+  <text x="220" y="118" text-anchor="middle" class="pp-room">Lobby</text>
+  <text x="220" y="262" text-anchor="middle" class="pp-room">Corridor</text>
+  <!-- features: utilities = square, life safety = circle, systems = diamond, access = triangle -->
+  <rect x="234" y="310" width="12" height="12" class="pp-util"/>
+  <circle cx="200" cy="185" r="6.5" class="pp-life"/>
+  <circle cx="60" cy="110" r="6.5" class="pp-life"/>
+  <circle cx="290" cy="196" r="6.5" class="pp-life"/>
+  <path d="M240 178 L247 185 L240 192 L233 185 Z" class="pp-sys"/>
+  <path d="M220 72 L227 84 L213 84 Z" class="pp-access"/>
+  <!-- assembly point with radius -->
+  <circle cx="112" cy="342" r="24" class="pp-radius"/>
+  <circle cx="112" cy="342" r="6.5" class="pp-life"/>
+  <!-- callout labels -->
+  <text x="254" y="320" class="pp-tag">Water shut-off</text>
+  <text x="70" y="104" class="pp-tag">FDC</text>
+  <text x="144" y="346" class="pp-tag">Assembly point</text>
+  <!-- what's missing panel -->
+  <rect x="404" y="80" width="176" height="220" rx="6" class="pp-card"/>
+  <text x="420" y="106" class="pp-card-h">What's missing</text>
+  <circle cx="424" cy="128" r="4" class="pp-warn"/>
+  <text x="434" y="132" class="pp-card-t">No generator on record</text>
+  <line x1="420" y1="146" x2="564" y2="146" class="pp-rule"/>
+  <text x="420" y="166" class="pp-card-s">Not confirmed in a year</text>
+  <text x="420" y="186" class="pp-card-t">Fire dept. connection</text>
+  <text x="420" y="201" class="pp-card-m">last confirmed Aug 2025</text>
+  <text x="420" y="221" class="pp-card-t">Sprinkler riser valve</text>
+  <text x="420" y="236" class="pp-card-m">last confirmed Aug 2025</text>
+  <!-- legend -->
+  <g class="pp-legend">
+    <rect x="404" y="320" width="10" height="10" class="pp-util"/><text x="420" y="330" class="pp-leg">Shut-offs</text>
+    <circle cx="502" cy="325" r="5.5" class="pp-life"/><text x="512" y="330" class="pp-leg">Life safety</text>
+    <path d="M409 344 L415 350 L409 356 L403 350 Z" class="pp-sys"/><text x="420" y="355" class="pp-leg">Systems</text>
+    <path d="M502 344 L508 355 L496 355 Z" class="pp-access"/><text x="512" y="355" class="pp-leg">Access</text>
+  </g>
+</svg>
+      </a>
+    </div>
+  </section>
 
   <section class="section-border-top">
     <div class="container">
@@ -179,6 +255,7 @@
           <h4>Site</h4>
           <ul>
             <li><a href="services.html">Services</a></li>
+            <li><a href="property-portal.html">Property portal</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
@@ -198,6 +275,6 @@
   </div>
 </footer>
 
-<script src="script.js?v=10"></script>
+<script src="script.js?v=11"></script>
 </body>
 </html>
