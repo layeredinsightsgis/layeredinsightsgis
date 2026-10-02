@@ -359,9 +359,9 @@ p { margin: 0; }
 }
 .layer-photo.active::before { opacity: 0; }
 .layer-photo[data-layer="contours"]::before { background: var(--ochre-pop); }
-.layer-photo[data-layer="huc12"]::before { background: var(--teal-pop); }
-.layer-photo[data-layer="parcels"]::before { background: var(--olive-pop); }
-.layer-photo[data-layer="buildings"]::before { background: var(--clay-pop); }
+.layer-photo[data-layer="buildings"]::before { background: var(--olive-pop); }
+.layer-photo[data-layer="rooms"]::before { background: var(--teal-pop); }
+.layer-photo[data-layer="safety"]::before { background: var(--clay-pop); }
 
 .layer-photo::after {
   content: "";
@@ -372,9 +372,9 @@ p { margin: 0; }
 }
 
 .layer-photo.active[data-layer="contours"] { box-shadow: 0 0 46px -6px var(--ochre); }
-.layer-photo.active[data-layer="huc12"] { box-shadow: 0 0 46px -6px var(--teal); }
-.layer-photo.active[data-layer="parcels"] { box-shadow: 0 0 46px -6px var(--olive); }
-.layer-photo.active[data-layer="buildings"] { box-shadow: 0 0 46px -6px var(--clay); }
+.layer-photo.active[data-layer="buildings"] { box-shadow: 0 0 46px -6px var(--olive); }
+.layer-photo.active[data-layer="rooms"] { box-shadow: 0 0 46px -6px var(--teal); }
+.layer-photo.active[data-layer="safety"] { box-shadow: 0 0 46px -6px var(--clay); }
 
 .sheet-label {
   position: absolute;
@@ -424,14 +424,14 @@ p { margin: 0; }
 .layer-sheet[data-layer="contours"] { z-index: 2; }
 .layer-sheet.active[data-layer="contours"] { border-color: var(--ochre); }
 
-.layer-sheet[data-layer="huc12"] { z-index: 3; }
-.layer-sheet.active[data-layer="huc12"] { border-color: var(--teal); }
+.layer-sheet[data-layer="buildings"] { z-index: 3; }
+.layer-sheet.active[data-layer="buildings"] { border-color: var(--olive); }
 
-.layer-sheet[data-layer="parcels"] { z-index: 4; }
-.layer-sheet.active[data-layer="parcels"] { border-color: var(--olive); }
+.layer-sheet[data-layer="rooms"] { z-index: 4; }
+.layer-sheet.active[data-layer="rooms"] { border-color: var(--teal); }
 
-.layer-sheet[data-layer="buildings"] { z-index: 5; }
-.layer-sheet.active[data-layer="buildings"] { border-color: var(--clay); }
+.layer-sheet[data-layer="safety"] { z-index: 5; }
+.layer-sheet.active[data-layer="safety"] { border-color: var(--clay); }
 
 .layer-toggles {
   display: flex;
