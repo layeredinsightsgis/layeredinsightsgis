@@ -870,3 +870,12 @@ section { padding: 76px 0; }
 .portal-note { margin-top: 22px; max-width: 70ch; color: var(--paper-dim); font-size: 0.96rem; }
 
 .lede-q { display: block; color: var(--paper); font-weight: 500; margin-bottom: 8px; }
+
+/* homepage scenarios: the situation is the headline, our answer is the body */
+.scenarios .card h3 { font-size: 1.12rem; line-height: 1.3; }
+.scenarios .card p { color: var(--teal-pop); opacity: 0.9; }
+.scenario-more { margin-top: 22px; font-size: 0.96rem; }
+.scenario-more a { color: var(--ochre); text-decoration: none; border-bottom: 1px solid var(--ochre-dim); }
+.hero h1 { max-width: 15ch; }
+/* the fanned-out layer sheets reach past the screen edge on phones; keep the page from scrolling sideways */
+.hero { overflow-x: clip; }
