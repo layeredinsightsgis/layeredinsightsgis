@@ -28,7 +28,7 @@ const FEATURES = [
   { id: 'aed', level: 'f1', x: 300, y: 262, cat: 'safe', name: 'AED', where: 'Lobby, by the elevators', confirmed: 'Sep 2026', issue: { list: 'AED pads expire in December', why: 'Pads expire Dec 2026 · order replacements now', pill: 'due in 2 months', action: 'Record new pads', soon: true }, call: 'Pads and battery checked monthly', ph: '' },
   { id: 'door', level: 'f1', x: 300, y: 318, cat: 'acc', name: 'Main entry', where: 'Lobby, card reader', confirmed: 'Jul 2026', call: V.access, ph: V.accessPh },
 
-  { id: 'v2', level: 'f2', x: 240, y: 200, cat: 'sys', name: 'Floor 2 water valve', where: 'Restroom chase, access panel behind the sink wall', confirmed: 'Apr 2026', call: V.plumb, ph: V.plumbPh },
+  { id: 'v2', level: 'f2', x: 240, y: 200, cat: 'sys', name: 'Floor 2 water valve', where: 'Behind the access panel in the Floor 2 restroom', confirmed: 'Apr 2026', call: V.plumb, ph: V.plumbPh },
   { id: 'ext2', level: 'f2', x: 210, y: 190, cat: 'safe', name: 'Fire extinguisher 2-E', where: 'Corridor, by Suite 202', confirmed: 'Aug 28, 2026', issue: { list: 'Fire extinguisher 2-E: September monthly check missed', why: 'Checked monthly · last Aug 28, due Sep 28', pill: 'overdue 5 days', action: 'Record check' }, call: V.fire, ph: V.firePh },
   { id: 'idf', level: 'f2', x: 260, y: 142, cat: 'sys', name: 'Telecom closet (IDF)', where: 'Room 2-T, locked', confirmed: 'Feb 2026', call: 'Northside Fiber (carrier)', ph: '(404) 555-0124' },
   { id: 'e2', level: 'f2', x: 340, y: 142, cat: 'sys', name: 'Electrical panel 2', where: 'Room 2-E, stacked over 1-E', confirmed: 'Mar 2026', call: V.elec, ph: V.elecPh },
@@ -71,6 +71,15 @@ const suiteLevel = (n) => n[0] === '1' ? 'f1' : 'f2';
 const ABSENT = [];
 const staleContacts = () => Object.entries(SUITES).flatMap(([n, s]) => (s.contacts || []).filter(c => c.stale && !state.confirmed.has('c' + n + c.role)).map(c => ({ n, c })));
 
+// What the plan shows at each step of the leak walkthrough.
+const STEP_VIEW = {
+  1: { level: 'f1', suite: '101' },
+  2: { level: 'f1', suite: '101' },
+  3: { level: 'f2' },
+  4: { level: 'f2', feat: 'v2', suite: '201' },
+  5: { level: 'f1', suite: '101' },
+  6: { level: 'f2', feat: 'v2' }
+};
 const state = { level: 'site', sel: null, sit: null, step: 0, focus: 0, confirmed: new Set() };
 // Leak walkthrough: step = furthest card revealed (0 none, 1 valve, 2 suite above,
 // 3 plumber); focus = the card whose place is lit on the plan (click any revealed
@@ -95,7 +104,7 @@ const R = (x, y, w, h, cls, label, big) => `<rect class="room ${cls || ''}" x="$
 function suiteShape(n) {
   const [x, y, w, h] = SUITE_BOX[n[2]];
   const s = SUITES[n];
-  const on = (state.sel && state.sel.kind === 'suite' && state.sel.id === n) || (!state.sel && state.sit === 'leak' && state.focus === 2 && n === '202');
+  const on = (state.sel && state.sel.kind === 'suite' && state.sel.id === n) || (!state.sel && state.sit === 'leak' && (STEP_VIEW[state.focus] || {}).suite === n);
   return `<g class="suite ${s.vacant ? 'vac' : ''} ${on ? 'on' : ''}" data-suite="${n}" tabindex="0" role="button" aria-label="Suite ${n}${s.vacant ? ', vacant' : ', ' + esc(s.tenant)}">
     <rect class="room ${s.vacant ? 'vacant' : ''}" x="${x}" y="${y}" width="${w}" height="${h}"/>
     <text class="rlab big" x="${x + w / 2}" y="${y + h / 2 - 3}">Suite ${n}</text>
@@ -132,7 +141,7 @@ function drawLevel(id) {
 function focusSet() {
   if (state.sel && state.sel.kind === 'feat') return new Set([state.sel.id]);
   if (state.sel && state.sel.kind === 'suite') return new Set();
-  if (state.sit === 'leak') return state.focus === 1 || state.focus === 3 ? new Set(['v2']) : state.focus === 2 ? new Set() : null;
+  if (state.sit === 'leak') { const v = STEP_VIEW[state.focus]; return v ? new Set(v.feat ? [v.feat] : []) : null; }
   if (state.sit === 'overdue') return new Set(FEATURES.filter(staleNow).map(f => f.id));
   return null; // just exploring: nothing dimmed
 }
@@ -145,7 +154,7 @@ function symbol(f, focus) {
   if (f.cat === 'sys') shape = `<path class="sym sys" d="M${x} ${y - 8} L${x + 8} ${y} L${x} ${y + 8} L${x - 8} ${y} Z"/>`;
   else if (f.cat === 'acc') shape = `<path class="sym acc" d="M${x} ${y - 8} L${x + 8} ${y + 6} L${x - 8} ${y + 6} Z"/>`;
   else shape = `<circle class="sym safe" cx="${x}" cy="${y}" r="7"/>`;
-  const on = (state.sel && state.sel.kind === 'feat' && state.sel.id === f.id) || (!state.sel && state.sit === 'leak' && (state.focus === 1 || state.focus === 3) && f.id === 'v2');
+  const on = (state.sel && state.sel.kind === 'feat' && state.sel.id === f.id) || (!state.sel && state.sit === 'leak' && (STEP_VIEW[state.focus] || {}).feat === f.id);
   return `<g class="feat ${on ? 'sel' : ''} ${dim ? 'dim' : ''}" data-id="${f.id}" tabindex="0" role="button" aria-label="${esc(f.name)}">
     <circle class="hit" cx="${x}" cy="${y}" r="16"/>${staleNow(f) ? `<circle class="stale-ring ${pulse ? 'pulse' : ''}" cx="${x}" cy="${y}" r="13"/>` : ''}<circle class="halo" cx="${x}" cy="${y}" r="11"/>${shape}</g>`;
 }
@@ -155,19 +164,23 @@ function phone(p) { return p ? `<span class="phone">${esc(p)}</span>` : ''; }
 
 function panelSituation() {
   if (state.sit === 'leak') {
-    const s = SUITES['202'], ah = s.contacts.find(c => c.ah);
-    // One step at a time: a card shows its details once reached; the next one pulses.
-    const card = (n, title, body) => {
+    const up = SUITES['201'], ah = up.contacts.find(c => c.ah);
+    const t1 = SUITES['101'];
+    // One step at a time, in the order the night actually goes; each card says what happened and when.
+    const card = (n, time, title, body) => {
       const st = n === state.focus ? 'now' : n <= state.step ? 'done' : n === state.step + 1 ? 'next' : 'later';
       return `<div class="step ${st}"><span class="n">${n}</span><button class="item lstep ${st === 'now' ? 'key' : ''}" data-step="${n}" ${st === 'later' ? 'disabled' : ''} aria-expanded="${n <= state.step}">
-        <span class="t">${title}</span>${n <= state.step ? body : (st === 'next' ? '<span class="m tap">Tap for the next step</span>' : '')}</button></div>`;
+        <span class="m">${time}</span><span class="t">${title}</span>${n <= state.step ? body : (st === 'next' ? '<span class="m tap">Tap for the next step</span>' : '')}</button></div>`;
     };
-    return `<p class="kicker">2:10 a.m. · Suite 102</p>
-      <h3>Water from above. Stop it, find it, fix it.</h3>
-      ${card(1, 'On-call tech shuts the Floor 2 water valve', `<span class="m">Restroom chase, access panel behind the sink wall · confirmed Apr 2026</span>`)}
-      ${card(2, `Suite 202 is directly above · ${esc(s.tenant)}`, `<span class="m">Most likely source. To get in after hours: ${esc(ah.name)}</span>${phone(ah.ph)}`)}
-      ${card(3, `Plumber · ${V.plumb} repairs it`, `<span class="m">Meets the tech at the valve · 24-hour line · confirmed Apr 2026</span>${phone(V.plumbPh)}`)}
-      ${state.step >= 3 ? '<p class="why">The drawings never showed that valve. Your tech knew. Now the map does too.</p>' : ''}
+    return `<p class="kicker">Tuesday · Bellwether Office Tower</p>
+      <h3>A leak at 2 a.m., minute by minute.</h3>
+      ${card(1, '02:01', `Call from Suite 101 · ${esc(t1.tenant)}`, `<span class="m">Water is coming through their ceiling. Suite 101 is on Floor 1, so the water is coming from Floor 2.</span>`)}
+      ${card(2, '02:04', 'On-call tech dispatched', `<span class="m">On site at 02:18 and confirms the leak.</span>`)}
+      ${card(3, '02:19', 'Tech calls the property manager', `<span class="m">"Where's the water shut-off for Floor 2, and who's upstairs?" The manager opens the portal.</span>`)}
+      ${card(4, '02:20', 'Manager reads the answers off the portal', `<span class="m">Floor 2 water valve: behind the access panel in the Floor 2 restroom. It shuts off Floor 2 only, so the rest of the building keeps water. Location confirmed Apr 2026.</span><span class="m">Upstairs: Suite 201, ${esc(up.tenant)}. To get in after hours: ${esc(ah.name)}</span>${phone(ah.ph)}`)}
+      ${card(5, '02:24', 'Water off. Cleanup starts in Suite 101', `<span class="m">The tech starts the wet vac and moves the tenant's equipment out of the way.</span>`)}
+      ${card(6, '02:26', `Plumber notified · ${V.plumb}`, `<span class="m">24-hour line · confirmed Apr 2026. Meets the tech at the valve.</span>${phone(V.plumbPh)}`)}
+      ${state.step >= 6 ? '<p class="why">Five minutes from "where\'s the shut-off?" to water off. The drawings never showed that valve. Your tech knew, and now the map does too.</p>' : ''}
       ${state.step >= 1 ? '<button class="back restart" data-restart>↺ Start over</button>' : ''}`;
   }
   if (state.sit === 'afterhours') return panelSuite('203', 'Saturday · alarm company calling');
@@ -251,7 +264,7 @@ function goto(spec) {
 
 function startSituation(sit) {
   state.sit = sit;
-  if (sit === 'leak') { state.level = 'f2'; state.sel = null; state.step = 0; state.focus = 0; }
+  if (sit === 'leak') { state.level = 'f1'; state.sel = null; state.step = 0; state.focus = 0; }
   if (sit === 'afterhours') { state.level = 'f2'; state.sel = { kind: 'suite', id: '203' }; }
   if (sit === 'overdue') { state.level = 'site'; state.sel = null; }
   render();
@@ -274,7 +287,7 @@ $('ti-side').addEventListener('click', e => {
   if (t.hasAttribute('data-back')) { state.sel = null; render(); }
   else if (t.dataset.goto) { goto(t.dataset.goto); render(); }
   else if (t.dataset.sitgo) startSituation(t.dataset.sitgo);
-  else if (t.dataset.step) { state.step = Math.max(state.step, Number(t.dataset.step)); state.focus = Number(t.dataset.step); state.level = 'f2'; state.sel = null; render(); }
+  else if (t.dataset.step) { state.step = Math.max(state.step, Number(t.dataset.step)); state.focus = Number(t.dataset.step); state.level = STEP_VIEW[state.focus].level; state.sel = null; render(); }
   else if (t.hasAttribute('data-restart')) startSituation('leak');
   else if (t.dataset.confirmFeat) { state.confirmed.add(t.dataset.confirmFeat); toast('Recorded today. It is off the list.'); render(); }
   else if (t.dataset.confirmContact) { const [n, role] = t.dataset.confirmContact.split('|'); state.confirmed.add('c' + n + role); toast('Contact confirmed today.'); render(); }
