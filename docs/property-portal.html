@@ -41,78 +41,48 @@
 
 <main>
   <section class="page-hero">
-    <div class="container portal-hero">
+    <div class="container portal-hero portal-hero-solo">
       <div>
         <p class="eyebrow">Property portal · early access</p>
         <h1>Every building's map and memory, in one place.</h1>
         <p class="lede"><strong class="lede-q">Where's the water shut-off? Who services the fire panel? Is that after-hours number still good?</strong> The answers usually live in one person's head or on a marked-up site plan. Our portal puts them on a map of each of your buildings, alongside tenants, vendors and work orders, and tells you what's missing before someone needs it.</p>
         <div class="hero-cta">
           <a href="contact.html?topic=portal#contactForm" class="btn btn-primary">Request a demo</a>
-          <a href="#how" class="btn btn-ghost">How it works</a>
+          <a href="#try-it" class="btn btn-ghost">Try it</a>
         </div>
       </div>
-      <figure class="portal-figure">
-        <svg class="portal-plan" viewBox="0 0 600 380" role="img" aria-label="Illustration of the portal: floor 1 of a demo office building with its suites, core rooms and safety features marked by category, and a What's missing panel listing no generator on record and two features not confirmed in a year.">
-  <defs>
-    <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" class="pp-hatch"/></pattern>
-  </defs>
-  <!-- floor picker -->
-  <g class="pp-chips">
-    <rect x="60" y="22" width="74" height="26" rx="13" class="pp-chip"/><text x="97" y="39" text-anchor="middle" class="pp-chip-t">All floors</text>
-    <rect x="142" y="22" width="30" height="26" rx="13" class="pp-chip pp-chip-on"/><text x="157" y="39" text-anchor="middle" class="pp-chip-t pp-chip-ton">1</text>
-    <rect x="180" y="22" width="30" height="26" rx="13" class="pp-chip"/><text x="195" y="39" text-anchor="middle" class="pp-chip-t">2</text>
-    <rect x="218" y="22" width="30" height="26" rx="13" class="pp-chip"/><text x="233" y="39" text-anchor="middle" class="pp-chip-t">3</text>
-    <rect x="256" y="22" width="50" height="26" rx="13" class="pp-chip"/><text x="281" y="39" text-anchor="middle" class="pp-chip-t">Roof</text>
-  </g>
-  <!-- floor plate -->
-  <rect x="60" y="80" width="320" height="220" class="pp-plate"/>
-  <line x1="180" y1="80" x2="180" y2="300" class="pp-wall"/>
-  <line x1="260" y1="80" x2="260" y2="300" class="pp-wall"/>
-  <line x1="60" y1="190" x2="180" y2="190" class="pp-wall"/>
-  <line x1="260" y1="190" x2="380" y2="190" class="pp-wall"/>
-  <rect x="180" y="150" width="80" height="70" class="pp-core"/>
-  <line x1="220" y1="150" x2="220" y2="220" class="pp-wall"/>
-  <text x="120" y="140" text-anchor="middle" class="pp-room">Suite 101</text>
-  <text x="320" y="140" text-anchor="middle" class="pp-room">Suite 102</text>
-  <text x="120" y="250" text-anchor="middle" class="pp-room">Suite 103</text>
-  <text x="320" y="250" text-anchor="middle" class="pp-room">Vacant</text>
-  <text x="220" y="118" text-anchor="middle" class="pp-room">Lobby</text>
-  <text x="220" y="262" text-anchor="middle" class="pp-room">Corridor</text>
-  <!-- features: utilities = square, life safety = circle, systems = diamond, access = triangle -->
-  <rect x="234" y="310" width="12" height="12" class="pp-util"/>
-  <circle cx="200" cy="185" r="6.5" class="pp-life"/>
-  <circle cx="60" cy="110" r="6.5" class="pp-life"/>
-  <circle cx="290" cy="196" r="6.5" class="pp-life"/>
-  <path d="M240 178 L247 185 L240 192 L233 185 Z" class="pp-sys"/>
-  <path d="M220 72 L227 84 L213 84 Z" class="pp-access"/>
-  <!-- assembly point with radius -->
-  <circle cx="112" cy="342" r="24" class="pp-radius"/>
-  <circle cx="112" cy="342" r="6.5" class="pp-life"/>
-  <!-- callout labels -->
-  <text x="254" y="320" class="pp-tag">Water shut-off</text>
-  <text x="70" y="104" class="pp-tag">FDC</text>
-  <text x="144" y="346" class="pp-tag">Assembly point</text>
-  <!-- what's missing panel -->
-  <rect x="404" y="80" width="176" height="220" rx="6" class="pp-card"/>
-  <text x="420" y="106" class="pp-card-h">What's missing</text>
-  <circle cx="424" cy="128" r="4" class="pp-warn"/>
-  <text x="434" y="132" class="pp-card-t">No generator on record</text>
-  <line x1="420" y1="146" x2="564" y2="146" class="pp-rule"/>
-  <text x="420" y="166" class="pp-card-s">Not confirmed in a year</text>
-  <text x="420" y="186" class="pp-card-t">Fire dept. connection</text>
-  <text x="420" y="201" class="pp-card-m">last confirmed Aug 2025</text>
-  <text x="420" y="221" class="pp-card-t">Sprinkler riser valve</text>
-  <text x="420" y="236" class="pp-card-m">last confirmed Aug 2025</text>
-  <!-- legend -->
-  <g class="pp-legend">
-    <rect x="404" y="320" width="10" height="10" class="pp-util"/><text x="420" y="330" class="pp-leg">Shut-offs</text>
-    <circle cx="502" cy="325" r="5.5" class="pp-life"/><text x="512" y="330" class="pp-leg">Life safety</text>
-    <path d="M409 344 L415 350 L409 356 L403 350 Z" class="pp-sys"/><text x="420" y="355" class="pp-leg">Systems</text>
-    <path d="M502 344 L508 355 L496 355 Z" class="pp-access"/><text x="512" y="355" class="pp-leg">Access</text>
-  </g>
-</svg>
-        <figcaption>Illustration of floor 1 of a demo office building, with its safety features and the "What's missing" check.</figcaption>
-      </figure>
+    </div>
+  </section>
+
+  <section class="section-border-top" id="try-it">
+    <div class="container">
+      <div class="section-head ti-head">
+        <p class="eyebrow">Try it</p>
+        <h2>Something just went wrong at Bellwether. Where do you start?</h2>
+        <p class="lede">Pick a situation. The portal answers with the place on the plan, and who to call.</p>
+      </div>
+      <div class="situations" id="ti-situations">
+        <button class="sit" data-sit="leak" aria-pressed="false"><small>2:10 a.m.</small>Water is coming through the ceiling in Suite 102.</button>
+        <button class="sit" data-sit="overdue" aria-pressed="false"><small>Monday morning</small>What's overdue or missing in this building?</button>
+      </div>
+      <div class="stage">
+        <div class="plan-card">
+          <div class="bar">
+            <div class="bldg">Bellwether Office Tower <span>· sample building</span></div>
+            <div class="tabs" role="tablist" aria-label="Level" id="ti-tabs"></div>
+          </div>
+          <svg class="plan" id="ti-plan" viewBox="0 0 600 380" role="img" aria-label="Plan of the selected level"></svg>
+          <div class="legend" aria-hidden="true">
+            <span><i class="l-sys"></i>Systems</span>
+            <span><i class="l-safe"></i>Life safety</span>
+            <span><i class="l-acc"></i>Access</span>
+            <span><i class="l-stale"></i>Needs attention</span>
+          </div>
+        </div>
+        <aside class="side" id="ti-side" aria-live="polite"></aside>
+      </div>
+      <p class="ti-note">A simplified sample with a fictional building, people and numbers. The real portal runs on a live map.</p>
+      <div class="toast" id="ti-toast" hidden></div>
     </div>
   </section>
 
@@ -201,6 +171,26 @@
 
   <section class="section-border-top">
     <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Who does what</p>
+        <h2 class="portal-h2">Three parts, three different jobs.</h2>
+      </div>
+      <div class="parts">
+        <div class="part"><p class="who">YOU BRING</p><h3>What you already know</h3>
+          <p>Plans in any form, equipment and vendor lists, tenant contacts, and the people who know where things are.</p>
+          <p class="terms">Anything nobody has recorded, your staff confirm on their normal rounds.</p></div>
+        <div class="part"><p class="who">WE DO</p><h3>Put it on the map</h3>
+          <p>Floor plans from CAD, PDF or paper, with your equipment, shut-offs and contacts placed where they belong.</p>
+          <p class="terms">A one-time setup per building, quoted up front.</p></div>
+        <div class="part"><p class="who">THE PORTAL</p><h3>Keeps it from going stale</h3>
+          <p>Who to call, where things are, what's overdue. Your team confirms as they go, and it flags what they haven't.</p>
+          <p class="terms">A monthly subscription per building.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-border-top">
+    <div class="container">
       <div class="featured-callout">
         <p class="eyebrow">Early access</p>
         <h3>See it on a demo building.</h3>
@@ -245,5 +235,6 @@
 </footer>
 
 <script src="script.js?v=12"></script>
+<script src="try-it.js?v=1"></script>
 </body>
 </html>
