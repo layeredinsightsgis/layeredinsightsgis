@@ -71,7 +71,10 @@ const suiteLevel = (n) => n[0] === '1' ? 'f1' : 'f2';
 const ABSENT = [];
 const staleContacts = () => Object.entries(SUITES).flatMap(([n, s]) => (s.contacts || []).filter(c => c.stale && !state.confirmed.has('c' + n + c.role)).map(c => ({ n, c })));
 
-const state = { level: 'site', sel: null, sit: null, confirmed: new Set() };
+const state = { level: 'site', sel: null, sit: null, step: 0, focus: 0, confirmed: new Set() };
+// Leak walkthrough: step = furthest card revealed (0 none, 1 valve, 2 suite above,
+// 3 plumber); focus = the card whose place is lit on the plan (click any revealed
+// card to go back to it). The next card pulses until clicked.
 // sel: { kind: 'feat'|'suite', id }
 
 const $ = (id) => document.getElementById(id);
@@ -92,7 +95,7 @@ const R = (x, y, w, h, cls, label, big) => `<rect class="room ${cls || ''}" x="$
 function suiteShape(n) {
   const [x, y, w, h] = SUITE_BOX[n[2]];
   const s = SUITES[n];
-  const on = (state.sel && state.sel.kind === 'suite' && state.sel.id === n) || (!state.sel && state.sit === 'leak' && n === '202');
+  const on = (state.sel && state.sel.kind === 'suite' && state.sel.id === n) || (!state.sel && state.sit === 'leak' && state.focus === 2 && n === '202');
   return `<g class="suite ${s.vacant ? 'vac' : ''} ${on ? 'on' : ''}" data-suite="${n}" tabindex="0" role="button" aria-label="Suite ${n}${s.vacant ? ', vacant' : ', ' + esc(s.tenant)}">
     <rect class="room ${s.vacant ? 'vacant' : ''}" x="${x}" y="${y}" width="${w}" height="${h}"/>
     <text class="rlab big" x="${x + w / 2}" y="${y + h / 2 - 3}">Suite ${n}</text>
@@ -129,7 +132,7 @@ function drawLevel(id) {
 function focusSet() {
   if (state.sel && state.sel.kind === 'feat') return new Set([state.sel.id]);
   if (state.sel && state.sel.kind === 'suite') return new Set();
-  if (state.sit === 'leak') return new Set(['v2']);
+  if (state.sit === 'leak') return state.focus === 1 || state.focus === 3 ? new Set(['v2']) : state.focus === 2 ? new Set() : null;
   if (state.sit === 'overdue') return new Set(FEATURES.filter(staleNow).map(f => f.id));
   return null; // just exploring: nothing dimmed
 }
@@ -142,7 +145,7 @@ function symbol(f, focus) {
   if (f.cat === 'sys') shape = `<path class="sym sys" d="M${x} ${y - 8} L${x + 8} ${y} L${x} ${y + 8} L${x - 8} ${y} Z"/>`;
   else if (f.cat === 'acc') shape = `<path class="sym acc" d="M${x} ${y - 8} L${x + 8} ${y + 6} L${x - 8} ${y + 6} Z"/>`;
   else shape = `<circle class="sym safe" cx="${x}" cy="${y}" r="7"/>`;
-  const on = (state.sel && state.sel.kind === 'feat' && state.sel.id === f.id) || (!state.sel && state.sit === 'leak' && f.id === 'v2');
+  const on = (state.sel && state.sel.kind === 'feat' && state.sel.id === f.id) || (!state.sel && state.sit === 'leak' && (state.focus === 1 || state.focus === 3) && f.id === 'v2');
   return `<g class="feat ${on ? 'sel' : ''} ${dim ? 'dim' : ''}" data-id="${f.id}" tabindex="0" role="button" aria-label="${esc(f.name)}">
     <circle class="hit" cx="${x}" cy="${y}" r="16"/>${staleNow(f) ? `<circle class="stale-ring ${pulse ? 'pulse' : ''}" cx="${x}" cy="${y}" r="13"/>` : ''}<circle class="halo" cx="${x}" cy="${y}" r="11"/>${shape}</g>`;
 }
@@ -153,12 +156,19 @@ function phone(p) { return p ? `<span class="phone">${esc(p)}</span>` : ''; }
 function panelSituation() {
   if (state.sit === 'leak') {
     const s = SUITES['202'], ah = s.contacts.find(c => c.ah);
+    // One step at a time: a card shows its details once reached; the next one pulses.
+    const card = (n, title, body) => {
+      const st = n === state.focus ? 'now' : n <= state.step ? 'done' : n === state.step + 1 ? 'next' : 'later';
+      return `<div class="step ${st}"><span class="n">${n}</span><button class="item lstep ${st === 'now' ? 'key' : ''}" data-step="${n}" ${st === 'later' ? 'disabled' : ''} aria-expanded="${n <= state.step}">
+        <span class="t">${title}</span>${n <= state.step ? body : (st === 'next' ? '<span class="m tap">Tap for the next step</span>' : '')}</button></div>`;
+    };
     return `<p class="kicker">2:10 a.m. · Suite 102</p>
-      <h3>Water from above. Start with the suite overhead and the valve.</h3>
-      <div class="step"><span class="n">1</span><div class="item key"><span class="t">Floor 2 water valve</span><span class="m">Restroom chase, behind the sink wall · confirmed Apr 2026</span><button class="go" data-goto="feat:v2">Show on Floor 2 →</button></div></div>
-      <div class="step"><span class="n">2</span><div class="item"><span class="t">Suite 202 is directly above · ${esc(s.tenant)}</span><span class="m">After hours: ${esc(ah.name)}</span>${phone(ah.ph)}<button class="go" data-goto="suite:202">Show the suite →</button></div></div>
-      <div class="step"><span class="n">3</span><div class="item"><span class="t">Plumber · ${V.plumb}</span><span class="m">24-hour line · confirmed Apr 2026</span>${phone(V.plumbPh)}</div></div>
-      <p class="why">The drawings never showed that valve. Your tech knew. Now the map does too.</p>`;
+      <h3>Water from above. Stop it, find it, fix it.</h3>
+      ${card(1, 'On-call tech shuts the Floor 2 water valve', `<span class="m">Restroom chase, access panel behind the sink wall · confirmed Apr 2026</span>`)}
+      ${card(2, `Suite 202 is directly above · ${esc(s.tenant)}`, `<span class="m">Most likely source. To get in after hours: ${esc(ah.name)}</span>${phone(ah.ph)}`)}
+      ${card(3, `Plumber · ${V.plumb} repairs it`, `<span class="m">Meets the tech at the valve · 24-hour line · confirmed Apr 2026</span>${phone(V.plumbPh)}`)}
+      ${state.step >= 3 ? '<p class="why">The drawings never showed that valve. Your tech knew. Now the map does too.</p>' : ''}
+      ${state.step >= 1 ? '<button class="back restart" data-restart>↺ Start over</button>' : ''}`;
   }
   if (state.sit === 'afterhours') return panelSuite('203', 'Saturday · alarm company calling');
   return panelMissing('Monday morning');
@@ -241,7 +251,7 @@ function goto(spec) {
 
 function startSituation(sit) {
   state.sit = sit;
-  if (sit === 'leak') { state.level = 'f2'; state.sel = null; }
+  if (sit === 'leak') { state.level = 'f2'; state.sel = null; state.step = 0; state.focus = 0; }
   if (sit === 'afterhours') { state.level = 'f2'; state.sel = { kind: 'suite', id: '203' }; }
   if (sit === 'overdue') { state.level = 'site'; state.sel = null; }
   render();
@@ -264,6 +274,8 @@ $('ti-side').addEventListener('click', e => {
   if (t.hasAttribute('data-back')) { state.sel = null; render(); }
   else if (t.dataset.goto) { goto(t.dataset.goto); render(); }
   else if (t.dataset.sitgo) startSituation(t.dataset.sitgo);
+  else if (t.dataset.step) { state.step = Math.max(state.step, Number(t.dataset.step)); state.focus = Number(t.dataset.step); state.level = 'f2'; state.sel = null; render(); }
+  else if (t.hasAttribute('data-restart')) startSituation('leak');
   else if (t.dataset.confirmFeat) { state.confirmed.add(t.dataset.confirmFeat); toast('Recorded today. It is off the list.'); render(); }
   else if (t.dataset.confirmContact) { const [n, role] = t.dataset.confirmContact.split('|'); state.confirmed.add('c' + n + role); toast('Contact confirmed today.'); render(); }
 });
