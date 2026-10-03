@@ -962,6 +962,17 @@ section { padding: 76px 0; }
 #try-it .item .m { font: 0.76rem var(--font-mono); color: var(--muted); }
 #try-it .item .phone { font: 500 0.95rem var(--font-mono); color: var(--paper); font-variant-numeric: tabular-nums; }
 #try-it .item.key { border-color: var(--ochre); }
+/* Leak walkthrough (2026-10-03): one step at a time; the next card pulses until tapped. */
+#try-it button.item.lstep { gap: 3px; }
+#try-it button.item.lstep:disabled { cursor: default; opacity: 0.45; }
+#try-it .step.next button.item.lstep { border-color: var(--ochre-dim); animation: ti-next 1.6s ease-in-out infinite; }
+#try-it .step.later .n { opacity: 0.45; }
+#try-it .step.done .n { background: var(--ochre-dim); color: var(--paper); }
+#try-it .item .m.tap { color: var(--ochre); }
+#try-it button.item.lstep.key, #try-it button.item.lstep.key:hover { border-color: var(--ochre); background: var(--panel-2); }
+#try-it .restart { margin-top: -4px; }
+@keyframes ti-next { 0%,100% { box-shadow: 0 0 0 0 rgba(201,138,75,0); } 50% { box-shadow: 0 0 0 4px rgba(201,138,75,0.28); } }
+@media (prefers-reduced-motion: reduce) { #try-it .step.next button.item.lstep { animation: none; } }
 #try-it .step { display: grid; grid-template-columns: 22px 1fr; gap: 10px; align-items: start; }
 #try-it .step .n { font: 500 0.78rem var(--font-mono); color: var(--ochre); border: 1px solid var(--ochre-dim); border-radius: 50%; width: 22px; height: 22px; display: grid; place-items: center; margin-top: 10px; }
 #try-it .go { justify-self: start; background: none; border: 0; padding: 0; color: var(--ochre); font: 0.78rem var(--font-mono); cursor: pointer; }
