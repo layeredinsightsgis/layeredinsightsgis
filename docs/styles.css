@@ -991,3 +991,5 @@ section { padding: 76px 0; }
 .part h3 { font-size: 1.2rem; }
 .part p { color: var(--paper-dim); font-size: 0.95rem; }
 .part .terms { font-family: var(--font-mono); font-size: 0.76rem; color: var(--muted); }
+#try-it .ti-phone { display: none; margin: -6px 0 16px; padding: 10px 14px; border: 1px dashed var(--border-strong); border-radius: 6px; font-family: var(--font-mono); font-size: 0.78rem; color: var(--paper-dim); }
+@media (max-width: 700px) { #try-it .ti-phone { display: block; } }
