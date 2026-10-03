@@ -80,7 +80,7 @@ const STEP_VIEW = {
   5: { level: 'f1', suite: '101' },
   6: { level: 'f2', feat: 'v2' }
 };
-const state = { level: 'site', sel: null, sit: null, step: 0, focus: 0, confirmed: new Set() };
+const state = { level: 'site', sel: null, sit: null, step: 0, focus: 0, confirmed: new Set(), done: [], recording: null };
 // Leak walkthrough: step = furthest card revealed (0 none, 1 valve, 2 suite above,
 // 3 plumber); focus = the card whose place is lit on the plan (click any revealed
 // card to go back to it). The next card pulses until clicked.
@@ -221,9 +221,17 @@ function panelFeature(id) {
 
 function panelMissing(kicker) {
   const items = missingItems();
+  const done = state.done.map(d => `<li><div class="item gone"><span class="t">✓ ${esc(d.title)}</span><span class="m">Recorded today · off the list</span></div></li>`).join('');
+  const rows = items.map((m, i) => `<li><button class="item ${i === 0 && state.done.length ? 'nextup' : ''}" data-goto="${m.go}:${m.id}"><span class="t">${esc(m.title)}</span><span class="m">${m.why ? esc(m.why) + ' · ' : ''}${levelName(m.level)}</span></button></li>`).join('');
+  if (!items.length) return `${kicker ? `<p class="kicker">${kicker}</p>` : ''}
+    <h3>What's missing<span class="count ok">all clear</span></h3>
+    <ul class="list">${done}</ul>
+    <p class="sub">That's the whole list for this building. In the real portal it fills up again on its own as each date comes due.</p>
+    <button class="back restart" data-reset-missing>↺ Put the sample items back</button>`;
   return `${kicker ? `<p class="kicker">${kicker}</p>` : ''}
-    <h3>What's missing<span class="count ${items.length ? '' : 'ok'}">${items.length ? items.length + ' to check' : 'all clear'}</span></h3>
-    <ul class="list">${items.map(m => `<li><button class="item" data-goto="${m.go}:${m.id}"><span class="t">${esc(m.title)}</span><span class="m">${m.why ? esc(m.why) + ' · ' : ''}${levelName(m.level)}</span></button></li>`).join('')}</ul>
+    <h3>What's missing<span class="count">${items.length} to check</span></h3>
+    <p class="sub">${state.done.length ? 'One down. Tap the next one.' : 'Tap an item to see where it is and record it.'}</p>
+    <ul class="list">${done}${rows}</ul>
     <p class="why">Most buildings can't produce this list at all.</p>`;
 }
 
@@ -252,6 +260,26 @@ function renderPlan() {
 }
 function renderSits() { document.querySelectorAll('#try-it .sit').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.sit === state.sit))); }
 function render() { renderSits(); renderTabs(); renderPlan(); renderSide(); }
+
+// Record an item: show it done where it was tapped, then (in the Monday list)
+// go back to the list after a moment, so people see there's more to check.
+function record(btn, key, title) {
+  if (state.recording) return;
+  state.confirmed.add(key);
+  btn.disabled = true;
+  btn.classList.add('recorded');
+  btn.textContent = '✓ Recorded today';
+  if (state.sit !== 'overdue') { toast('Recorded today. It is off the list.'); setTimeout(render, 900); return; }
+  state.recording = key;
+  setTimeout(() => {
+    state.recording = null;
+    state.sel = null;
+    state.done = [{ key, title }];
+    render();
+    clearTimeout(record._t);
+    record._t = setTimeout(() => { state.done = []; if (state.sit === 'overdue' && !state.sel) render(); }, 2600);
+  }, 1100);
+}
 
 function toast(msg) { const t = $('ti-toast'); t.textContent = msg; t.hidden = false; clearTimeout(toast._t); toast._t = setTimeout(() => t.hidden = true, 3400); }
 
@@ -289,8 +317,9 @@ $('ti-side').addEventListener('click', e => {
   else if (t.dataset.sitgo) startSituation(t.dataset.sitgo);
   else if (t.dataset.step) { state.step = Math.max(state.step, Number(t.dataset.step)); state.focus = Number(t.dataset.step); state.level = STEP_VIEW[state.focus].level; state.sel = null; render(); }
   else if (t.hasAttribute('data-restart')) startSituation('leak');
-  else if (t.dataset.confirmFeat) { state.confirmed.add(t.dataset.confirmFeat); toast('Recorded today. It is off the list.'); render(); }
-  else if (t.dataset.confirmContact) { const [n, role] = t.dataset.confirmContact.split('|'); state.confirmed.add('c' + n + role); toast('Contact confirmed today.'); render(); }
+  else if (t.dataset.confirmFeat) { const f = FEATURES.find(x => x.id === t.dataset.confirmFeat); record(t, f.id, f.issue.list); }
+  else if (t.dataset.confirmContact) { const [n, role] = t.dataset.confirmContact.split('|'); const c = SUITES[n].contacts.find(x => x.role === role); record(t, 'c' + n + role, c.issue ? c.issue.list : 'Suite ' + n + ' contact'); }
+  else if (t.hasAttribute('data-reset-missing')) { state.confirmed.clear(); state.done = []; render(); }
 });
 render();
 
