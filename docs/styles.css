@@ -1154,3 +1154,26 @@ section { padding: 76px 0; }
 
 .step-card .price { font-family: var(--font-mono); font-size: 0.76rem; color: var(--paper); line-height: 1.5; padding-top: 8px; border-top: 1px solid var(--border); }
 .path-credit { margin-top: 16px; color: var(--paper-dim); font-size: 0.95rem; }
+
+/* Before/after drawings (2026-10-04 v2): a photocopied architect's plan vs the same floor on the map. */
+.pp-thin line, .pp-thin circle, .pp-thin path, .pp-thin rect, .pp-thin ellipse { fill: none; stroke: #3b3b3b; stroke-width: 0.9; }
+.pp-wall line { stroke: #2e2e2e; stroke-width: 3; }
+.pp-door path { fill: none; stroke: #3b3b3b; stroke-width: 0.9; }
+.pp-bub { fill: #3b3b3b; font: 600 9px var(--font-mono); text-anchor: middle; }
+.pp-dim { fill: #3b3b3b; font: 9px var(--font-mono); text-anchor: middle; }
+.pp-room text { fill: #3b3b3b; font: 600 8.5px var(--font-mono); text-anchor: middle; letter-spacing: 0.04em; }
+.pp-room .pp-no { font-weight: 400; }
+.pp-room .pp-corr { font-size: 7px; letter-spacing: 0.2em; }
+.pp-tb { fill: #3b3b3b; font: 7px var(--font-mono); text-anchor: middle; }
+.pp-tb.pp-big { font-size: 13px; font-weight: 600; }
+.sk-hand text { fill: var(--pen); font: 600 16px var(--hand); }
+.sk-hand .sk-x { fill: var(--pen); }
+.cl-rooms rect { fill: #1F2A33; stroke: rgba(233,228,216,0.30); stroke-width: 1; }
+.cl-rooms .cl-coreroom { fill: #262f38; }
+.cl-rooms .cl-corr { fill: #1a232b; }
+.cl-out { fill: none; stroke: #8A949A; stroke-width: 6; }
+.cl-walk { fill: #2a333a; }
+.cl-drive { fill: none; stroke: #2a333a; stroke-width: 18; }
+.cl-rl text { fill: var(--paper-dim); font: 500 10px var(--font-mono); text-anchor: middle; }
+.cl-mid { text-anchor: middle; }
+.cl-lead { stroke: rgba(233,228,216,0.45); stroke-width: 1; stroke-dasharray: 2 2; }
