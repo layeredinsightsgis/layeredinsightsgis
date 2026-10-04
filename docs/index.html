@@ -18,7 +18,7 @@
 <meta name="twitter:image" content="https://layeredinsightsgis.com/imgs/buildings.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=26">
+<link rel="stylesheet" href="styles.css?v=27">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -93,116 +93,124 @@
       <div class="pk-pane" role="tabpanel" id="pane-map" aria-labelledby="tab-map">
         <p class="pk-lead">CAD files, PDFs, a photocopy with pen notes. We turn whatever you have into floor plans you can search, measure and share. <b>Drag to compare.</b></p>
         <div class="ba" id="ba">
-          <div class="ba-under"><svg class="ba-img" viewBox="0 0 520 340" role="img" aria-label="The same first floor on a clean map: rooms 101 to 105 labeled, the fire alarm panel in the electrical room, the roof hatch in the stair, and the water shut-off at the curb by the east drive, not where the pen note said.">
-  <rect width="520" height="340" class="cl-ground"/>
-  <rect x="0" y="306" width="520" height="34" class="cl-road"/>
-  <path d="M345 276 H375 V306 H345 Z" class="cl-walk"/>
+          <div class="ba-under"><svg class="ba-img" viewBox="0 0 520 340" role="img" aria-label="The same first floor as a clean, to-scale CAD-style drawing: walls, doors, room tags with areas, dimensions, coordinates and a scale bar; the fire alarm panel in the electrical room, the roof hatch in the stair, and the water shut-off at the curb by the east drive, not where the pen note said.">
+  <rect width="520" height="340" class="cad-bg"/>
+  <!-- coordinate grid ticks -->
+  <g class="cad-grid">
+    <line x1="60" y1="0" x2="60" y2="340"/><line x1="460" y1="0" x2="460" y2="340"/>
+    <line x1="0" y1="40" x2="520" y2="40"/><line x1="0" y1="300" x2="520" y2="300"/>
+  </g>
+  <text x="64" y="36" class="cad-coord">N 1,524,312.4  E 2,231,845.7</text>
+  <text x="456" y="36" class="cad-coord cad-end">N 1,524,312.4  E 2,231,979.0</text>
+  <!-- grid bubbles + dims -->
+  <g class="cad-dimline">
+    <line x1="110" y1="60" x2="410" y2="60"/>
+    <line x1="110" y1="54" x2="110" y2="84"/><line x1="265" y1="54" x2="265" y2="84"/><line x1="410" y1="54" x2="410" y2="84"/>
+    <path d="M106 64 L114 56 M261 64 L269 56 M406 64 L414 56"/>
+  </g>
+  <text x="187" y="56" class="cad-dim">51'-8"</text><text x="337" y="56" class="cad-dim">48'-4"</text>
+  <!-- walls -->
+  <path class="cad-wall-ext" fill-rule="evenodd" d="M104 84 H416 V276 H375 V270 H410 V90 H110 V270 H345 V276 H104 Z"/>
+  <g class="cad-wall">
+    <path d="M110 170.5 H160 M178 170.5 H222 M240 170.5 H330 M348 170.5 H410 M110 173.5 H160 M178 173.5 H222 M240 173.5 H330 M348 173.5 H410"/>
+    <path d="M110 186.5 H150 M168 186.5 H275 M291 186.5 H410 M110 189.5 H150 M168 189.5 H275 M291 189.5 H410"/>
+    <path d="M193.5 90 V170.5 M196.5 90 V170.5 M263.5 90 V170.5 M266.5 90 V170.5 M303.5 90 V170.5 M306.5 90 V170.5"/>
+    <path d="M213.5 189.5 V270 M216.5 189.5 V270 M263.5 189.5 V270 M266.5 189.5 V270 M303.5 189.5 V270 M306.5 189.5 V270"/>
+  </g>
+  <!-- doors -->
+  <g class="cad-door">
+    <path d="M160 172 A18 18 0 0 1 178 154 M160 172 V154"/><path d="M240 172 A18 18 0 0 0 222 154 M240 172 V154"/>
+    <path d="M330 172 A18 18 0 0 1 348 154 M330 172 V154"/><path d="M150 188 A18 18 0 0 0 168 206 M150 188 V206"/>
+    <path d="M275 188 A16 16 0 0 0 291 204 M275 188 V204"/>
+    <path d="M345 273 A15 15 0 0 1 360 258 M345 273 V258 M375 273 A15 15 0 0 0 360 258 M375 273 V258"/>
+  </g>
+  <!-- stair + fixtures -->
+  <g class="cad-thin">
+    <path d="M272 100 H298 M272 108 H298 M272 116 H298 M272 124 H298 M272 132 H298 M272 140 H298 M272 148 H298 M285 96 V160 M280 104 L285 98 L290 104"/>
+    <ellipse cx="226" cy="258" rx="5" ry="7"/><ellipse cx="242" cy="258" rx="5" ry="7"/><rect x="250" y="196" width="10" height="16"/>
+  </g>
+  <!-- room tags -->
+  <g class="cad-tag">
+    <rect x="137" y="118" width="30" height="13"/><text x="152" y="128" class="cad-no">101</text><text x="152" y="142">OFFICE</text><text x="152" y="152" class="cad-sf">774 SF</text>
+    <rect x="215" y="118" width="30" height="13"/><text x="230" y="128" class="cad-no">102</text><text x="230" y="142">OFFICE</text><text x="230" y="152" class="cad-sf">637 SF</text>
+    <rect x="342" y="118" width="30" height="13"/><text x="357" y="128" class="cad-no">103</text><text x="357" y="142">CONF.</text><text x="357" y="152" class="cad-sf">956 SF</text>
+    <rect x="147" y="222" width="30" height="13"/><text x="162" y="232" class="cad-no">104</text><text x="162" y="246">OPEN OFFICE</text><text x="162" y="256" class="cad-sf">956 SF</text>
+    <text x="240" y="232">TOILET</text>
+    <rect x="342" y="210" width="30" height="13"/><text x="357" y="220" class="cad-no">105</text><text x="357" y="234">LOBBY</text><text x="357" y="244" class="cad-sf">956 SF</text>
+    <text x="230" y="182" class="cad-corr">CORRIDOR</text>
+  </g>
+  <!-- features -->
+  <g class="cad-fire"><rect x="278" y="223" width="14" height="14"/><text x="285" y="233">F</text></g>
+  <text x="285" y="252" class="cad-flab">FACP</text>
+  <rect x="274" y="152" width="22" height="14" class="cad-hatch"/><text x="285" y="162" class="cad-flab">RH</text>
+  <g class="cad-water"><circle cx="479" cy="291" r="7"/><path d="M473 285 L485 297 M485 285 L473 297"/></g>
   
-  <g class="cl-rooms">
-    <rect x="110" y="90" width="85" height="82"/><rect x="195" y="90" width="70" height="82"/><rect x="265" y="90" width="40" height="82" class="cl-coreroom"/><rect x="305" y="90" width="105" height="82"/>
-    <rect x="110" y="172" width="300" height="16" class="cl-corr"/>
-    <rect x="110" y="188" width="105" height="82"/><rect x="215" y="188" width="50" height="82" class="cl-coreroom"/><rect x="265" y="188" width="40" height="82" class="cl-coreroom"/><rect x="305" y="188" width="105" height="82"/>
-  </g>
-  <rect x="107" y="87" width="306" height="186" class="cl-out"/>
-  <g class="cl-rl">
-    <text x="152" y="135">101</text><text x="230" y="135">102</text><text x="357" y="135">103</text>
-    <text x="162" y="240">104</text><text x="240" y="215">WC</text><text x="357" y="240">105 Lobby</text>
-  </g>
-  <circle cx="150" cy="298" r="13" class="cl-ghost"/>
-  <text x="150" y="328" class="cl-ghost-t">not where the note said</text>
-  <rect x="470" y="282" width="18" height="18" class="cl-util"/>
-  <text x="512" y="274" class="cl-lab cl-end">Water shut-off</text>
-  <circle cx="285" cy="230" r="8" class="cl-life"/>
-  <line x1="285" y1="238" x2="285" y2="284" class="cl-lead"/><text x="285" y="296" class="cl-lab cl-mid">Fire alarm panel</text>
-  <path d="M285 118 L294 133 L276 133 Z" class="cl-acc"/>
-  <line x1="285" y1="116" x2="285" y2="84" class="cl-lead"/><text x="285" y="78" class="cl-lab cl-mid">Roof hatch</text>
-  <g class="cl-card">
-    <rect x="12" y="10" width="206" height="70" rx="6"/>
-    <text x="24" y="30" class="cl-k">WATER SHUT-OFF</text>
-    <text x="24" y="48" class="cl-v">Curb box, east drive</text>
-    <text x="24" y="70" class="cl-ok">Location confirmed Apr 2026</text>
-  </g>
+  <text x="466" y="282" class="cad-wlab cad-end">WATER SHUT-OFF</text>
+  <text x="466" y="292" class="cad-wsub cad-end">CURB BOX · FIELD</text>
+  <text x="466" y="301" class="cad-wsub cad-end">VERIFIED 04/2026</text>
+  <circle cx="150" cy="298" r="13" class="cad-ghost"/>
+  <text x="150" y="324" class="cad-ghost-t">NOT WHERE THE NOTE SAID</text>
+  <!-- north arrow + scale bar -->
+  <g class="cad-thin" transform="translate(484 64)"><circle r="12"/><path d="M0 -12 L5 6 L0 2 L-5 6 Z" class="cad-fill"/></g>
+  <text x="484" y="90" class="cad-dim">N</text>
+  <g class="cad-thin"><path d="M14 284 H74 M14 280 V288 M44 280 V288 M74 280 V288"/><rect x="14" y="282" width="30" height="4" class="cad-fill"/></g>
+  <text x="14" y="298" class="cad-coord">0</text><text x="44" y="298" class="cad-coord cad-mid">10</text><text x="74" y="298" class="cad-coord cad-mid">20 FT</text>
+  <!-- title block -->
+  <g class="cad-thin"><rect x="290" y="306" width="140" height="28"/></g>
+  <text x="360" y="317" class="cad-tb">BLDG A · LEVEL 1 · 1" = 30'</text>
+  <text x="360" y="328" class="cad-tb">GA WEST (US FT) · REV 04/2026</text>
 </svg></div>
-          <div class="ba-over"><svg class="ba-img" viewBox="0 0 520 340" role="img" aria-label="A photocopied first-floor plan from 1998 marked not to scale, with hand-written pen notes: water off here, ask Bob; fire panel, I think; roof key in the office drawer; a crossed-out landscaper phone number.">
+          <div class="ba-over"><svg class="ba-img" viewBox="0 0 520 340" role="img" aria-label="A hand-drawn, not-to-scale sketch of the first floor on a yellow legal pad, with rooms labeled in pencil and red-pen notes: water off here, ask Bob; fire panel, I think; roof key in the office drawer; a crossed-out landscaper phone number.">
   <defs>
-    <filter id="pp-grain" x="0" y="0" width="100%" height="100%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7" result="n"/>
-      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0.25  0 0 0 0 0.23  0 0 0 0 0.2  0 0 0 0.16 0"/>
+    <filter id="hd-wobble" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3" result="t"/>
+      <feDisplacementMap in="SourceGraphic" in2="t" scale="5" xChannelSelector="R" yChannelSelector="G"/>
     </filter>
-    <radialGradient id="pp-edge" cx="50%" cy="50%" r="75%">
-      <stop offset="62%" stop-color="#000" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#3a3326" stop-opacity="0.22"/>
-    </radialGradient>
-    <pattern id="pp-poche" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="5" stroke="#3b3b3b" stroke-width="1.6"/></pattern>
+    <filter id="hd-grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" seed="11" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0.35  0 0 0 0 0.3  0 0 0 0 0.15  0 0 0 0.10 0"/>
+    </filter>
   </defs>
-  <rect width="520" height="340" fill="#E9E5DA"/>
-  <g class="pp-draw" transform="rotate(-0.7 260 170)">
-    <!-- grid bubbles + dimension -->
-    <g class="pp-thin">
-      <line x1="110" y1="44" x2="110" y2="88" stroke-dasharray="6 3 1 3"/><line x1="265" y1="44" x2="265" y2="88" stroke-dasharray="6 3 1 3"/><line x1="410" y1="44" x2="410" y2="88" stroke-dasharray="6 3 1 3"/>
-      <circle cx="110" cy="36" r="8"/><circle cx="265" cy="36" r="8"/><circle cx="410" cy="36" r="8"/>
-      <line x1="110" y1="66" x2="410" y2="66"/><line x1="106" y1="70" x2="114" y2="62"/><line x1="261" y1="70" x2="269" y2="62"/><line x1="406" y1="70" x2="414" y2="62"/>
-    </g>
-    <text x="110" y="39.5" class="pp-bub">1</text><text x="265" y="39.5" class="pp-bub">2</text><text x="410" y="39.5" class="pp-bub">3</text>
-    <text x="187" y="62" class="pp-dim">52'-0"</text><text x="337" y="62" class="pp-dim">48'-0"</text>
-    <!-- exterior walls (poché) -->
-    <path fill-rule="evenodd" fill="url(#pp-poche)" stroke="#2e2e2e" stroke-width="1.2" d="M104 84 H416 V276 H375 V270 H410 V90 H110 V270 H345 V276 H104 Z"/>
-    <!-- interior walls -->
-    <g class="pp-wall">
-      <line x1="110" y1="172" x2="410" y2="172"/><line x1="110" y1="188" x2="410" y2="188"/>
-      <line x1="195" y1="90" x2="195" y2="172"/><line x1="265" y1="90" x2="265" y2="172"/><line x1="305" y1="90" x2="305" y2="172"/>
-      <line x1="215" y1="188" x2="215" y2="270"/><line x1="265" y1="188" x2="265" y2="270"/><line x1="305" y1="188" x2="305" y2="270"/>
-    </g>
-    <!-- door gaps + swings -->
-    <g class="pp-door">
-      <rect x="160" y="169" width="18" height="6" fill="#E9E5DA" stroke="none"/><path d="M160 172 A18 18 0 0 1 178 154 M160 172 V154"/>
-      <rect x="222" y="169" width="18" height="6" fill="#E9E5DA" stroke="none"/><path d="M240 172 A18 18 0 0 0 222 154 M240 172 V154"/>
-      <rect x="330" y="169" width="18" height="6" fill="#E9E5DA" stroke="none"/><path d="M330 172 A18 18 0 0 1 348 154 M330 172 V154"/>
-      <rect x="150" y="185" width="18" height="6" fill="#E9E5DA" stroke="none"/><path d="M150 188 A18 18 0 0 0 168 206 M150 188 V206"/>
-      <rect x="275" y="185" width="16" height="6" fill="#E9E5DA" stroke="none"/><path d="M275 188 A16 16 0 0 0 291 204 M275 188 V204"/>
-      <path d="M345 270 A15 15 0 0 1 360 255 M375 270 A15 15 0 0 0 360 255"/>
-    </g>
-    <!-- stair -->
-    <g class="pp-thin"><line x1="272" y1="100" x2="298" y2="100"/><line x1="272" y1="108" x2="298" y2="108"/><line x1="272" y1="116" x2="298" y2="116"/><line x1="272" y1="124" x2="298" y2="124"/><line x1="272" y1="132" x2="298" y2="132"/><line x1="272" y1="140" x2="298" y2="140"/><line x1="272" y1="148" x2="298" y2="148"/><line x1="285" y1="96" x2="285" y2="160"/><path d="M280 104 L285 98 L290 104"/></g>
-    <!-- restroom fixtures -->
-    <g class="pp-thin"><ellipse cx="226" cy="258" rx="5" ry="7"/><ellipse cx="242" cy="258" rx="5" ry="7"/><rect x="250" y="196" width="10" height="16"/></g>
-    <!-- room labels -->
-    <g class="pp-room">
-      <text x="152" y="128">OFFICE</text><text x="152" y="140" class="pp-no">101</text>
-      <text x="230" y="128">OFFICE</text><text x="230" y="140" class="pp-no">102</text>
-      <text x="357" y="128">CONF.</text><text x="357" y="140" class="pp-no">103</text>
-      <text x="162" y="232">OPEN OFFICE</text><text x="162" y="244" class="pp-no">104</text>
-      <text x="240" y="232">TOILET</text>
-      <text x="285" y="232">ELEC.</text>
-      <text x="357" y="226">LOBBY</text><text x="357" y="238" class="pp-no">105</text>
-      <text x="300" y="183" class="pp-corr">CORRIDOR</text>
-    </g>
-    <!-- north arrow -->
-    <g class="pp-thin" transform="translate(470 52)"><circle r="12"/><path d="M0 -12 L5 6 L0 2 L-5 6 Z" fill="#3b3b3b"/></g>
-    <text x="470" y="78" class="pp-bub">N</text>
-    <!-- title block -->
-    <g class="pp-thin"><rect x="380" y="288" width="132" height="44"/><line x1="380" y1="304" x2="512" y2="304"/><line x1="470" y1="304" x2="470" y2="332"/></g>
-    <text x="446" y="299.5" class="pp-tb">BLDG A · FIRST FLOOR PLAN</text>
-    <text x="425" y="316" class="pp-tb">SCALE: N.T.S.</text><text x="425" y="327" class="pp-tb">DATE: 03/1998</text>
-    <text x="491" y="322" class="pp-tb pp-big">A-1</text>
+  <rect width="520" height="340" fill="#F4EDC9"/>
+  <g class="hd-rule"><line x1="0" y1="28" x2="520" y2="28"/><line x1="0" y1="44" x2="520" y2="44"/><line x1="0" y1="60" x2="520" y2="60"/><line x1="0" y1="76" x2="520" y2="76"/><line x1="0" y1="92" x2="520" y2="92"/><line x1="0" y1="108" x2="520" y2="108"/><line x1="0" y1="124" x2="520" y2="124"/><line x1="0" y1="140" x2="520" y2="140"/><line x1="0" y1="156" x2="520" y2="156"/><line x1="0" y1="172" x2="520" y2="172"/><line x1="0" y1="188" x2="520" y2="188"/><line x1="0" y1="204" x2="520" y2="204"/><line x1="0" y1="220" x2="520" y2="220"/><line x1="0" y1="236" x2="520" y2="236"/><line x1="0" y1="252" x2="520" y2="252"/><line x1="0" y1="268" x2="520" y2="268"/><line x1="0" y1="284" x2="520" y2="284"/><line x1="0" y1="300" x2="520" y2="300"/><line x1="0" y1="316" x2="520" y2="316"/><line x1="0" y1="332" x2="520" y2="332"/></g>
+  <line x1="44" y1="0" x2="44" y2="340" class="hd-margin"/>
+  <rect width="520" height="340" filter="url(#hd-grain)"/>
+  <g class="hd-pencil" filter="url(#hd-wobble)">
+    <path d="M372 262 L402 262 L398 92 L122 96 L120 265 L344 263"/>
+    <path d="M121 170 L400 167 M121 186 L401 183"/>
+    <path d="M200 95 L201 169 M262 94 L262 168 M300 93 L301 168"/>
+    <path d="M214 186 L214 264 M262 184 L263 264 M300 184 L301 263"/>
+    <path d="M276 102 L296 102 M276 112 L296 112 M276 122 L296 122 M276 132 L296 132 M276 142 L296 142"/>
+    <path d="M345 263 Q 358 248 372 262"/>
   </g>
-  <rect width="520" height="340" filter="url(#pp-grain)"/>
-  <line x1="0" y1="176" x2="520" y2="172" stroke="#000" stroke-opacity="0.07" stroke-width="2"/>
-  <rect width="520" height="340" fill="url(#pp-edge)"/>
-  <!-- pen notes -->
+  <g class="hd-label">
+    <text x="160" y="136">office</text><text x="160" y="152" class="hd-n">101</text>
+    <text x="231" y="136">office</text><text x="231" y="152" class="hd-n">102</text>
+    <text x="350" y="136">conf rm</text><text x="350" y="152" class="hd-n">103</text>
+    <text x="164" y="232">open office</text>
+    <text x="238" y="232">rr</text>
+    <text x="281" y="232">elec</text>
+    <text x="350" y="226">lobby</text>
+    <text x="282" y="160" class="hd-sm">stairs</text>
+    <text x="260" y="180" class="hd-sm">hall</text>
+  </g>
+  <text x="60" y="56" class="hd-title">Bldg A - 1st floor</text>
+  <text x="60" y="74" class="hd-sm2">(redrawn from old copy)</text>
+  <text x="262" y="84" class="hd-sm2">approx 100 ft ?</text>
+  <text x="300" y="302" class="hd-nts">NOT TO SCALE</text>
   <g class="sk-pen">
     <ellipse cx="150" cy="298" rx="24" ry="13" transform="rotate(-6 150 298)"/>
-    <path d="M128 292 C 96 280, 70 262, 60 238"/>
-    <path d="M430 210 C 400 222, 340 232, 292 231"/><path d="M300 225 L291 231 L300 237"/>
-    <path d="M426 116 C 400 120, 330 120, 290 122"/><path d="M299 116 L290 122 L299 128"/>
-    <line x1="6" y1="160" x2="96" y2="153"/>
+    
+    <path d="M432 210 C 400 222, 340 232, 292 231"/><path d="M300 225 L291 231 L300 237"/>
+    <path d="M428 116 C 400 120, 330 120, 292 122"/><path d="M301 116 L292 122 L301 128"/>
+    <line x1="420" y1="56" x2="506" y2="51"/>
   </g>
   <g class="sk-hand">
-    <text x="10" y="218">water off here??</text>
-    <text x="28" y="238">ask Bob</text>
+    <text x="180" y="300">water off here??</text>
+    <text x="196" y="318">ask Bob</text>
     <text x="424" y="200">FIRE PANEL</text><text x="434" y="217">(I think)</text>
-    <text x="430" y="104">roof key -</text><text x="422" y="121">office drawer</text>
-    <text x="8" y="140">landscaper</text><text x="8" y="160" class="sk-x">770-555-01..</text><text x="20" y="180">new guy?</text>
+    <text x="432" y="104">roof key -</text><text x="424" y="121">office drawer</text>
+    <text x="424" y="38">landscaper</text><text x="422" y="56" class="sk-x">770-555-01..</text><text x="430" y="74">new guy?</text>
   </g>
 </svg></div>
           <div class="ba-line" aria-hidden="true"><span>⟷</span></div>
