@@ -1244,3 +1244,5 @@ text.hd-sm2[x="262"] { text-anchor: middle; }
 .pr-faq { display: grid; gap: 6px; max-width: 72ch; margin: 0; }
 .pr-faq dt { font-family: var(--font-display); font-size: 1.15rem; margin-top: 14px; }
 .pr-faq dd { margin: 0; color: var(--paper-dim); }
+.pr-included, .pr-large { margin-top: 16px; color: var(--paper-dim); max-width: 80ch; }
+.pr-included b, .pr-large b { color: var(--paper); font-weight: 500; }
