@@ -1246,3 +1246,4 @@ text.hd-sm2[x="262"] { text-anchor: middle; }
 .pr-faq dd { margin: 0; color: var(--paper-dim); }
 .pr-included, .pr-large { margin-top: 16px; color: var(--paper-dim); max-width: 80ch; }
 .pr-included b, .pr-large b { color: var(--paper); font-weight: 500; }
+.svc-honest { margin-top: 14px; padding: 12px 16px; border-left: 2px solid var(--ochre-dim); color: var(--paper-dim); font-size: 0.95rem; }
