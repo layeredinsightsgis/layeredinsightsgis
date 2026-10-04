@@ -1177,3 +1177,44 @@ section { padding: 76px 0; }
 .cl-rl text { fill: var(--paper-dim); font: 500 10px var(--font-mono); text-anchor: middle; }
 .cl-mid { text-anchor: middle; }
 .cl-lead { stroke: rgba(233,228,216,0.45); stroke-width: 1; stroke-dasharray: 2 2; }
+
+/* "What you get": a clean, to-scale CAD-style drawing (model-space look: dark ground, layer colors). */
+.cad-bg { fill: #0E1317; }
+.cad-grid line { stroke: rgba(160,175,185,0.14); stroke-width: 1; stroke-dasharray: 2 6; }
+.cad-coord { fill: #7E8D96; font: 7.5px var(--font-mono); }
+.cad-end { text-anchor: end; } .cad-mid { text-anchor: middle; }
+.cad-dimline line, .cad-dimline path { stroke: #E06A60; stroke-width: 0.9; fill: none; }
+.cad-dim { fill: #E06A60; font: 9px var(--font-mono); text-anchor: middle; }
+.cad-wall-ext { fill: none; stroke: #ECEDE8; stroke-width: 1.3; }
+.cad-wall path { fill: none; stroke: #ECEDE8; stroke-width: 1; }
+.cad-door path { fill: none; stroke: #4FC8D9; stroke-width: 0.9; }
+.cad-thin path, .cad-thin ellipse, .cad-thin rect, .cad-thin circle { fill: none; stroke: #B9C0C4; stroke-width: 0.9; }
+.cad-fill { fill: #B9C0C4; }
+.cad-tag rect { fill: none; stroke: #E5D06B; stroke-width: 0.9; }
+.cad-tag text { fill: #E5D06B; font: 600 7.5px var(--font-mono); text-anchor: middle; letter-spacing: 0.04em; }
+.cad-tag .cad-no { font-size: 9px; }
+.cad-tag .cad-sf { fill: #A9B3A0; font-weight: 400; }
+.cad-tag .cad-corr { letter-spacing: 0.2em; font-size: 6.5px; }
+.cad-fire rect { fill: none; stroke: #F06B57; stroke-width: 1.4; }
+.cad-fire text { fill: #F06B57; font: 700 9px var(--font-mono); text-anchor: middle; }
+.cad-flab { fill: #F06B57; font: 600 7.5px var(--font-mono); text-anchor: middle; }
+.cad-hatch { fill: none; stroke: #C98A4B; stroke-width: 1; stroke-dasharray: 3 2; }
+rect.cad-hatch + .cad-flab { fill: #C98A4B; }
+.cad-water circle, .cad-water path { fill: none; stroke: #3FC4D9; stroke-width: 1.6; }
+.cad-leader { fill: none; stroke: #3FC4D9; stroke-width: 0.8; }
+.cad-wlab { fill: #3FC4D9; font: 700 8.5px var(--font-mono); }
+.cad-wsub { fill: #9FD7E0; font: 7px var(--font-mono); }
+.cad-ghost { fill: none; stroke: #7E8D96; stroke-width: 1.2; stroke-dasharray: 3 3; }
+.cad-ghost-t { fill: #7E8D96; font: 7.5px var(--font-mono); text-anchor: middle; letter-spacing: 0.06em; }
+.cad-tb { fill: #B9C0C4; font: 7px var(--font-mono); text-anchor: middle; }
+/* "What you have": a hand-drawn, not-to-scale sketch on a legal pad. */
+.hd-rule line { stroke: #9DB7D6; stroke-width: 0.8; opacity: 0.7; }
+.hd-margin { stroke: #D9837A; stroke-width: 1; opacity: 0.8; }
+.hd-pencil path { fill: none; stroke: #4A4A55; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.hd-label text { fill: #4A4A55; font: 600 15px var(--hand); text-anchor: middle; }
+.hd-label .hd-n { font-size: 13px; }
+.hd-label .hd-sm { font-size: 12px; }
+.hd-title { fill: #4A4A55; font: 700 19px var(--hand); }
+.hd-sm2 { fill: #4A4A55; font: 600 13px var(--hand); text-anchor: start; }
+text.hd-sm2[x="262"] { text-anchor: middle; }
+.hd-nts { fill: #4A4A55; font: 700 15px var(--hand); letter-spacing: 0.06em; }
