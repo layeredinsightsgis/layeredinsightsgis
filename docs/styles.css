@@ -1218,3 +1218,5 @@ rect.cad-hatch + .cad-flab { fill: #C98A4B; }
 .hd-sm2 { fill: #4A4A55; font: 600 13px var(--hand); text-anchor: start; }
 text.hd-sm2[x="262"] { text-anchor: middle; }
 .hd-nts { fill: #4A4A55; font: 700 15px var(--hand); letter-spacing: 0.06em; }
+#try-it .situations[hidden] { display: none; }
+.pk-next a { color: var(--ochre); font-style: normal; font-family: var(--font-mono); font-size: 0.85rem; border-bottom: 1px solid var(--ochre-dim); white-space: nowrap; }
