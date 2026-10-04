@@ -17,8 +17,8 @@
 <meta name="twitter:description" content="Maps for the people who manage buildings: shut-offs, contacts, vendors and floor plans on one map, plus a property portal. Based in North Georgia, working anywhere." />
 <meta name="twitter:image" content="https://layeredinsightsgis.com/imgs/buildings.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=24">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=25">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -59,182 +59,162 @@
 </header>
 
 <main>
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
+  <section class="hero mk-hero">
+    <div class="container mk-hero-grid">
+      <div class="mk-hero-copy">
         <p class="eyebrow">Maps for the people who manage buildings</p>
         <h1>Know your buildings better than the people who built them.</h1>
-        <p class="lede">They knew the drawings. You'll know what's actually there, who to call, and what's missing, long after the people who knew have moved on. For property managers, owners and facilities teams anywhere, from our base in North Georgia.</p>
+        <p class="lede">Floor plans out of the drawer. Maps that match the doors. Answers at 2 a.m. Start with one building, or one hour.</p>
         <div class="hero-cta">
-          <a href="contact.html" class="btn btn-primary">Start a project</a>
-          <a href="services.html" class="btn btn-ghost">See what we build</a>
-        </div>
-        <p class="lede" style="margin-top:16px; font-size:0.94rem;">Just need an hour? <a href="services.html#consulting" style="color:var(--ochre); border-bottom:1px solid var(--ochre-dim);">Book a flat-rate hour →</a></p>
-        <p class="coord" style="margin-top:20px;">34.5323° N, 83.9843° W · from the ground to the room · toggle the layers →</p>
-      </div>
-
-      <div>
-        <div class="stack-stage" aria-hidden="false">
-          <div class="layer-sheet active" data-layer="base">
-            <svg class="chrome" viewBox="0 0 120 40">
-              <path d="M8 30 L8 10 M4 14 L8 10 L12 14" fill="none" stroke="currentColor" stroke-width="1.4"/>
-              <line x1="30" y1="30" x2="70" y2="30" stroke="currentColor" stroke-width="1.4"/>
-              <line x1="30" y1="26" x2="30" y2="30" stroke="currentColor" stroke-width="1.4"/>
-              <line x1="50" y1="26" x2="50" y2="30" stroke="currentColor" stroke-width="1.4"/>
-              <line x1="70" y1="26" x2="70" y2="30" stroke="currentColor" stroke-width="1.4"/>
-              <text x="30" y="18" font-family="IBM Plex Mono" font-size="8" fill="currentColor">0&#160;&#160;&#160;&#160;&#160;&#160;200 m</text>
-            </svg>
-          </div>
-
-          <div class="layer-sheet layer-photo" data-layer="contours" style="--tx:22px; --ty:28px; --rot:-1.2deg; --delay:.08s; background-image:url('imgs/contours.jpg');">
-            <span class="sheet-label"><span class="name">Terrain</span><span class="tech">contours</span></span>
-          </div>
-
-          <div class="layer-sheet layer-photo" data-layer="buildings" style="--tx:45px; --ty:5px; --rot:.8deg; --delay:.16s; background-image:url('imgs/buildings.jpg?v=2');">
-            <span class="sheet-label"><span class="name">Footprints</span><span class="tech">buildings</span></span>
-          </div>
-
-          <div class="layer-sheet layer-photo" data-layer="rooms" style="--tx:68px; --ty:-18px; --rot:-.6deg; --delay:.24s; background-image:url('imgs/floorplan.svg');">
-            <span class="sheet-label"><span class="name">Floor plan</span><span class="tech">rooms</span></span>
-          </div>
-
-          <div class="layer-sheet layer-photo" data-layer="safety" style="--tx:90px; --ty:-40px; --rot:1deg; --delay:.32s; background-image:url('imgs/safety.svg');">
-            <span class="sheet-label"><span class="name">Safety</span><span class="tech">features</span></span>
-          </div>
-        </div>
-        <div class="layer-toggles">
-          <label class="layer-chip"><input type="checkbox" data-layer="contours"><span class="swatch" style="background:var(--ochre)"></span>Terrain</label>
-          <label class="layer-chip"><input type="checkbox" data-layer="buildings"><span class="swatch" style="background:var(--olive)"></span>Footprints</label>
-          <label class="layer-chip"><input type="checkbox" data-layer="rooms"><span class="swatch" style="background:var(--teal)"></span>Floor plan</label>
-          <label class="layer-chip"><input type="checkbox" data-layer="safety"><span class="swatch" style="background:var(--clay)"></span>Safety</label>
+          <a href="#pick" class="btn btn-primary">What's your problem? ↓</a>
+          <a href="#ways" class="btn btn-ghost">Start small</a>
         </div>
       </div>
-
+      <aside class="mk-pick-teaser" aria-label="Three common problems">
+        <a href="#pick" data-open="map"><small>Mapping</small>"Our drawings are in a box."</a>
+        <a href="#pick" data-open="gis"><small>GIS help</small>"Our maps and systems don't agree."</a>
+        <a href="#pick" data-open="portal"><small>The portal</small>"It's 2 a.m. Where's the shut-off?"</a>
+      </aside>
     </div>
   </section>
 
-  <div class="container"><div class="signature-divider" aria-hidden="true"><svg viewBox="0 0 400 16" preserveAspectRatio="none"><path d="M0,8 C50,1 100,15 150,8 C200,1 250,15 300,8 C350,1 380,12 400,8"/></svg></div></div>
-
-  <section class="section-border-top">
+  <section class="section-border-top" id="pick">
     <div class="container">
       <div class="section-head">
-        <p class="eyebrow">Sound familiar?</p>
-        <h2>The problems we get called about.</h2>
-        <p class="lede">If one of these sounds like your building, let's talk. If it made you think of someone else, send them our way.</p>
+        <p class="eyebrow">Pick your problem</p>
+        <h2>Which one sounds like your building?</h2>
       </div>
-      <div class="grid-4 scenarios">
-        <div class="card">
-          <h3>The water main breaks at 2 a.m., and the person who knew where the shut-off was retired last spring.</h3>
-          <p>We map shut-offs, fire panels and roof access so whoever is on call can find them.</p>
-        </div>
-        <div class="card">
-          <h3>A tree comes down across the parking lot. Someone digs through files to learn who the landscaper is, then searches the web for a phone number.</h3>
-          <p>We keep every vendor, what they do and how to reach them in one place.</p>
-        </div>
-        <div class="card">
-          <h3>Everything about the building lives in one manager's three-ring binder. When she changes jobs, the binder goes with her.</h3>
-          <p>We keep the building's contacts, plans and history with the building.</p>
-        </div>
-        <div class="card">
-          <h3>The building changed hands again, and the drawings didn't come with it.</h3>
-          <p>We turn whatever plans exist, whether CAD, PDF or paper, into floor plans you can search and share.</p>
-        </div>
+      <div class="pk-tabs" role="tablist" aria-label="Problems">
+        <button role="tab" id="tab-map" aria-controls="pane-map" aria-selected="true" data-tab="map"><small>Mapping</small>Our drawings are in a box.</button>
+        <button role="tab" id="tab-gis" aria-controls="pane-gis" aria-selected="false" data-tab="gis"><small>GIS help</small>Our maps and systems don't agree.</button>
+        <button role="tab" id="tab-portal" aria-controls="pane-portal" aria-selected="false" data-tab="portal"><small>The portal</small>It's 2 a.m. Where's the shut-off?</button>
       </div>
-      <p class="scenario-more"><a href="services.html">Everything we do, from a one-hour consult to a full build →</a></p>
+
+      <div class="pk-pane" role="tabpanel" id="pane-map" aria-labelledby="tab-map">
+        <p class="pk-lead">CAD files, PDFs, a photocopy with pen notes. We turn whatever you have into floor plans you can search, measure and share. <b>Drag to compare.</b></p>
+        <div class="ba" id="ba">
+          <div class="ba-under"><svg class="ba-img" viewBox="0 0 520 340" role="img" aria-label="The same building on a clean map with symbols for the water shut-off, fire alarm panel and roof access, and a panel listing who to call with confirmed dates.">
+            <rect width="520" height="340" rx="4" class="cl-ground"/>
+            <rect x="0" y="300" width="520" height="40" class="cl-road"/>
+            <rect x="120" y="60" width="270" height="190" class="cl-bldg"/>
+            <line x1="120" y1="140" x2="390" y2="140" class="cl-wall"/><line x1="255" y1="60" x2="255" y2="250" class="cl-wall"/>
+            <rect x="230" y="120" width="50" height="40" class="cl-core"/>
+            <rect x="120" y="60" width="270" height="190" class="cl-out"/>
+            <circle cx="150" cy="292" r="13" class="cl-ghost"/><text x="150" y="272" class="cl-ghost-t">not where the note said</text><rect x="458" y="270" width="20" height="20" class="cl-util"/>
+            <circle cx="268" cy="134" r="8" class="cl-life"/>
+            <path d="M330 72 L340 88 L320 88 Z" class="cl-acc"/>
+            <text x="450" y="266" class="cl-lab cl-end">Water shut-off</text><path d="M478 290 L478 300" class="cl-tick"/>
+            <text x="282" y="128" class="cl-lab">Fire alarm panel</text>
+            <text x="346" y="86" class="cl-lab">Roof hatch</text>
+            <g class="cl-card">
+              <rect x="20" y="20" width="200" height="84" rx="6"/>
+              <text x="32" y="42" class="cl-k">WATER SHUT-OFF</text>
+              <text x="32" y="62" class="cl-v">Curb box, east drive</text>
+              <text x="32" y="80" class="cl-v">Lanier Plumbing · 24 hr</text>
+              <text x="32" y="96" class="cl-ok">Location confirmed Apr 2026</text>
+            </g>
+          </svg></div>
+          <div class="ba-over"><svg class="ba-img" viewBox="0 0 520 340" role="img" aria-label="A photocopied site plan marked up by hand with pen notes: water shut-off with question marks, fire panel arrow, roof key in the office drawer, a crossed-out landscaper phone number.">
+            <rect width="520" height="340" rx="4" class="sk-paper"/>
+            <g class="sk-copy">
+              <rect x="120" y="60" width="270" height="190"/>
+              <line x1="120" y1="140" x2="390" y2="140"/><line x1="255" y1="60" x2="255" y2="250"/>
+              <rect x="230" y="120" width="50" height="40"/>
+              <path d="M40 300 H480" /><path d="M60 40 V290" stroke-dasharray="6 6"/>
+              <text x="255" y="282" class="sk-t">BLDG A — SITE PLAN (1998)</text>
+              <text x="440" y="320" class="sk-t">SHT 1 OF 1</text>
+            </g>
+            <g class="sk-pen">
+              <ellipse cx="150" cy="292" rx="22" ry="13"/>
+              <path d="M150 279 C 150 240, 90 230, 70 200"/>
+              <text x="18" y="190" class="sk-h">water off here??</text>
+              <text x="30" y="214" class="sk-h">ask Bob</text>
+              <path d="M300 30 L268 118" /><path d="M262 106 L268 118 L278 108"/>
+              <text x="300" y="26" class="sk-h">FIRE PANEL (I think)</text>
+              <text x="398" y="92" class="sk-h">roof key -</text>
+              <text x="398" y="114" class="sk-h">office drawer</text>
+              <text x="398" y="200" class="sk-h">landscaper</text>
+              <text x="398" y="224" class="sk-h sk-x">770-555-01..</text>
+              <line x1="396" y1="219" x2="492" y2="214"/>
+              <text x="410" y="246" class="sk-h">new guy?</text>
+            </g>
+          </svg></div>
+          <div class="ba-line" aria-hidden="true"><span>⟷</span></div>
+          <span class="ba-tag ba-tag-l">What you have</span>
+          <span class="ba-tag ba-tag-r">What you get</span>
+          <input class="ba-range" id="ba-range" type="range" min="0" max="100" value="55" aria-label="Compare the paper site plan with the mapped building">
+        </div>
+        <p class="pk-next">Those floor plans are also the foundation of our portal. Start with the drawings; add the portal whenever you're ready.</p>
+      </div>
+
+      <div class="pk-pane" role="tabpanel" id="pane-gis" aria-labelledby="tab-gis" hidden>
+        <p class="pk-lead">The door says 214. The scheduling system says 214A. The map says something else. We connect your maps to the systems you already run, and keep them in step.</p>
+        <div class="sy">
+          <div class="sy-head"><span>Room</span><span>Sign on the door</span><span>Scheduling system</span><span>Map</span></div>
+          <div class="sy-row"><span>Conference</span><span>214</span><span class="sy-v" data-good="214">214A</span><span class="sy-v" data-good="214">2-14</span></div>
+          <div class="sy-row"><span>Office</span><span>218</span><span>218</span><span class="sy-v" data-good="218">216</span></div>
+          <div class="sy-row"><span>Storage</span><span>220</span><span class="sy-v" data-good="220">—</span><span>220</span></div>
+          <div class="sy-row"><span>Break room</span><span>222</span><span>222</span><span>222</span></div>
+          <div class="sy-foot"><span id="sy-count">4 mismatches</span><button class="btn btn-primary" id="sy-go">Connect them</button></div>
+        </div>
+        <p class="pk-next">Once your maps and systems agree, the portal can sit right on top of them.</p>
+      </div>
+
+      <div class="pk-pane" role="tabpanel" id="pane-portal" aria-labelledby="tab-portal" hidden>
+        <p class="pk-lead">Suite 101 calls at 02:01: water through the ceiling. Click through what the manager does. About thirty seconds.</p>
+        <div id="try-it">
+        <p class="ti-phone">Best on a computer or tablet. The plan is too small to tap comfortably on a phone.</p>
+      <div class="situations" id="ti-situations">
+        <button class="sit" data-sit="leak" aria-pressed="false"><small>02:01 Tuesday</small>Suite 101 calls: water is coming through the ceiling.</button>
+        <button class="sit" data-sit="overdue" aria-pressed="false"><small>Monday morning</small>What's overdue or missing in this building?</button>
+      </div>
+      <div class="stage">
+        <div class="plan-card">
+          <div class="bar">
+            <div class="bldg">Bellwether Office Tower <span>· sample building</span></div>
+            <div class="tabs" role="tablist" aria-label="Level" id="ti-tabs"></div>
+          </div>
+          <svg class="plan" id="ti-plan" viewBox="0 0 600 380" role="img" aria-label="Plan of the selected level"></svg>
+          <div class="legend" aria-hidden="true">
+            <span><i class="l-sys"></i>Systems</span>
+            <span><i class="l-safe"></i>Life safety</span>
+            <span><i class="l-acc"></i>Access</span>
+            <span><i class="l-stale"></i>Needs attention</span>
+          </div>
+        </div>
+        <aside class="side" id="ti-side" aria-live="polite"></aside>
+      </div>
+      <p class="ti-note">A simplified sample with a fictional building, people and numbers. The real portal runs on a live map.</p>
+      <div class="toast" id="ti-toast" hidden></div>
+    
+        </div>
+        <p class="pk-next">It starts with your buildings on the map (that's the first tab).</p>
+      </div>
     </div>
   </section>
 
-  <section class="section-border-top portal-feature">
-    <div class="container portal-hero">
-      <div>
-        <p class="eyebrow">New · Property portal</p>
-        <h2 class="portal-h2">Every building's map and memory, in one place.</h2>
-        <p class="lede portal-lede"><strong class="lede-q">Where's the water shut-off? Who services the fire panel? Is that after-hours number still good?</strong> Our portal for property managers puts the answers on a map of each of your buildings, and tells you what's missing before someone needs it.</p>
-        <div class="hero-cta">
-          <a href="property-portal.html" class="btn btn-primary">See the property portal</a>
-          <a href="contact.html?topic=portal#contactForm" class="btn btn-ghost">Request a demo</a>
-        </div>
+  <section class="section-border-top" id="ways">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Ways in</p>
+        <h2>Start small. Expand when you're ready.</h2>
+        <p class="lede">Each step builds on the one before, so you never pay for the same work twice.</p>
       </div>
-      <a href="property-portal.html" class="portal-figure portal-figure-link" aria-label="See the property portal">
-        <svg class="portal-plan" viewBox="0 0 600 380" role="img" aria-label="Illustration of the portal: floor 1 of a demo office building with its suites, core rooms and safety features marked by category, and a What's missing panel listing no generator on record and two features not confirmed in a year.">
-  <defs>
-    <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" class="pp-hatch"/></pattern>
-  </defs>
-  <!-- floor picker -->
-  <g class="pp-chips">
-    <rect x="60" y="22" width="74" height="26" rx="13" class="pp-chip"/><text x="97" y="39" text-anchor="middle" class="pp-chip-t">All floors</text>
-    <rect x="142" y="22" width="30" height="26" rx="13" class="pp-chip pp-chip-on"/><text x="157" y="39" text-anchor="middle" class="pp-chip-t pp-chip-ton">1</text>
-    <rect x="180" y="22" width="30" height="26" rx="13" class="pp-chip"/><text x="195" y="39" text-anchor="middle" class="pp-chip-t">2</text>
-    <rect x="218" y="22" width="30" height="26" rx="13" class="pp-chip"/><text x="233" y="39" text-anchor="middle" class="pp-chip-t">3</text>
-    <rect x="256" y="22" width="50" height="26" rx="13" class="pp-chip"/><text x="281" y="39" text-anchor="middle" class="pp-chip-t">Roof</text>
-  </g>
-  <!-- floor plate -->
-  <rect x="60" y="80" width="320" height="220" class="pp-plate"/>
-  <line x1="180" y1="80" x2="180" y2="300" class="pp-wall"/>
-  <line x1="260" y1="80" x2="260" y2="300" class="pp-wall"/>
-  <line x1="60" y1="190" x2="180" y2="190" class="pp-wall"/>
-  <line x1="260" y1="190" x2="380" y2="190" class="pp-wall"/>
-  <rect x="180" y="150" width="80" height="70" class="pp-core"/>
-  <line x1="220" y1="150" x2="220" y2="220" class="pp-wall"/>
-  <text x="120" y="140" text-anchor="middle" class="pp-room">Suite 101</text>
-  <text x="320" y="140" text-anchor="middle" class="pp-room">Suite 102</text>
-  <text x="120" y="250" text-anchor="middle" class="pp-room">Suite 103</text>
-  <text x="320" y="250" text-anchor="middle" class="pp-room">Vacant</text>
-  <text x="220" y="118" text-anchor="middle" class="pp-room">Lobby</text>
-  <text x="220" y="262" text-anchor="middle" class="pp-room">Corridor</text>
-  <!-- features: utilities = square, life safety = circle, systems = diamond, access = triangle -->
-  <rect x="234" y="310" width="12" height="12" class="pp-util"/>
-  <circle cx="200" cy="185" r="6.5" class="pp-life"/>
-  <circle cx="60" cy="110" r="6.5" class="pp-life"/>
-  <circle cx="290" cy="196" r="6.5" class="pp-life"/>
-  <path d="M240 178 L247 185 L240 192 L233 185 Z" class="pp-sys"/>
-  <path d="M220 72 L227 84 L213 84 Z" class="pp-access"/>
-  <!-- assembly point with radius -->
-  <circle cx="112" cy="342" r="24" class="pp-radius"/>
-  <circle cx="112" cy="342" r="6.5" class="pp-life"/>
-  <!-- callout labels -->
-  <text x="254" y="320" class="pp-tag">Water shut-off</text>
-  <text x="70" y="104" class="pp-tag">FDC</text>
-  <text x="144" y="346" class="pp-tag">Assembly point</text>
-  <!-- what's missing panel -->
-  <rect x="404" y="80" width="176" height="220" rx="6" class="pp-card"/>
-  <text x="420" y="106" class="pp-card-h">What's missing</text>
-  <circle cx="424" cy="128" r="4" class="pp-warn"/>
-  <text x="434" y="132" class="pp-card-t">No generator on record</text>
-  <line x1="420" y1="146" x2="564" y2="146" class="pp-rule"/>
-  <text x="420" y="166" class="pp-card-s">Not confirmed in a year</text>
-  <text x="420" y="186" class="pp-card-t">Fire dept. connection</text>
-  <text x="420" y="201" class="pp-card-m">last confirmed Aug 2025</text>
-  <text x="420" y="221" class="pp-card-t">Sprinkler riser valve</text>
-  <text x="420" y="236" class="pp-card-m">last confirmed Aug 2025</text>
-  <!-- legend -->
-  <g class="pp-legend">
-    <rect x="404" y="320" width="10" height="10" class="pp-util"/><text x="420" y="330" class="pp-leg">Shut-offs</text>
-    <circle cx="502" cy="325" r="5.5" class="pp-life"/><text x="512" y="330" class="pp-leg">Life safety</text>
-    <path d="M409 344 L415 350 L409 356 L403 350 Z" class="pp-sys"/><text x="420" y="355" class="pp-leg">Systems</text>
-    <path d="M502 344 L508 355 L496 355 Z" class="pp-access"/><text x="512" y="355" class="pp-leg">Access</text>
-  </g>
-</svg>
-      </a>
+      <ol class="path">
+        <li class="step-card"><span class="who">START SMALL</span><h3>One hour, one map, one floor plan</h3><p>A second opinion, a single map, or one building's plans digitized.</p><span class="price">$125 an hour, no minimum · floor plans from $300</span><a class="go" href="contact.html">Book an hour →</a></li>
+        <li class="step-card"><span class="who">MAPPING</span><h3>All your buildings on the map</h3><p>Floor plans, rooms and the things people need to find, for every building you manage.</p><span class="price">From $300 per floor, depending on how true to scale your plans are</span><a class="go" href="services.html">How it works →</a></li>
+        <li class="step-card"><span class="who">GIS HELP</span><h3>Maps that agree with your systems</h3><p>Room numbers, schedules and directories kept in step, without retyping.</p><span class="price">$125 an hour, or a fixed price per project</span><a class="go" href="services.html">See what we connect →</a></li>
+        <li class="step-card"><span class="who">THE PORTAL</span><h3>Answers on a map, every day</h3><p>Who to call, where it is, what's overdue.</p><span class="price">Monthly, per building</span><a class="go" href="property-portal.html">See the portal →</a></li>
+      </ol>
+      <p class="path-credit">Book an hour, and if we go on to build something together, those hours come off the project price.</p>
     </div>
   </section>
 
   <section class="section-border-top">
     <div class="container">
-      <div class="about-grid">
-        <div>
-          <p class="eyebrow">Why Layered Insights</p>
-          <h2 style="font-size:clamp(1.7rem,3vw,2.3rem); margin-top:10px;">Built by someone who has run the program.</h2>
-          <p class="lede" style="margin-top:16px;">We've built and run an enterprise GIS program from the inside, across multiple sites. We know where building data breaks, and which shortcuts cost you later.</p>
-          <div class="hero-cta">
-            <a href="about.html" class="btn btn-ghost">More about us</a>
-          </div>
-        </div>
-        <ul class="principle-list">
-          <li><strong>One point of contact.</strong>You talk to the person doing the work, start to finish.</li>
-          <li><strong>Data that outlives the project.</strong>Pipelines and standards meant to keep working after we leave.</li>
-          <li><strong>Plain-language handoff.</strong>Documentation written for whoever inherits the system.</li>
-        </ul>
+      <div class="mk-ask">
+        <div><h3>Show us your building.</h3><p>Send a site plan, a floor plan or just a description. We'll tell you plainly what it would take, starting with the smallest useful step.</p></div>
+        <a href="contact.html" class="btn btn-primary">Start the conversation</a>
       </div>
     </div>
   </section>
@@ -273,5 +253,7 @@
 </footer>
 
 <script src="script.js?v=12"></script>
+<script src="try-it.js?v=5"></script>
+<script src="home.js?v=1"></script>
 </body>
 </html>
