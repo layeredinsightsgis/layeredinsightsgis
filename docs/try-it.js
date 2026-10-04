@@ -73,6 +73,7 @@ const staleContacts = () => Object.entries(SUITES).flatMap(([n, s]) => (s.contac
 
 // What the plan shows at each step of the leak walkthrough.
 const STEP_VIEW = {
+  0: { level: 'f1', suite: '101' },
   1: { level: 'f1', suite: '101' },
   2: { level: 'f1', suite: '101' },
   3: { level: 'f2' },
@@ -141,7 +142,7 @@ function drawLevel(id) {
 function focusSet() {
   if (state.sel && state.sel.kind === 'feat') return new Set([state.sel.id]);
   if (state.sel && state.sel.kind === 'suite') return new Set();
-  if (state.sit === 'leak') { const v = STEP_VIEW[state.focus]; return v ? new Set(v.feat ? [v.feat] : []) : null; }
+  if (state.sit === 'leak') { const v = STEP_VIEW[state.focus]; return new Set(v && v.feat ? [v.feat] : []); }
   if (state.sit === 'overdue') return new Set(FEATURES.filter(staleNow).map(f => f.id));
   return null; // just exploring: nothing dimmed
 }
@@ -321,6 +322,7 @@ $('ti-side').addEventListener('click', e => {
   else if (t.dataset.confirmContact) { const [n, role] = t.dataset.confirmContact.split('|'); const c = SUITES[n].contacts.find(x => x.role === role); record(t, 'c' + n + role, c.issue ? c.issue.list : 'Suite ' + n + ' contact'); }
   else if (t.hasAttribute('data-reset-missing')) { state.confirmed.clear(); state.done = []; render(); }
 });
-render();
+const startWith = document.getElementById('try-it').dataset.start;
+if (startWith) startSituation(startWith); else render();
 
 })();

@@ -18,7 +18,7 @@
 <meta name="twitter:image" content="https://layeredinsightsgis.com/imgs/buildings.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=27">
+<link rel="stylesheet" href="styles.css?v=28">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -236,11 +236,10 @@
 
       <div class="pk-pane" role="tabpanel" id="pane-portal" aria-labelledby="tab-portal" hidden>
         <p class="pk-lead">Suite 101 calls at 02:01: water through the ceiling. Click through what the manager does. About thirty seconds.</p>
-        <div id="try-it">
+        <div id="try-it" data-start="leak">
         <p class="ti-phone">Best on a computer or tablet. The plan is too small to tap comfortably on a phone.</p>
-      <div class="situations" id="ti-situations">
+      <div class="situations" id="ti-situations" hidden>
         <button class="sit" data-sit="leak" aria-pressed="false"><small>02:01 Tuesday</small>Suite 101 calls: water is coming through the ceiling.</button>
-        <button class="sit" data-sit="overdue" aria-pressed="false"><small>Monday morning</small>What's overdue or missing in this building?</button>
       </div>
       <div class="stage">
         <div class="plan-card">
@@ -262,7 +261,7 @@
       <div class="toast" id="ti-toast" hidden></div>
     
         </div>
-        <p class="pk-next">It starts with your buildings on the map (that's the first tab).</p>
+        <p class="pk-next">That's the 2 a.m. call. On Monday morning, the portal tells you what's overdue before the next one. <a href="property-portal.html#try-it">See it on the portal page →</a></p>
       </div>
     </div>
   </section>
@@ -327,7 +326,7 @@
 </footer>
 
 <script src="script.js?v=12"></script>
-<script src="try-it.js?v=5"></script>
+<script src="try-it.js?v=7"></script>
 <script src="home.js?v=1"></script>
 </body>
 </html>
