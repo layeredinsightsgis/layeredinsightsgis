@@ -1220,3 +1220,29 @@ text.hd-sm2[x="262"] { text-anchor: middle; }
 .hd-nts { fill: #4A4A55; font: 700 15px var(--hand); letter-spacing: 0.06em; }
 #try-it .situations[hidden] { display: none; }
 .pk-next a { color: var(--ochre); font-style: normal; font-family: var(--font-mono); font-size: 0.85rem; border-bottom: 1px solid var(--ochre-dim); white-space: nowrap; }
+
+/* ---- Pricing page (2026-10-04) ---- */
+.pr-hour, .pr-portal { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 32px; }
+.pr-hour > div, .pr-portal > div { max-width: 64ch; min-width: 0; }
+.pr-big { font-size: 1.5em; color: var(--ochre); }
+.pr-table-wrap { overflow-x: auto; border: 1px solid var(--border-strong); border-radius: 8px; }
+.pr-table { width: 100%; border-collapse: collapse; min-width: 560px; }
+.pr-table th, .pr-table td { text-align: left; padding: 14px 18px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.pr-table thead th { font-family: var(--font-mono); font-size: 0.74rem; font-weight: 500; letter-spacing: 0.05em; color: var(--muted); text-transform: uppercase; background: var(--ink-2); }
+.pr-table tbody th { font-weight: 500; color: var(--paper); width: 34%; }
+.pr-table tbody th span { display: block; margin-top: 2px; font-weight: 400; font-size: 0.85rem; color: var(--muted); }
+.pr-table td { color: var(--paper-dim); }
+.pr-table tr:last-child th, .pr-table tr:last-child td { border-bottom: 0; }
+.pr-num { font-family: var(--font-mono); color: var(--ochre) !important; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.pr-note { margin-top: 14px; font-size: 0.9rem; color: var(--muted); max-width: 80ch; }
+.pr-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 860px) { .pr-cards { grid-template-columns: 1fr; } }
+.pr-card { padding: 22px; border: 1px solid var(--border); border-radius: 8px; background: var(--ink-2); display: grid; gap: 8px; align-content: start; }
+.pr-card h3 { font-size: 1.2rem; margin: 0; }
+.pr-card p { margin: 0; color: var(--paper-dim); font-size: 0.95rem; }
+.pr-card .pr-price { font-family: var(--font-mono); color: var(--ochre); font-size: 1.05rem; }
+.pr-faq { display: grid; gap: 6px; max-width: 72ch; margin: 0; }
+.pr-faq dt { font-family: var(--font-display); font-size: 1.15rem; margin-top: 14px; }
+.pr-faq dd { margin: 0; color: var(--paper-dim); }
+.pr-included, .pr-large { margin-top: 16px; color: var(--paper-dim); max-width: 80ch; }
+.pr-included b, .pr-large b { color: var(--paper); font-weight: 500; }
