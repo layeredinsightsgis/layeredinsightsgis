@@ -81,6 +81,19 @@ const STEP_VIEW = {
   5: { level: 'f1', suite: '101' },
   6: { level: 'f2', feat: 'v2' }
 };
+// Guided Monday-morning tour (optional; the list stays free to explore).
+const MON = {
+  1: { level: 'site' },
+  2: { level: 'site', feat: 'gen', keys: ['gen'] },
+  3: { level: 'f1', feat: 'facp', keys: ['facp'] },
+  4: { level: 'f1', feat: 'aed', keys: ['aed'] },
+  5: { level: 'roof', feat: 'hatch', keys: ['hatch'] },
+  6: { level: 'f2', feat: 'ext2', suite: '203', keys: ['ext2', 'c203Billing'] }
+};
+function monApply() {
+  state.confirmed = new Set();
+  for (let i = 1; i <= state.step; i++) (MON[i].keys || []).forEach(k => state.confirmed.add(k));
+}
 const state = { level: 'site', sel: null, sit: null, step: 0, focus: 0, confirmed: new Set(), done: [], recording: null };
 // Leak walkthrough: step = furthest card revealed (0 none, 1 valve, 2 suite above,
 // 3 plumber); focus = the card whose place is lit on the plan (click any revealed
@@ -105,7 +118,7 @@ const R = (x, y, w, h, cls, label, big) => `<rect class="room ${cls || ''}" x="$
 function suiteShape(n) {
   const [x, y, w, h] = SUITE_BOX[n[2]];
   const s = SUITES[n];
-  const on = (state.sel && state.sel.kind === 'suite' && state.sel.id === n) || (!state.sel && state.sit === 'leak' && (STEP_VIEW[state.focus] || {}).suite === n);
+  const on = (state.sel && state.sel.kind === 'suite' && state.sel.id === n) || (!state.sel && state.sit === 'leak' && (STEP_VIEW[state.focus] || {}).suite === n) || (!state.sel && state.sit === 'mtour' && (MON[state.focus] || {}).suite === n);
   return `<g class="suite ${s.vacant ? 'vac' : ''} ${on ? 'on' : ''}" data-suite="${n}" tabindex="0" role="button" aria-label="Suite ${n}${s.vacant ? ', vacant' : ', ' + esc(s.tenant)}">
     <rect class="room ${s.vacant ? 'vacant' : ''}" x="${x}" y="${y}" width="${w}" height="${h}"/>
     <text class="rlab big" x="${x + w / 2}" y="${y + h / 2 - 3}">Suite ${n}</text>
@@ -144,6 +157,7 @@ function focusSet() {
   if (state.sel && state.sel.kind === 'suite') return new Set();
   if (state.sit === 'leak') { const v = STEP_VIEW[state.focus]; return new Set(v && v.feat ? [v.feat] : []); }
   if (state.sit === 'overdue') return new Set(FEATURES.filter(staleNow).map(f => f.id));
+  if (state.sit === 'mtour') { const v = MON[state.focus]; return new Set(v && v.feat ? [v.feat] : []); }
   return null; // just exploring: nothing dimmed
 }
 
@@ -155,7 +169,7 @@ function symbol(f, focus) {
   if (f.cat === 'sys') shape = `<path class="sym sys" d="M${x} ${y - 8} L${x + 8} ${y} L${x} ${y + 8} L${x - 8} ${y} Z"/>`;
   else if (f.cat === 'acc') shape = `<path class="sym acc" d="M${x} ${y - 8} L${x + 8} ${y + 6} L${x - 8} ${y + 6} Z"/>`;
   else shape = `<circle class="sym safe" cx="${x}" cy="${y}" r="7"/>`;
-  const on = (state.sel && state.sel.kind === 'feat' && state.sel.id === f.id) || (!state.sel && state.sit === 'leak' && (STEP_VIEW[state.focus] || {}).feat === f.id);
+  const on = (state.sel && state.sel.kind === 'feat' && state.sel.id === f.id) || (!state.sel && state.sit === 'leak' && (STEP_VIEW[state.focus] || {}).feat === f.id) || (!state.sel && state.sit === 'mtour' && (MON[state.focus] || {}).feat === f.id);
   return `<g class="feat ${on ? 'sel' : ''} ${dim ? 'dim' : ''}" data-id="${f.id}" tabindex="0" role="button" aria-label="${esc(f.name)}">
     <circle class="hit" cx="${x}" cy="${y}" r="16"/>${staleNow(f) ? `<circle class="stale-ring ${pulse ? 'pulse' : ''}" cx="${x}" cy="${y}" r="13"/>` : ''}<circle class="halo" cx="${x}" cy="${y}" r="11"/>${shape}</g>`;
 }
@@ -183,6 +197,24 @@ function panelSituation() {
       ${card(6, '02:26', `Plumber notified · ${V.plumb}`, `<span class="m">24-hour line · confirmed Apr 2026. Meets the tech at the valve.</span>${phone(V.plumbPh)}`)}
       ${state.step >= 6 ? '<p class="why">Five minutes from "where\'s the shut-off?" to water off. The drawings never showed that valve. Your tech knew, and now the map does too.</p>' : ''}
       ${state.step >= 1 ? '<button class="back restart" data-restart>↺ Start over</button>' : ''}`;
+  }
+  if (state.sit === 'mtour') {
+    const remaining = missingItems().length;
+    const card = (n, time, title, body) => {
+      const st = n === state.focus ? 'now' : n <= state.step ? 'done' : n === state.step + 1 ? 'next' : 'later';
+      return `<div class="step ${st}"><span class="n">${n}</span><button class="item lstep ${st === 'now' ? 'key' : ''}" data-mstep="${n}" ${st === 'later' ? 'disabled' : ''} aria-expanded="${n <= state.step}">
+        <span class="m">${time}</span><span class="t">${title}</span>${n <= state.step ? body : (st === 'next' ? '<span class="m tap">Tap for the next step</span>' : '')}</button></div>`;
+    };
+    return `<p class="kicker">Monday · Bellwether Office Tower</p>
+      <h3>Monday morning, minute by minute.<span class="count ${remaining ? '' : 'ok'}">${remaining ? remaining + ' to check' : 'all clear'}</span></h3>
+      ${card(1, '08:00', 'The manager opens the portal', `<span class="m">Six things need attention in this building. Nothing has gone wrong yet.</span>`)}
+      ${card(2, '08:02', 'Generator: monthly test missed, 7 weeks overdue', `<span class="m">Calls Brightline Electric. Test booked for Thursday. Recorded.</span>`)}
+      ${card(3, '08:06', 'Fire alarm panel: annual inspection overdue', `<span class="m">Fire control room, Floor 1. Inspection scheduled with Summit Fire Protection.</span>`)}
+      ${card(4, '08:09', 'AED pads expire in December', `<span class="m">Lobby, by the elevators. Replacement pads ordered.</span>`)}
+      ${card(5, '08:11', 'Roof hatch: nobody has the key on record', `<span class="m">Key holder added: the chief engineer.</span>`)}
+      ${card(6, '08:14', 'Two quick ones', `<span class="m">The Floor 2 extinguisher check goes on the tech's rounds. An email goes to Suite 203 to re-confirm their billing contact.</span>`)}
+      ${state.step >= 6 ? '<p class="why">Fifteen minutes on a Monday. Six things handled before anyone needed them.</p>' : ''}
+      ${state.step >= 1 ? `<div class="mt-actions"><button class="back restart" data-sitgo="mtour">↺ Start over</button><button class="back restart" data-sitgo="overdue">Explore the list yourself →</button></div>` : ''}`;
   }
   if (state.sit === 'afterhours') return panelSuite('203', 'Saturday · alarm company calling');
   return panelMissing('Monday morning');
@@ -231,7 +263,8 @@ function panelMissing(kicker) {
     <button class="back restart" data-reset-missing>↺ Put the sample items back</button>`;
   return `${kicker ? `<p class="kicker">${kicker}</p>` : ''}
     <h3>What's missing<span class="count">${items.length} to check</span></h3>
-    <p class="sub">${state.done.length ? 'One down. Tap the next one.' : 'Tap an item to see where it is and record it.'}</p>
+    ${state.done.length || state.confirmed.size ? '' : '<button class="mt-go" data-sitgo="mtour">▶ Walk me through Monday morning <span>about a minute</span></button>'}
+    <p class="sub">${state.done.length ? 'One down. Tap the next one.' : 'Or tap an item to see where it is and record it.'}</p>
     <ul class="list">${done}${rows}</ul>
     <p class="why">Most buildings can't produce this list at all.</p>`;
 }
@@ -259,7 +292,7 @@ function renderPlan() {
   $('ti-plan').innerHTML = drawLevel(state.level) + FEATURES.filter(f => f.level === state.level).map(f => symbol(f, focusSet())).join('');
   $('ti-plan').setAttribute('aria-label', 'Plan of ' + levelName(state.level));
 }
-function renderSits() { document.querySelectorAll('#try-it .sit').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.sit === state.sit))); }
+function renderSits() { document.querySelectorAll('#try-it .sit').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.sit === state.sit || (b.dataset.sit === 'overdue' && state.sit === 'mtour')))); }
 function render() { renderSits(); renderTabs(); renderPlan(); renderSide(); }
 
 // Record an item: show it done where it was tapped, then (in the Monday list)
@@ -295,7 +328,8 @@ function startSituation(sit) {
   state.sit = sit;
   if (sit === 'leak') { state.level = 'f1'; state.sel = null; state.step = 0; state.focus = 0; }
   if (sit === 'afterhours') { state.level = 'f2'; state.sel = { kind: 'suite', id: '203' }; }
-  if (sit === 'overdue') { state.level = 'site'; state.sel = null; }
+  if (sit === 'overdue') { state.level = 'site'; state.sel = null; if (state.fromTour) { state.confirmed = new Set(); state.done = []; state.fromTour = false; } }
+  if (sit === 'mtour') { state.level = 'site'; state.sel = null; state.step = 0; state.focus = 0; state.done = []; state.confirmed = new Set(); state.fromTour = true; }
   render();
 }
 
@@ -316,6 +350,7 @@ $('ti-side').addEventListener('click', e => {
   if (t.hasAttribute('data-back')) { state.sel = null; render(); }
   else if (t.dataset.goto) { goto(t.dataset.goto); render(); }
   else if (t.dataset.sitgo) startSituation(t.dataset.sitgo);
+  else if (t.dataset.mstep) { state.step = Math.max(state.step, Number(t.dataset.mstep)); state.focus = Number(t.dataset.mstep); state.level = MON[state.focus].level; state.sel = null; monApply(); render(); }
   else if (t.dataset.step) { state.step = Math.max(state.step, Number(t.dataset.step)); state.focus = Number(t.dataset.step); state.level = STEP_VIEW[state.focus].level; state.sel = null; render(); }
   else if (t.hasAttribute('data-restart')) startSituation('leak');
   else if (t.dataset.confirmFeat) { const f = FEATURES.find(x => x.id === t.dataset.confirmFeat); record(t, f.id, f.issue.list); }
