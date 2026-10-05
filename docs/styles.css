@@ -1263,3 +1263,30 @@ text.hd-sm2[x="262"] { text-anchor: middle; }
 .pr-moves ul { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
 .pr-moves li { padding: 6px 12px; border: 1px solid var(--border-strong); border-radius: 999px; font-size: 0.9rem; color: var(--paper-dim); }
 .contact-conf { margin-top: 12px; font-size: 0.92rem; color: var(--muted); max-width: 60ch; }
+
+/* Pricing: expandable sections (2026-10-05) */
+.pr-acc { display: grid; gap: 12px; }
+.pr-d { border: 1px solid var(--border-strong); border-radius: 10px; background: var(--ink-2); }
+.pr-d[open] { border-color: var(--ochre-dim); }
+.pr-d summary { list-style: none; cursor: pointer; display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 20px; padding: 18px 22px; }
+.pr-d summary::-webkit-details-marker { display: none; }
+.pr-d summary::after { content: "+"; font: 400 1.4rem var(--font-mono); color: var(--ochre); margin-left: 18px; line-height: 1; }
+.pr-d[open] summary::after { content: "−"; }
+.pr-d summary:focus-visible { outline: 2px solid var(--ochre); outline-offset: 2px; border-radius: 10px; }
+.pr-d-t { font-family: var(--font-display); font-size: 1.3rem; color: var(--paper); }
+.pr-d-p { font-family: var(--font-mono); font-size: 0.9rem; color: var(--ochre); margin-left: auto; }
+.pr-d-body { padding: 4px 22px 24px; border-top: 1px solid var(--border); display: grid; gap: 14px; }
+.pr-d-body > *:first-child { margin-top: 16px; }
+.pr-d-body p { color: var(--paper-dim); max-width: 78ch; }
+.pr-d-body p a { color: var(--ochre); border-bottom: 1px solid var(--ochre-dim); }
+.pr-d-body .btn { justify-self: start; }
+.pr-d-lead { color: var(--paper); }
+.pr-d summary { display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 4px 18px; }
+.pr-d summary::after { margin-left: 0; }
+.pr-d-p { margin-left: 0; justify-self: end; }
+@media (max-width: 600px) {
+  .pr-d summary { grid-template-columns: 1fr auto; }
+  .pr-d-t { grid-column: 1; grid-row: 1; }
+  .pr-d-p { grid-column: 1; grid-row: 2; justify-self: start; font-size: 0.8rem; }
+  .pr-d summary::after { grid-column: 2; grid-row: 1 / span 2; }
+}
