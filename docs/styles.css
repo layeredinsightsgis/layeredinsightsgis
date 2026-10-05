@@ -1262,3 +1262,4 @@ text.hd-sm2[x="262"] { text-anchor: middle; }
 .pr-moves-h { font-family: var(--font-mono); font-size: 0.76rem; letter-spacing: 0.05em; color: var(--muted); text-transform: uppercase; margin: 0 0 10px; }
 .pr-moves ul { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
 .pr-moves li { padding: 6px 12px; border: 1px solid var(--border-strong); border-radius: 999px; font-size: 0.9rem; color: var(--paper-dim); }
+.contact-conf { margin-top: 12px; font-size: 0.92rem; color: var(--muted); max-width: 60ch; }
