@@ -1329,3 +1329,4 @@ text.hd-sm2[x="262"] { text-anchor: middle; }
 .contact-next { margin-top: 6px; font-size: 0.85rem; color: var(--paper-dim); max-width: 38ch; }
 .contact-form select, .contact-form input, .contact-form textarea { max-width: 100%; min-width: 0; }
 .contact-grid > * { min-width: 0; }
+.card .svc-price { margin-top: auto; padding-top: 10px; font: 0.8rem var(--font-mono); color: var(--ochre); }
