@@ -1319,3 +1319,8 @@ text.hd-sm2[x="262"] { text-anchor: middle; }
 /* Homepage: label the made-up illustrations */
 .pk-pane > .ti-note { margin-top: 12px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--paper-dim); }
 .ba-illus { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; border: 1px solid #E8A33D; background: rgba(16,21,26,0.88); color: #E8A33D; pointer-events: none; z-index: 3; }
+
+/* Pricing: "Put yourself on the map" ladder */
+.pr-card .pr-step { font: 600 0.75rem var(--font-mono); color: var(--ochre); letter-spacing: 0.08em; }
+.pr-card .pr-step::before { content: "STEP "; }
+.pr-card .pr-fine { font-size: 0.85rem; color: var(--muted, var(--paper-dim)); padding-top: 8px; border-top: 1px solid var(--border); }
