@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
     formStatus.textContent = text;
     formStatus.className = "form-status " + (ok ? "ok" : "err");
   };
-  const SENT_MSG = "Thanks, your message was sent. We'll reply shortly.";
+  const SENT_MSG = "Thanks, your message was sent. We'll reply soon, usually the same day.";
   // ?topic=portal (from the property portal page) preselects the demo topic
   const topicSelect = document.getElementById("topic");
   if (topicSelect && new URLSearchParams(location.search).get("topic") === "portal") {
