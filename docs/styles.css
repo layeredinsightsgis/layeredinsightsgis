@@ -1143,7 +1143,9 @@ section { padding: 76px 0; }
 @media (max-width: 980px) { .path { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 600px) { .path { grid-template-columns: 1fr; } }
 .step-card { position: relative; display: grid; gap: 8px; align-content: start; padding: 20px; border: 1px solid var(--border); border-radius: 8px; background: var(--ink-2); }
-.step-card:first-child { border-color: var(--ochre); }
+.step-card { cursor: pointer; transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease; }
+.step-card:hover { border-color: var(--ochre-dim); }
+.step-card.is-on { border-color: var(--ochre); box-shadow: 0 0 0 1px var(--ochre) inset; }
 .step-card .who { font: 0.72rem var(--font-mono); letter-spacing: 0.06em; color: var(--ochre); }
 .step-card h3 { font-size: 1.12rem; margin: 0; }
 .step-card p { margin: 0; color: var(--paper-dim); font-size: 0.93rem; }
