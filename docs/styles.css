@@ -1330,3 +1330,5 @@ text.hd-sm2[x="262"] { text-anchor: middle; }
 .contact-form select, .contact-form input, .contact-form textarea { max-width: 100%; min-width: 0; }
 .contact-grid > * { min-width: 0; }
 .card .svc-price { margin-top: auto; padding-top: 10px; font: 0.8rem var(--font-mono); color: var(--ochre); }
+.nw { white-space: nowrap; }
+.h1-bal { text-wrap: balance; }
