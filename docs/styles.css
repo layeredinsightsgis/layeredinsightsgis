@@ -1303,3 +1303,13 @@ text.hd-sm2[x="262"] { text-anchor: middle; }
 #try-it .mt-go span { font: 0.74rem var(--font-mono); color: var(--muted); }
 #try-it .mt-go:hover { background: rgba(201,138,75,0.2); }
 #try-it .mt-actions { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+
+/* Services page: consulting line + build accordions */
+.svc-start { margin-top: 28px; padding: 16px 20px; border: 1px dashed var(--border-strong); border-radius: 10px; color: var(--paper-dim); }
+.svc-start strong { color: var(--paper); }
+.svc-start a { color: var(--ochre); border-bottom: 1px solid var(--ochre-dim); white-space: nowrap; }
+.svc-acc .pr-d-p { font-family: var(--font-body, inherit); font-size: 0.95rem; color: var(--paper-dim); }
+.svc-n { font-family: var(--font-mono); font-size: 0.85rem; color: var(--ochre); margin-right: 12px; vertical-align: 0.15em; }
+.pr-d-body ul { margin: 0; padding-left: 18px; color: var(--paper-dim); font-size: 0.95rem; }
+.pr-d-body li { margin-top: 6px; }
+.pr-d-body .svc-honest { margin-top: 0; }
