@@ -1324,3 +1324,8 @@ text.hd-sm2[x="262"] { text-anchor: middle; }
 .pr-card .pr-step { font: 600 0.75rem var(--font-mono); color: var(--ochre); letter-spacing: 0.08em; }
 .pr-card .pr-step::before { content: "STEP "; }
 .pr-card .pr-fine { font-size: 0.85rem; color: var(--muted, var(--paper-dim)); padding-top: 8px; border-top: 1px solid var(--border); }
+
+/* Contact: what happens after the first reply */
+.contact-next { margin-top: 6px; font-size: 0.85rem; color: var(--paper-dim); max-width: 38ch; }
+.contact-form select, .contact-form input, .contact-form textarea { max-width: 100%; min-width: 0; }
+.contact-grid > * { min-width: 0; }
