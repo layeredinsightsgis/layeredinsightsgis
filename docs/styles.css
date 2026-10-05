@@ -1290,3 +1290,10 @@ text.hd-sm2[x="262"] { text-anchor: middle; }
   .pr-d-p { grid-column: 1; grid-row: 2; justify-self: start; font-size: 0.8rem; }
   .pr-d summary::after { grid-column: 2; grid-row: 1 / span 2; }
 }
+
+/* Mock-up labels on Try it (2026-10-05): make it unmistakable this is not the real portal. */
+.ti-mock { margin: 0 0 16px; padding: 12px 16px; border: 1px solid var(--ochre); border-radius: 8px; background: rgba(201,138,75,0.10); color: var(--paper-dim); font-size: 0.94rem; line-height: 1.5; }
+.ti-mock b { color: var(--ochre); font-weight: 600; }
+.ti-mock a { color: var(--paper); border-bottom: 1px solid var(--ochre-dim); }
+.ti-mock-tag { display: inline-block; margin-left: 8px; padding: 1px 8px; border: 1px solid var(--ochre); border-radius: 999px; color: var(--ochre) !important; font: 600 0.68rem var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; vertical-align: 1px; }
+#try-it .ti-note { color: var(--paper-dim); font-size: 0.8rem; }
