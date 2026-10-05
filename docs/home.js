@@ -15,3 +15,15 @@
   });
 })();
 
+
+// "Ways in" boxes: the one you click (or tab into) takes the highlight.
+(function () {
+  var cards = document.querySelectorAll('#ways .step-card');
+  function pick(card) {
+    cards.forEach(function (c) { c.classList.toggle('is-on', c === card); });
+  }
+  cards.forEach(function (card) {
+    card.addEventListener('click', function () { pick(card); });
+    card.addEventListener('focusin', function () { pick(card); });
+  });
+})();
