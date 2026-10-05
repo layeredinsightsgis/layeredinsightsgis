@@ -18,7 +18,7 @@
 <meta name="twitter:image" content="https://layeredinsightsgis.com/imgs/buildings.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=38">
+<link rel="stylesheet" href="styles.css?v=39">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -116,14 +116,18 @@
     <path d="M110 170.5 H160 M178 170.5 H222 M240 170.5 H330 M348 170.5 H410 M110 173.5 H160 M178 173.5 H222 M240 173.5 H330 M348 173.5 H410"/>
     <path d="M110 186.5 H150 M168 186.5 H275 M291 186.5 H410 M110 189.5 H150 M168 189.5 H275 M291 189.5 H410"/>
     <path d="M193.5 90 V170.5 M196.5 90 V170.5 M263.5 90 V170.5 M266.5 90 V170.5 M303.5 90 V170.5 M306.5 90 V170.5"/>
+    <path d="M160 170.5 V173.5 M178 170.5 V173.5 M222 170.5 V173.5 M240 170.5 V173.5 M330 170.5 V173.5 M348 170.5 V173.5 M150 186.5 V189.5 M168 186.5 V189.5 M275 186.5 V189.5 M291 186.5 V189.5"/>
     <path d="M213.5 189.5 V270 M216.5 189.5 V270 M263.5 189.5 V270 M266.5 189.5 V270 M303.5 189.5 V270 M306.5 189.5 V270"/>
   </g>
   <!-- doors -->
   <g class="cad-door">
-    <path d="M160 172 A18 18 0 0 1 178 154 M160 172 V154"/><path d="M240 172 A18 18 0 0 0 222 154 M240 172 V154"/>
-    <path d="M330 172 A18 18 0 0 1 348 154 M330 172 V154"/><path d="M150 188 A18 18 0 0 0 168 206 M150 188 V206"/>
-    <path d="M275 188 A16 16 0 0 0 291 204 M275 188 V204"/>
-    <path d="M345 273 A15 15 0 0 1 360 258 M345 273 V258 M375 273 A15 15 0 0 0 360 258 M375 273 V258"/>
+    <!-- each door: leaf drawn open 90 degrees from the hinge, arc from the leaf tip back to the strike jamb -->
+    <path d="M160 172 V154 M160 154 A18 18 0 0 1 178 172"/>
+    <path d="M240 172 V154 M240 154 A18 18 0 0 0 222 172"/>
+    <path d="M330 172 V154 M330 154 A18 18 0 0 1 348 172"/>
+    <path d="M150 188 V206 M150 206 A18 18 0 0 0 168 188"/>
+    <path d="M275 188 V204 M275 204 A16 16 0 0 0 291 188"/>
+    <path d="M345 273 V258 M345 258 A15 15 0 0 1 360 273 M375 273 V258 M375 258 A15 15 0 0 0 360 273"/>
   </g>
   <!-- stair + fixtures -->
   <g class="cad-thin">
@@ -217,8 +221,10 @@
           <div class="ba-line" aria-hidden="true"><span>⟷</span></div>
           <span class="ba-tag ba-tag-l">What you have</span>
           <span class="ba-tag ba-tag-r">What you get</span>
+          <span class="ba-illus" aria-hidden="true">Illustration</span>
           <input class="ba-range" id="ba-range" type="range" min="0" max="100" value="55" aria-label="Compare the paper site plan with the mapped building">
         </div>
+        <p class="ti-note">Illustration only: a made-up building drawn for this page, not a sample deliverable. Your floor plans are built from your own files and delivered where they need to live: your GIS, our portal, or a web map with PDFs.</p>
         <p class="pk-next">Those floor plans are also the foundation of our portal. Start with the drawings; add the portal whenever you're ready.</p>
       </div>
 
@@ -232,6 +238,7 @@
           <div class="sy-row"><span>Break room</span><span>222</span><span>222</span><span>222</span></div>
           <div class="sy-foot"><span id="sy-count">4 mismatches</span><button class="btn btn-primary" id="sy-go">Connect them</button></div>
         </div>
+        <p class="ti-note">Made-up example for illustration.</p>
         <p class="pk-next">Once your maps and systems agree, the portal can sit right on top of them.</p>
       </div>
 
