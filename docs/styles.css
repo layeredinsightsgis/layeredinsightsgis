@@ -1313,3 +1313,7 @@ text.hd-sm2[x="262"] { text-anchor: middle; }
 .pr-d-body ul { margin: 0; padding-left: 18px; color: var(--paper-dim); font-size: 0.95rem; }
 .pr-d-body li { margin-top: 6px; }
 .pr-d-body .svc-honest { margin-top: 0; }
+
+/* Homepage: label the made-up illustrations */
+.pk-pane > .ti-note { margin-top: 12px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--paper-dim); }
+.ba-illus { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; border: 1px solid #E8A33D; background: rgba(16,21,26,0.88); color: #E8A33D; pointer-events: none; z-index: 3; }
