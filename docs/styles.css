@@ -1347,3 +1347,5 @@ text.hd-sm2[x="262"] { text-anchor: middle; }
 .recent-list b { color: var(--paper); font-weight: 500; }
 .recent-m { font: 0.8rem var(--font-mono); color: var(--ochre); padding-top: 3px; }
 #try-it .mt-alt { display: block; margin: 10px auto 0; border: 0; background: none; color: var(--paper-dim); font-size: 0.85rem; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.q-acc .pr-d-t { font-size: 1.12rem; }
+.q-acc .portal-flow-wrap { margin: 4px 0; }
