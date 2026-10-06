@@ -156,7 +156,7 @@ function focusSet() {
   if (state.sel && state.sel.kind === 'feat') return new Set([state.sel.id]);
   if (state.sel && state.sel.kind === 'suite') return new Set();
   if (state.sit === 'leak') { const v = STEP_VIEW[state.focus]; return new Set(v && v.feat ? [v.feat] : []); }
-  if (state.sit === 'overdue') return new Set(FEATURES.filter(staleNow).map(f => f.id));
+  if (state.sit === 'overdue' || state.sit === 'mstart') return new Set(FEATURES.filter(staleNow).map(f => f.id));
   if (state.sit === 'mtour') { const v = MON[state.focus]; return new Set(v && v.feat ? [v.feat] : []); }
   return null; // just exploring: nothing dimmed
 }
@@ -217,6 +217,7 @@ function panelSituation() {
       ${state.step >= 1 ? `<div class="mt-actions"><button class="back restart" data-sitgo="mtour">↺ Start over</button><button class="back restart" data-sitgo="overdue">Explore the list yourself →</button></div>` : ''}`;
   }
   if (state.sit === 'afterhours') return panelSuite('203', 'Saturday · alarm company calling');
+  if (state.sit === 'mstart') return panelMonStart();
   return panelMissing('Monday morning');
 }
 
@@ -263,10 +264,19 @@ function panelMissing(kicker) {
     <button class="back restart" data-reset-missing>↺ Put the sample items back</button>`;
   return `${kicker ? `<p class="kicker">${kicker}</p>` : ''}
     <h3>What's missing<span class="count">${items.length} to check</span></h3>
-    ${state.done.length || state.confirmed.size ? '' : '<button class="mt-go" data-sitgo="mtour">▶ Walk me through Monday morning <span>about a minute</span></button>'}
-    <p class="sub">${state.done.length ? 'One down. Tap the next one.' : 'Or tap an item to see where it is and record it.'}</p>
+    <p class="sub">${state.done.length ? 'One down. Tap the next one.' : 'Tap an item to see where it is and record it.'}</p>
     <ul class="list">${done}${rows}</ul>
     <p class="why">Most buildings can't produce this list at all.</p>`;
+}
+
+// Portal page opening: one obvious action (the tour); looking around is the quiet alternative.
+function panelMonStart() {
+  const n = missingItems().length;
+  return `<p class="kicker">Monday morning</p>
+    <h3>What's missing<span class="count">${n} to check</span></h3>
+    <p class="sub">${n} things in this building need attention. Nothing has gone wrong yet.</p>
+    <button class="mt-go" data-sitgo="mtour">▶ Walk me through it <span>about a minute</span></button>
+    <button class="back restart mt-alt" data-sitgo="overdue">or look around yourself</button>`;
 }
 
 function panelStart() {
@@ -329,6 +339,7 @@ function startSituation(sit) {
   if (sit === 'leak') { state.level = 'f1'; state.sel = null; state.step = 0; state.focus = 0; }
   if (sit === 'afterhours') { state.level = 'f2'; state.sel = { kind: 'suite', id: '203' }; }
   if (sit === 'overdue') { state.level = 'site'; state.sel = null; if (state.fromTour) { state.confirmed = new Set(); state.done = []; state.fromTour = false; } }
+  if (sit === 'mstart') { state.level = 'site'; state.sel = null; state.confirmed = new Set(); state.done = []; state.fromTour = false; }
   if (sit === 'mtour') { state.level = 'site'; state.sel = null; state.step = 0; state.focus = 0; state.done = []; state.confirmed = new Set(); state.fromTour = true; }
   render();
 }
