@@ -1346,3 +1346,4 @@ text.hd-sm2[x="262"] { text-anchor: middle; }
 .recent-list li { display: grid; grid-template-columns: 6.5em minmax(0, 1fr); gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--border); color: var(--paper-dim); }
 .recent-list b { color: var(--paper); font-weight: 500; }
 .recent-m { font: 0.8rem var(--font-mono); color: var(--ochre); padding-top: 3px; }
+#try-it .mt-alt { display: block; margin: 10px auto 0; border: 0; background: none; color: var(--paper-dim); font-size: 0.85rem; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
