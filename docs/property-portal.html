@@ -18,7 +18,7 @@
 <meta name="twitter:image" content="https://layeredinsightsgis.com/imgs/buildings.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=46">
+<link rel="stylesheet" href="styles.css?v=47">
 </head>
 <body class="contour-field">
 
@@ -119,28 +119,61 @@
   </section>
 
   <section class="section-border-top">
-    <div class="container about-grid">
-      <div>
-        <p class="eyebrow">Why it matters</p>
-        <h2 class="portal-h2">The knowledge that leaves with people stays with the building.</h2>
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Who does what</p>
+        <h2 class="portal-h2">Three parts, three different jobs.</h2>
       </div>
-      <ul class="principle-list">
-        <li><strong>Buildings change hands. The knowledge shouldn't.</strong>Ownership and management turn over every few years, and knowing where the water shut-off is tends to be the first thing lost. Here it stays with the building, ready to hand to the next manager.</li>
-        <li><strong>No GIS person needed.</strong>Staff add a shut-off or a fire panel by picking what it is and clicking the map. Floors, rooms and coordinates are handled for them.</li>
-        <li><strong>Sensitive locations stay internal.</strong>Cameras, lockboxes and network rooms can be marked manager-only and are left off tenant plans and anything shared.</li>
-        <li><strong>Works alongside what you already use.</strong>Accounting and work order systems stay where they are. The portal holds what those systems don't: the building itself.</li>
-      </ul>
+      <div class="parts">
+        <div class="part"><p class="who">YOU BRING</p><h3>What you already know</h3>
+          <p>Plans in any form, equipment and vendor lists, tenant contacts, and the people who know where things are.</p>
+          <p class="terms">Anything nobody has recorded, your staff confirm on their normal rounds.</p></div>
+        <div class="part"><p class="who">WE DO</p><h3>Put it on the map</h3>
+          <p>Floor plans from CAD, PDF or paper, with your equipment, shut-offs and contacts placed where they belong.</p>
+          <p class="terms">A one-time setup per building, quoted up front.</p></div>
+        <div class="part"><p class="who">THE PORTAL</p><h3>Keeps it from going stale</h3>
+          <p>Who to call, where things are, what's overdue. Your team confirms as they go, and it flags what they haven't.</p>
+          <p class="terms">A monthly subscription per building.</p></div>
+      </div>
     </div>
   </section>
 
-  <section class="section-border-top" id="how">
+  <section class="section-border-top" id="questions">
     <div class="container">
       <div class="section-head">
-        <p class="eyebrow">How it's built</p>
-        <h2>Proven platforms, and your data stays yours.</h2>
-        <p class="lede">Built on Esri's ArcGIS, the mapping platform cities, counties, universities and utilities use for their own facilities, with a secure portal in front of it. Each login only ever sees its own buildings, and that is enforced on the server, not just hidden on the screen.</p>
+        <p class="eyebrow">Questions</p>
+        <h2>Questions you might have.</h2>
       </div>
-      <div class="portal-flow-wrap">
+      <div class="pr-acc q-acc">
+        <details class="pr-d">
+          <summary><span class="pr-d-t">What happens when a building changes hands?</span></summary>
+          <div class="pr-d-body">
+            <p>Ownership and management turn over every few years, and knowing where the water shut-off is tends to be the first thing lost. In the portal it stays with the building, ready to hand to the next manager.</p>
+          </div>
+        </details>
+        <details class="pr-d">
+          <summary><span class="pr-d-t">Do my staff need GIS skills?</span></summary>
+          <div class="pr-d-body">
+            <p>No. Staff add a shut-off or a fire panel by picking what it is and clicking the map. Floors, rooms and coordinates are handled for them.</p>
+          </div>
+        </details>
+        <details class="pr-d">
+          <summary><span class="pr-d-t">Can sensitive locations stay private?</span></summary>
+          <div class="pr-d-body">
+            <p>Yes. Cameras, lockboxes and network rooms can be marked manager-only, and they're left off tenant plans and anything shared.</p>
+          </div>
+        </details>
+        <details class="pr-d">
+          <summary><span class="pr-d-t">Does it replace my accounting or work order system?</span></summary>
+          <div class="pr-d-body">
+            <p>No. Accounting and work order systems stay where they are. The portal holds what those systems don't: the building itself. Its money figures are estimates to help you decide, not books.</p>
+          </div>
+        </details>
+        <details class="pr-d">
+          <summary><span class="pr-d-t">What is it built on, and is my data secure?</span></summary>
+          <div class="pr-d-body">
+            <p>It's built on Esri's ArcGIS, the mapping platform cities, counties, universities and utilities use for their own facilities, with a secure portal in front of it. Each login only ever sees its own buildings, and that's enforced on the server, not just hidden on the screen.</p>
+            <div class="portal-flow-wrap">
         <svg class="portal-flow" viewBox="0 0 760 180" role="img" aria-label="Your browser sends every request to a secure portal, which checks it and returns only your buildings' data, read from your building data on Esri ArcGIS. The browser never connects to the data directly.">
   <defs>
     <marker id="pf-ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="pf-head"/></marker>
@@ -167,29 +200,19 @@
   <line x1="548" y1="112" x2="484" y2="112" class="pf-wire" marker-end="url(#pf-ah)"/>
 </svg>
       </div>
-      <p class="portal-note">Building data is kept in an industry-standard geodatabase. It can be exported and handed over at any time, for example when a building is sold. A detailed security overview is available on request.</p>
+            <p>A detailed security overview is available on request.</p>
+          </div>
+        </details>
+        <details class="pr-d">
+          <summary><span class="pr-d-t">Can I get my data out?</span></summary>
+          <div class="pr-d-body">
+            <p>Yes. Building data is kept in an industry-standard format (an Esri geodatabase). It can be exported and handed over at any time, for example when a building is sold.</p>
+          </div>
+        </details>
+      </div>
     </div>
   </section>
 
-  <section class="section-border-top">
-    <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">Who does what</p>
-        <h2 class="portal-h2">Three parts, three different jobs.</h2>
-      </div>
-      <div class="parts">
-        <div class="part"><p class="who">YOU BRING</p><h3>What you already know</h3>
-          <p>Plans in any form, equipment and vendor lists, tenant contacts, and the people who know where things are.</p>
-          <p class="terms">Anything nobody has recorded, your staff confirm on their normal rounds.</p></div>
-        <div class="part"><p class="who">WE DO</p><h3>Put it on the map</h3>
-          <p>Floor plans from CAD, PDF or paper, with your equipment, shut-offs and contacts placed where they belong.</p>
-          <p class="terms">A one-time setup per building, quoted up front.</p></div>
-        <div class="part"><p class="who">THE PORTAL</p><h3>Keeps it from going stale</h3>
-          <p>Who to call, where things are, what's overdue. Your team confirms as they go, and it flags what they haven't.</p>
-          <p class="terms">A monthly subscription per building.</p></div>
-      </div>
-    </div>
-  </section>
 
   <section class="section-border-top">
     <div class="container">
