@@ -1351,23 +1351,14 @@ text.hd-sm2[x="262"] { text-anchor: middle; }
 .q-acc .portal-flow-wrap { margin: 4px 0; }
 
 
-/* ---- How we think (H111, 2026-10-11): the idea first, buildings as the example ---- */
-.think .section-head h2 { max-width: 22ch; }
-.think-steps { list-style: none; margin: 8px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; position: relative; }
-@media (max-width: 760px) { .think-steps { grid-template-columns: 1fr; } }
-.think-step { display: grid; gap: 10px; align-content: start; padding: 20px; border: 1px solid var(--border); border-radius: 10px; background: var(--ink-2); position: relative; }
-.think-step:not(:last-child)::after { content: "\2192"; position: absolute; right: -13px; top: 44px; width: 12px; text-align: center; color: var(--ochre); font: 1rem var(--font-mono); }
-@media (max-width: 760px) { .think-step:not(:last-child)::after { content: "\2193"; right: auto; left: 28px; top: auto; bottom: -15px; } }
-.think-art { width: 100%; max-width: 180px; height: auto; }
-.think-art .d-scatter circle { fill: var(--paper-dim); opacity: .75; }
-.think-art .d-grid path { stroke: var(--border-strong); stroke-width: 1; fill: none; }
-.think-art .d-ordered circle { fill: var(--teal); }
-.think-art .d-faint circle { fill: var(--teal); opacity: .35; }
-.think-art .d-ring { fill: none; stroke: var(--ochre); stroke-width: 1.6; }
-.think-art .d-pick { fill: var(--ochre-pop); }
-.think-n { font: 0.72rem var(--font-mono); letter-spacing: 0.06em; color: var(--ochre); text-transform: uppercase; }
-.think-step p { margin: 0; color: var(--paper-dim); }
-.think-foot { margin: 20px 0 0; font: 1.12rem/1.4 var(--font-display); color: var(--paper); max-width: 46ch; }
+/* ---- Our approach (H111, 2026-10-11): the idea first, in prose ---- */
+.approach .section-head h2 { max-width: 24ch; }
+.approach-cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 36px; }
+@media (max-width: 860px) { .approach-cols { grid-template-columns: 1fr; } }
+.approach-cols h3 { font-size: 1.15rem; line-height: 1.3; margin: 0 0 8px; }
+.approach-cols p { margin: 0; color: var(--paper-dim); }
+.approach-exp { margin: 28px 0 0; padding-top: 18px; border-top: 1px solid var(--border); color: var(--paper-dim); font-size: 0.95rem; max-width: 72ch; }
+.mk-teaser-label { margin: 0 0 2px; font: 0.72rem var(--font-mono); letter-spacing: 0.06em; color: var(--muted); text-transform: uppercase; }
 
 /* Fourth problem tab: "It isn't about buildings" */
 .pk-tabs { grid-template-columns: repeat(4, minmax(0, 1fr)); }
