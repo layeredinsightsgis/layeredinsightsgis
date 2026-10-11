@@ -1349,3 +1349,25 @@ text.hd-sm2[x="262"] { text-anchor: middle; }
 #try-it .mt-alt { display: block; margin: 10px auto 0; border: 0; background: none; color: var(--paper-dim); font-size: 0.85rem; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
 .q-acc .pr-d-t { font-size: 1.12rem; }
 .q-acc .portal-flow-wrap { margin: 4px 0; }
+
+
+/* ---- Our approach (H111, 2026-10-11): the idea first, in prose ---- */
+.approach .section-head h2 { max-width: 24ch; }
+.approach-cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 36px; }
+@media (max-width: 860px) { .approach-cols { grid-template-columns: 1fr; } }
+.approach-cols h3 { font-size: 1.15rem; line-height: 1.3; margin: 0 0 8px; }
+.approach-cols p { margin: 0; color: var(--paper-dim); }
+.approach-exp { margin: 28px 0 0; padding-top: 18px; border-top: 1px solid var(--border); color: var(--paper-dim); font-size: 0.95rem; max-width: 72ch; }
+.mk-teaser-label { margin: 0 0 2px; font: 0.72rem var(--font-mono); letter-spacing: 0.06em; color: var(--muted); text-transform: uppercase; }
+
+/* Fourth problem tab: "It isn't about buildings" */
+.pk-tabs { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 980px) { .pk-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 760px) { .pk-tabs { grid-template-columns: 1fr; } }
+.other-grid { list-style: none; margin: 4px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+@media (max-width: 860px) { .other-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .other-grid { grid-template-columns: 1fr; } }
+.other-grid a { display: grid; gap: 4px; height: 100%; padding: 16px 18px; border: 1px solid var(--border); border-radius: 10px; background: var(--ink-2); color: var(--paper); text-decoration: none; transition: border-color .2s; }
+.other-grid a:hover { border-color: var(--ochre-dim); }
+.other-grid b { font: 1.02rem/1.3 var(--font-display); font-weight: 600; }
+.other-grid span { color: var(--paper-dim); font-size: 0.93rem; }
