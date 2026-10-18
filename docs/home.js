@@ -30,11 +30,25 @@
 
 
 // Hero building reveal: Replay restarts the animation by swapping in a fresh copy.
+// It waits (showing the whole building) until the building is on screen,
+// so a visitor reading the headline, or on a phone, doesn't miss it.
 (function () {
   var btn = document.getElementById('hr-replay');
   if (!btn) return;
+  var play = document.getElementById('hr-play');
+  if ('IntersectionObserver' in window) {
+    play.classList.add('hr-wait');
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.intersectionRatio >= 0.5) { document.getElementById('hr-play').classList.remove('hr-wait'); io.disconnect(); }
+      });
+    }, { threshold: [0, 0.5, 1] });
+    io.observe(play);
+  }
   btn.addEventListener('click', function () {
     var play = document.getElementById('hr-play');
-    play.parentNode.replaceChild(play.cloneNode(true), play);
+    var fresh = play.cloneNode(true);
+    fresh.classList.remove('hr-wait');
+    play.parentNode.replaceChild(fresh, play);
   });
 })();

@@ -1378,43 +1378,46 @@ text.hd-sm2[x="262"] { text-anchor: middle; }
 /* ---------------- homepage hero: building reveal ----------------
    Building on its site -> roof and walls lift off -> three floors
    separate -> Floor 3 turns see-through so Unit 204 on Floor 2 shows
-   -> work-order pins and the callout appear. About 4 seconds.
+   -> work-order pins and the callout appear. About 10 seconds: the whole
+   building holds for ~2.5 s first. Paused (start state) until the
+   building scrolls into view (home.js adds .hr-go).
    Every element's resting style is the END state; the animations run
    from the start state, so reduced motion simply shows the end. */
 .hr-stage { position: relative; height: 540px; min-width: 0; }
 .hr-tag { position: absolute; top: 0; left: 0; z-index: 2; margin: 0; font: 0.69rem var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--border-strong); border-radius: 3px; padding: 4px 8px; }
 .hr-play { position: absolute; inset: 0; }
+.hr-wait *, .hr-wait { animation-play-state: paused !important; }
 .hr-scene { position: absolute; left: 50%; top: 58%; width: 500px; height: 380px; margin: -190px 0 0 -250px; transform: scale(var(--hr-s, 0.74)) rotateX(58deg) rotateZ(-42deg); transform-style: preserve-3d; }
 .hr-site { position: absolute; left: 0; top: 0; }
 .hr-bldg { position: absolute; left: 100px; top: 85px; width: 300px; height: 210px; transform-style: preserve-3d; }
-.hr-floor { position: absolute; left: 0; top: 0; width: 300px; height: 210px; transform: translateZ(var(--z)); animation: hr-lift 1.4s cubic-bezier(.2,.7,.2,1) 1.9s both; }
+.hr-floor { position: absolute; left: 0; top: 0; width: 300px; height: 210px; transform: translateZ(var(--z)); animation: hr-lift 2s cubic-bezier(.25,.6,.25,1) 5.4s both; }
 .hr-f1 { --z0: 0px; --z: 0px; } .hr-f2 { --z0: 40px; --z: 95px; } .hr-f3 { --z0: 80px; --z: 190px; }
 @keyframes hr-lift { from { transform: translateZ(var(--z0)); } to { transform: translateZ(var(--z)); } }
 .hr-plate { width: 300px; height: 210px; background: rgba(28,37,45,0.94); border: 1px solid; }
 .hr-plate svg { display: block; }
 .hr-fl { fill: var(--muted); font-family: var(--font-mono); font-size: 11px; }
-.hr-ghost { background-color: rgba(28,37,45,0.10); animation: hr-ghost .6s ease 2.9s both; }
+.hr-ghost { background-color: rgba(28,37,45,0.10); animation: hr-ghost 1s ease 7.4s both; }
 @keyframes hr-ghost { from { background-color: rgba(28,37,45,0.94); } to { background-color: rgba(28,37,45,0.10); } }
-.hr-ghostlines { opacity: .3; animation: hr-ghostl .6s ease 2.9s both; }
+.hr-ghostlines { opacity: .3; animation: hr-ghostl 1s ease 7.4s both; }
 @keyframes hr-ghostl { from { opacity: 1; } to { opacity: .3; } }
 .hr-wall { position: absolute; opacity: 0; background-color: #26313B; background-image: repeating-linear-gradient(0deg, #26313B 0 12px, rgba(76,151,168,0.50) 12px 26px, #26313B 26px 40px); border: 1px solid rgba(232,228,218,0.25); }
 .hr-wN, .hr-wS { left: 0; width: 300px; height: 120px; transform-origin: 50% 100%; transform: rotateX(-90deg); }
-.hr-wN { top: -120px; animation: hr-peelNS .9s ease-in 1.15s both; }
-.hr-wS { top: 90px; animation: hr-peelNS .9s ease-in 1s both; }
+.hr-wN { top: -120px; animation: hr-peelNS 1.5s ease-in-out 3.8s both; }
+.hr-wS { top: 90px; animation: hr-peelNS 1.5s ease-in-out 3.6s both; }
 .hr-wW, .hr-wE { top: 0; width: 120px; height: 210px; transform-origin: 100% 50%; transform: rotateY(90deg); background-image: repeating-linear-gradient(90deg, #26313B 0 12px, rgba(76,151,168,0.50) 12px 26px, #26313B 26px 40px); }
-.hr-wW { left: -120px; animation: hr-peelEW .9s ease-in 1.2s both; }
-.hr-wE { left: 180px; animation: hr-peelEW .9s ease-in 1.05s both; }
+.hr-wW { left: -120px; animation: hr-peelEW 1.5s ease-in-out 3.9s both; }
+.hr-wE { left: 180px; animation: hr-peelEW 1.5s ease-in-out 3.7s both; }
 @keyframes hr-peelNS { from { opacity: 1; transform: rotateX(-90deg) translateY(0); } to { opacity: 0; transform: rotateX(-90deg) translateY(-70px); } }
 @keyframes hr-peelEW { from { opacity: 1; transform: rotateY(90deg) translateX(0); } to { opacity: 0; transform: rotateY(90deg) translateX(-70px); } }
-.hr-roof { position: absolute; left: 0; top: 0; width: 300px; height: 210px; background: #2C3843; border: 1px solid rgba(232,228,218,0.30); opacity: 0; transform: translateZ(240px); animation: hr-roof .9s ease-in .8s both; }
+.hr-roof { position: absolute; left: 0; top: 0; width: 300px; height: 210px; background: #2C3843; border: 1px solid rgba(232,228,218,0.30); opacity: 0; transform: translateZ(240px); animation: hr-roof 1.4s ease-in-out 2.6s both; }
 @keyframes hr-roof { from { opacity: 1; transform: translateZ(120px); } to { opacity: 0; transform: translateZ(240px); } }
-.hr-pin { animation: hr-pop .4s ease-out both; }
-.hr-p1 { animation-delay: 3.1s; } .hr-p2 { animation-delay: 3.35s; } .hr-p3 { animation-delay: 3.55s; } .hr-p4 { animation-delay: 3.7s; }
+.hr-pin { animation: hr-pop .5s ease-out both; }
+.hr-p1 { animation-delay: 7.9s; } .hr-p2 { animation-delay: 8.3s; } .hr-p3 { animation-delay: 8.6s; } .hr-p4 { animation-delay: 8.9s; }
 @keyframes hr-pop { from { opacity: 0; } to { opacity: 1; } }
-.hr-hilite { animation: hr-pop .5s ease-out 3.3s both; }
-.hr-ring { opacity: 0; transform-box: fill-box; transform-origin: center; animation: hr-ring 2.4s ease-out 3.6s infinite; }
+.hr-hilite { animation: hr-pop .7s ease-out 7.8s both; }
+.hr-ring { opacity: 0; transform-box: fill-box; transform-origin: center; animation: hr-ring 2.4s ease-out 8.6s infinite; }
 @keyframes hr-ring { 0% { transform: scale(1); opacity: .9; } 100% { transform: scale(3.6); opacity: 0; } }
-.hr-call { position: absolute; right: 0; bottom: 6px; z-index: 2; width: 250px; background: var(--panel); border: 1px solid var(--border-strong); border-radius: 6px; padding: 16px 18px; box-shadow: 0 12px 32px rgba(0,0,0,0.45); animation: hr-fade .7s ease 3.9s both; }
+.hr-call { position: absolute; right: 0; bottom: 6px; z-index: 2; width: 250px; background: var(--panel); border: 1px solid var(--border-strong); border-radius: 6px; padding: 16px 18px; box-shadow: 0 12px 32px rgba(0,0,0,0.45); animation: hr-fade .8s ease 9.2s both; }
 .hr-call p { margin: 0; }
 .hr-call-top { display: flex; align-items: center; gap: 8px; font: 0.69rem var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--clay-pop); margin-bottom: 6px !important; }
 .hr-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--clay-pop); flex: none; }
