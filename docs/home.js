@@ -27,3 +27,14 @@
     card.addEventListener('focusin', function () { pick(card); });
   });
 })();
+
+
+// Hero building reveal: Replay restarts the animation by swapping in a fresh copy.
+(function () {
+  var btn = document.getElementById('hr-replay');
+  if (!btn) return;
+  btn.addEventListener('click', function () {
+    var play = document.getElementById('hr-play');
+    play.parentNode.replaceChild(play.cloneNode(true), play);
+  });
+})();

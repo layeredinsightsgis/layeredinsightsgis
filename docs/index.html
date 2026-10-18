@@ -18,7 +18,7 @@
 <meta name="twitter:image" content="https://layeredinsightsgis.com/imgs/buildings.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=47">
+<link rel="stylesheet" href="styles.css?v=48">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -71,13 +71,76 @@
           <a href="#ways" class="btn btn-ghost">Start small</a>
         </div>
       </div>
-      <aside class="mk-pick-teaser" aria-label="For example">
-        <p class="mk-teaser-label">For example</p>
-        <a href="#pick" data-open="map"><small>Mapping</small>"Our drawings are in a box."</a>
-        <a href="#pick" data-open="gis"><small>GIS help</small>"Our maps and systems don't agree."</a>
-        <a href="#pick" data-open="portal"><small>The portal</small>"It's 2 a.m. Where's the shut-off?"</a>
-        <a href="#pick" data-open="other"><small>Something else</small>"It isn't about buildings."</a>
-      </aside>
+      <div class="hr-stage">
+        <p class="hr-tag">Illustration · sample building</p>
+        <div class="hr-play" id="hr-play">
+          <div class="hr-scene" role="img" aria-label="A sample building on its landscaped site. The walls and roof lift away to show three floors, which separate, and work-order pins appear in specific rooms. Unit 204 on Floor 2 is highlighted: third repair this year.">
+            <svg width="500" height="380" viewBox="0 0 500 380" aria-hidden="true" class="hr-site">
+              <rect x="0" y="0" width="500" height="380" fill="#1C2620" stroke="rgba(155,203,110,0.25)"/>
+              <rect x="0" y="336" width="500" height="44" fill="#232B32"/>
+              <path d="M0 358H500" stroke="#C98A4B" stroke-width="2" stroke-dasharray="14 12" opacity="0.6"/>
+              <rect x="434" y="30" width="58" height="290" fill="#232B32"/>
+              <path d="M434 60H492M434 90H492M434 120H492M434 150H492M434 180H492M434 210H492M434 240H492M434 270H492M434 300H492" stroke="#7E8D96" stroke-width="1.2"/>
+              <rect x="88" y="73" width="324" height="234" rx="4" fill="#2A3138"/>
+              <rect x="236" y="307" width="28" height="29" fill="#2A3138"/>
+              <rect x="16" y="120" width="62" height="150" rx="6" fill="rgba(201,138,75,0.22)" stroke="rgba(201,138,75,0.45)"/>
+              <g fill="rgba(228,160,92,0.55)"><circle cx="36" cy="146" r="9"/><circle cx="58" cy="182" r="9"/><circle cx="36" cy="218" r="9"/></g>
+              <rect x="24" y="246" width="46" height="8" rx="2" fill="rgba(232,228,218,0.35)"/>
+              <ellipse cx="44" cy="52" rx="30" ry="20" fill="rgba(76,151,168,0.45)" stroke="rgba(63,196,217,0.5)"/>
+              <g fill="#34502F" stroke="rgba(155,203,110,0.55)" stroke-width="1.5"><circle cx="110" cy="30" r="16"/><circle cx="160" cy="24" r="12"/><circle cx="340" cy="32" r="18"/><circle cx="398" cy="20" r="11"/><circle cx="40" cy="300" r="15"/><circle cx="150" cy="322" r="12"/><circle cx="350" cy="322" r="12"/><circle cx="418" cy="330" r="9"/></g>
+            </svg>
+            <div class="hr-bldg">
+              <div class="hr-floor hr-f1"><div class="hr-plate" style="border-color: rgba(76,151,168,0.55)">
+                <svg width="300" height="210" viewBox="0 0 300 210" aria-hidden="true">
+                  <rect x="6" y="6" width="288" height="198" fill="none" stroke="#B9C0C4" stroke-width="3"/>
+                  <path d="M6 92H294M6 118H294M78 6V92M150 6V92M222 6V92M96 118V204M186 118V204" fill="none" stroke="#7E8D96" stroke-width="2"/>
+                  <circle cx="140" cy="160" r="6" class="hr-ring" fill="#3FC4D9"/>
+                  <circle cx="140" cy="160" r="6" class="hr-pin hr-p2" fill="#3FC4D9"/>
+                  <text x="14" y="198" class="hr-fl">FLOOR 1</text>
+                </svg></div></div>
+              <div class="hr-floor hr-f2"><div class="hr-plate" style="border-color: rgba(228,160,92,0.6)">
+                <svg width="300" height="210" viewBox="0 0 300 210" aria-hidden="true">
+                  <rect x="78" y="6" width="72" height="86" class="hr-hilite" fill="rgba(229,107,84,0.38)" stroke="#E56B54" stroke-width="2.5"/>
+                  <rect x="6" y="6" width="288" height="198" fill="none" stroke="#B9C0C4" stroke-width="3"/>
+                  <path d="M6 92H294M6 118H294M78 6V92M150 6V92M222 6V92M96 118V204M186 118V204" fill="none" stroke="#7E8D96" stroke-width="2"/>
+                  <circle cx="114" cy="49" r="7" class="hr-ring" fill="#E56B54"/>
+                  <circle cx="114" cy="49" r="7" class="hr-pin hr-p1" fill="#E56B54"/>
+                  <circle cx="250" cy="160" r="5" class="hr-pin hr-p3" fill="#E4A05C"/>
+                  <text x="14" y="198" class="hr-fl">FLOOR 2</text>
+                </svg></div></div>
+              <div class="hr-floor hr-f3"><div class="hr-plate hr-ghost" style="border-color: rgba(155,203,110,0.55)">
+                <svg width="300" height="210" viewBox="0 0 300 210" aria-hidden="true">
+                  <g class="hr-ghostlines">
+                    <rect x="6" y="6" width="288" height="198" fill="none" stroke="#B9C0C4" stroke-width="3"/>
+                    <path d="M6 92H294M6 118H294M78 6V92M150 6V92M222 6V92M96 118V204M186 118V204" fill="none" stroke="#7E8D96" stroke-width="2"/>
+                  </g>
+                  <circle cx="250" cy="49" r="5" class="hr-pin hr-p4" fill="#9BCB6E"/>
+                  <text x="14" y="198" class="hr-fl">FLOOR 3</text>
+                </svg></div></div>
+              <div class="hr-wall hr-wN"></div>
+              <div class="hr-wall hr-wW"></div>
+              <div class="hr-wall hr-wE"></div>
+              <div class="hr-wall hr-wS"></div>
+              <div class="hr-roof"></div>
+            </div>
+          </div>
+          <div class="hr-call">
+            <p class="hr-call-top"><span class="hr-dot" aria-hidden="true"></span>Floor 2 · Unit 204</p>
+            <p class="hr-call-h">3rd repair here this year</p>
+            <p class="hr-call-p">Same wall each time. Worth a closer look before the next one.</p>
+          </div>
+        </div>
+        <button type="button" class="hr-replay" id="hr-replay">↻ Replay</button>
+      </div>
+    </div>
+    <div class="container">
+    <nav class="mk-pick-teaser" aria-label="For example">
+      <p class="mk-teaser-label">For example</p>
+      <a href="#pick" data-open="map"><small>Mapping</small>"Our drawings are in a box."</a>
+      <a href="#pick" data-open="gis"><small>GIS help</small>"Our maps and systems don't agree."</a>
+      <a href="#pick" data-open="portal"><small>The portal</small>"It's 2 a.m. Where's the shut-off?"</a>
+      <a href="#pick" data-open="other"><small>Something else</small>"It isn't about buildings."</a>
+    </nav>
     </div>
   </section>
 
@@ -378,6 +441,6 @@
 
 <script src="script.js?v=13"></script>
 <script src="try-it.js?v=9"></script>
-<script src="home.js?v=2"></script>
+<script src="home.js?v=3"></script>
 </body>
 </html>
