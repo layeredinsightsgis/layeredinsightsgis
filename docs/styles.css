@@ -1378,7 +1378,7 @@ text.hd-sm2[x="262"] { text-anchor: middle; }
 /* ---------------- homepage hero: building reveal ----------------
    Building on its site -> roof and walls lift off -> three floors
    separate -> Floor 3 turns see-through so Unit 204 on Floor 2 shows
-   -> work-order pins and the callout appear. About 10 seconds: the whole
+   -> work-order pins and the callout appear, with a one-line caption per step (.hr-cap). About 11 seconds: the whole
    building holds for ~2.5 s first. Paused (start state) until the
    building scrolls into view (home.js adds .hr-go).
    Every element's resting style is the END state; the animations run
@@ -1386,6 +1386,16 @@ text.hd-sm2[x="262"] { text-anchor: middle; }
 .hr-stage { position: relative; height: 540px; min-width: 0; }
 .hr-tag { position: absolute; top: 0; left: 0; z-index: 2; margin: 0; font: 0.69rem var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--border-strong); border-radius: 3px; padding: 4px 8px; }
 .hr-play { position: absolute; inset: 0; }
+/* step captions: one line per stage, in sync with the animation */
+.hr-caps { position: absolute; top: 40px; left: 0; right: 0; z-index: 2; margin: 0; height: 3.4rem; pointer-events: none; }
+.hr-cap { position: absolute; left: 0; top: 0; max-width: 30ch; text-wrap: balance; font-family: var(--font-display); font-size: 1.35rem; line-height: 1.25; color: var(--paper); opacity: 0; }
+.hr-c1 { animation: hr-cap1 5.4s ease both; }
+.hr-c2 { animation: hr-cap 2.6s ease 5.4s both; }
+.hr-c3 { animation: hr-cap 2.6s ease 7.9s both; }
+.hr-c4 { opacity: 1; animation: hr-capin .6s ease 10.5s both; }
+@keyframes hr-cap1 { 0%, 92% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes hr-cap { 0% { opacity: 0; transform: translateY(6px); } 18%, 85% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+@keyframes hr-capin { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 .hr-wait *, .hr-wait { animation-play-state: paused !important; }
 .hr-scene { position: absolute; left: 50%; top: 58%; width: 500px; height: 380px; margin: -190px 0 0 -250px; transform: scale(var(--hr-s, 0.74)) rotateX(58deg) rotateZ(-42deg); transform-style: preserve-3d; }
 .hr-site { position: absolute; left: 0; top: 0; }
@@ -1427,7 +1437,7 @@ text.hd-sm2[x="262"] { text-anchor: middle; }
 .hr-replay { position: absolute; left: 0; bottom: 0; z-index: 2; background: transparent; border: 1px solid var(--border-strong); color: var(--paper-dim); font: 0.69rem var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; border-radius: 3px; padding: 0 12px; min-height: 44px; cursor: pointer; }
 .hr-replay:hover, .hr-replay:focus-visible { color: var(--ochre-pop); border-color: var(--ochre); }
 @media (prefers-reduced-motion: reduce) {
-  .hr-floor, .hr-wall, .hr-roof, .hr-pin, .hr-hilite, .hr-ghost, .hr-ghostlines, .hr-call, .hr-ring { animation: none !important; }
+  .hr-floor, .hr-wall, .hr-roof, .hr-pin, .hr-hilite, .hr-ghost, .hr-ghostlines, .hr-call, .hr-ring, .hr-cap { animation: none !important; }
   .hr-replay { display: none; }
 }
 /* narrower screens: smaller building; callout drops below it */
@@ -1436,6 +1446,8 @@ text.hd-sm2[x="262"] { text-anchor: middle; }
 @media (max-width: 560px) {
   .hr-stage { --hr-s: 0.56; height: auto; display: grid; gap: 12px; }
   .hr-tag, .hr-replay { position: static; justify-self: start; }
+  .hr-caps { position: relative; top: auto; height: 3.2rem; order: -1; }
+  .hr-cap { font-size: 1.15rem; }
   .hr-play { position: relative; inset: auto; display: grid; gap: 12px; }
   .hr-scene { position: relative; left: 50%; top: auto; margin: -36px 0 -70px -250px; }
   .hr-call { position: relative; right: auto; bottom: auto; width: auto; }
