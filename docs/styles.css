@@ -998,6 +998,9 @@ section { padding: 76px 0; }
 .parts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 28px; }
 @media (max-width: 860px) { .parts { grid-template-columns: 1fr; } }
 .part { border: 1px solid var(--border); border-radius: 6px; padding: 20px 22px; background: var(--ink-2); display: grid; gap: 8px; align-content: start; }
+.part { transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; }
+.part:hover { background: var(--panel); border-color: var(--border-strong); transform: translateY(-3px); box-shadow: 0 16px 32px -14px rgba(0,0,0,0.6); }
+@media (prefers-reduced-motion: reduce) { .part, .part:hover { transition: none; transform: none; } }
 .part .who { font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.06em; color: var(--ochre); }
 .part h3 { font-size: 1.2rem; }
 .part p { color: var(--paper-dim); font-size: 0.95rem; }
