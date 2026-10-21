@@ -304,6 +304,13 @@ p { margin: 0; }
   flex-wrap: wrap;
 }
 
+.hero-note {
+  margin-top: 14px;
+  font-size: 0.9rem;
+  color: var(--muted);
+  max-width: 46ch;
+}
+
 .coord {
   font-family: var(--font-mono);
   font-size: 0.72rem;
