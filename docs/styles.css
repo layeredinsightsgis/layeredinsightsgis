@@ -585,6 +585,7 @@ section { padding: 76px 0; }
   color: var(--paper-dim);
 }
 .footer-grid a:hover { color: var(--paper); }
+.footer-tagline { margin-top: 10px; font-family: var(--font-display); font-style: italic; font-size: 1rem; color: var(--paper-dim); }
 
 .footer-cols {
   display: flex;
