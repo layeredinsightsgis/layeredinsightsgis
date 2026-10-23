@@ -1345,6 +1345,8 @@ text.hd-sm2[x="262"] { text-anchor: middle; }
 .card .svc-price { margin-top: auto; padding-top: 10px; font: 0.8rem var(--font-mono); color: var(--ochre); }
 .nw { white-space: nowrap; }
 .h1-bal { text-wrap: balance; }
+/* homepage hero: the line under the tagline that pays off "You ask." */
+.hero-sub { margin-top: 16px; font-family: var(--font-display); font-weight: 500; font-size: clamp(1.25rem, 2.1vw, 1.6rem); line-height: 1.25; color: var(--paper); max-width: 30ch; text-wrap: balance; }
 
 /* Portal page: five "keeps track of" cards, and Recently added */
 .grid-portal { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); }
