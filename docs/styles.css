@@ -1490,12 +1490,10 @@ text.hd-sm2[x="262"] { text-anchor: middle; }
 }
 @media (prefers-reduced-motion: reduce) { .rp-frame, .rp-frame:hover { transition: none; transform: none; } }
 
-/* H192: How we work strip (homepage) */
-.hw-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 24px 28px; }
-.hw-steps li { padding-top: 14px; border-top: 2px solid var(--ochre-dim); }
-.hw-steps li:last-child { border-top-color: var(--ochre); }
-.hw-n { display: block; font-family: var(--font-mono); font-size: 0.85rem; color: var(--ochre); margin-bottom: 6px; }
-.hw-steps h3 { font-size: 1.15rem; line-height: 1.3; margin: 0 0 8px; }
-.hw-steps p { margin: 0; color: var(--paper-dim); font-size: 0.95rem; }
-@media (max-width: 980px) { .hw-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 560px) { .hw-steps { grid-template-columns: 1fr; } }
+/* H192: How we work, compact strip at the foot of About's Approach section */
+.hw-mini { margin-top: 44px; padding-top: 22px; border-top: 1px solid var(--border); }
+.hw-mini-list { list-style: none; margin: 12px 0 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px 24px; }
+.hw-mini-list li { font-size: 0.88rem; line-height: 1.5; color: var(--paper-dim); }
+.hw-mini-list strong { display: block; color: var(--paper); font-weight: 600; margin-bottom: 2px; }
+@media (max-width: 980px) { .hw-mini-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .hw-mini-list { grid-template-columns: 1fr; } }
