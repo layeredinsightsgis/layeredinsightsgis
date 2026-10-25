@@ -1490,7 +1490,7 @@ text.hd-sm2[x="262"] { text-anchor: middle; }
 }
 @media (prefers-reduced-motion: reduce) { .rp-frame, .rp-frame:hover { transition: none; transform: none; } }
 
-/* H192: How we work strip (homepage) and step row (services) */
+/* H192: How we work strip (homepage) */
 .hw-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 24px 28px; }
 .hw-steps li { padding-top: 14px; border-top: 2px solid var(--ochre-dim); }
 .hw-steps li:last-child { border-top-color: var(--ochre); }
@@ -1499,6 +1499,3 @@ text.hd-sm2[x="262"] { text-anchor: middle; }
 .hw-steps p { margin: 0; color: var(--paper-dim); font-size: 0.95rem; }
 @media (max-width: 980px) { .hw-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 560px) { .hw-steps { grid-template-columns: 1fr; } }
-.svc-steps { list-style: none; margin: 0 0 14px; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
-.svc-steps li { font-family: var(--font-mono); font-size: 0.78rem; padding: 3px 9px; border: 1px solid var(--border); border-radius: 999px; color: var(--muted); }
-.svc-steps li.on { border-color: var(--ochre-dim); color: var(--ochre); }
