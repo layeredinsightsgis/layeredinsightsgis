@@ -1504,10 +1504,11 @@ text.hd-sm2[x="262"] { text-anchor: middle; }
 .sit-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
 .sit-tag { margin: 0 0 8px; font-family: var(--font-mono); font-size: 0.78rem; color: var(--paper-dim); }
 .sit-card h2 { font-size: 1.4rem; line-height: 1.25; }
-.sit-glyph { flex: none; width: 34px; height: 26px; margin-top: 4px; fill: none; stroke-width: 1.6; }
-.sit-glyph path:nth-child(1) { stroke: var(--teal); }
-.sit-glyph path:nth-child(2) { stroke: var(--olive); }
-.sit-glyph path:nth-child(3) { stroke: var(--ochre); }
+/* Same mark as the logo (.wordmark .mark), drawn larger */
+.sit-glyph { flex: none; width: 32px; height: 32px; }
+.sit-glyph .mark-top { fill: var(--paper); stroke: var(--panel); stroke-width: 1; }
+.sit-glyph .mark-mid { stroke: var(--teal); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; opacity: 0.9; }
+.sit-glyph .mark-low { stroke: var(--ochre); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; opacity: 0.75; }
 .sit-rows { margin: 0; display: grid; gap: 14px; }
 .sit-rows dt { font-family: var(--font-mono); font-size: 0.78rem; color: var(--paper-dim); }
 .sit-rows dt.sit-build { color: var(--ochre-pop); }
