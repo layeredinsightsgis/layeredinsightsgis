@@ -1497,3 +1497,22 @@ text.hd-sm2[x="262"] { text-anchor: middle; }
 .hw-mini-list strong { display: block; color: var(--paper); font-weight: 600; margin-bottom: 2px; }
 @media (max-width: 980px) { .hw-mini-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 560px) { .hw-mini-list { grid-template-columns: 1fr; } }
+
+/* Services: "Start with what you already have" situation cards (2026-10-31) */
+.sit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 20px; }
+.sit-card { background: var(--panel); border: 1px solid var(--border-strong); border-radius: 10px; padding: 28px; display: flex; flex-direction: column; gap: 22px; }
+.sit-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.sit-tag { margin: 0 0 8px; font-family: var(--font-mono); font-size: 0.78rem; color: var(--paper-dim); }
+.sit-card h2 { font-size: 1.4rem; line-height: 1.25; }
+.sit-glyph { flex: none; width: 34px; height: 26px; margin-top: 4px; fill: none; stroke-width: 1.6; }
+.sit-glyph path:nth-child(1) { stroke: var(--teal); }
+.sit-glyph path:nth-child(2) { stroke: var(--olive); }
+.sit-glyph path:nth-child(3) { stroke: var(--ochre); }
+.sit-rows { margin: 0; display: grid; gap: 14px; }
+.sit-rows dt { font-family: var(--font-mono); font-size: 0.78rem; color: var(--paper-dim); }
+.sit-rows dt.sit-build { color: var(--ochre-pop); }
+.sit-rows dd { margin: 0; color: var(--paper); }
+.sit-path { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--border-strong); font-family: var(--font-mono); font-size: 0.82rem; line-height: 1.7; color: var(--paper-dim); }
+.sit-path a { color: var(--ochre-pop); border-bottom: 1px solid var(--ochre-dim); text-decoration: none; }
+.sit-path a:hover { color: var(--paper); }
+#quick-start .svc-start { margin-top: 24px; }
