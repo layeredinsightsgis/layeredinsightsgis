@@ -18,7 +18,7 @@
 <meta name="twitter:image" content="https://layeredinsightsgis.com/imgs/parcels.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=56">
+<link rel="stylesheet" href="styles.css?v=57">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -69,7 +69,7 @@
       "name": "How much does GIS consulting cost?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Consulting is $125 an hour with no minimum. Projects, from digitizing one building's plans to a full system build, get a firm price once we've seen your files, so there's no running meter. What moves the price is size and detail: how big the job is, how good the drawings are, and how much goes on the map. Send one floor plan and we'll give you a ballpark, free, usually within a day."
+        "text": "Consulting is $125 an hour with no minimum. Projects, from digitizing one building's plans to a bigger system build, get a firm price once we've seen your files, so there's no running meter. What moves the price is size and detail: how big the job is, how good the drawings are, and how much goes on the map. Send one floor plan and we'll give you a ballpark, free, usually within a day."
       }
     },
     {
@@ -82,10 +82,10 @@
     },
     {
       "@type": "Question",
-      "name": "What's the difference between a small GIS job and a full GIS system build?",
+      "name": "What's the difference between a small GIS job and a bigger GIS system build?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A small job has a clear finish line, a quick turnaround and one deliverable, such as digitizing a paper map or georeferencing a scanned plat. A full system build — like custom web mapping, systems integration, or automated data pipelines — is an ongoing platform meant to keep working and be maintained long after delivery."
+        "text": "A small job has a clear finish line, a quick turnaround and one deliverable, such as digitizing a paper map or georeferencing a scanned plat. A bigger system build — like custom web mapping, systems integration, or automated data pipelines — is an ongoing platform meant to keep working and be maintained long after delivery."
       }
     }
   ]
@@ -116,8 +116,8 @@
   <section class="page-hero">
     <div class="container">
       <p class="eyebrow">Services</p>
-      <h1>From a single map to a full GIS program.</h1>
-      <p class="lede">Small jobs first, bigger builds below. Either is a fine place to start.</p>
+      <h1>Start with what you already have.</h1>
+      <p class="lede">Find the one that sounds like your situation. Most start as a small job with a clear finish line, and grow only if you want them to.</p>
     </div>
   </section>
 
@@ -125,45 +125,109 @@
 
   <section id="quick-start" class="section-border-top" style="padding-top:20px;">
     <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">Small jobs</p>
-        <h2>Small jobs, just as welcome.</h2>
-        <p class="lede">A clear finish line and a quick turnaround. A good way to start working together.</p>
-      </div>
-
-      <div class="grid-flex">
-        <div class="card">
-          <h3>Paper maps, made usable</h3>
-          <p>Old paper maps, PDFs or hand-drawn plans turned into map data you can search and update.</p>
-        </div>
-        <div class="card">
-          <h3>Data review</h3>
-          <p>Before you build on it, find out what you have: what's there, what's wrong, what to fix first and what it would cost.</p>
-        </div>
-        <div class="card">
-          <h3>Count what's out there</h3>
-          <p>Signs, hydrants, trees, meters: we collect their locations in the field and hand back a clean list on a map.</p>
-        </div>
-        <div class="card">
-          <h3>One good map</h3>
-          <p>A single polished map for wayfinding, an event or a brochure, instead of a whole system.</p>
-        </div>
-        <div class="card">
-          <h3>Old drawings, lined up</h3>
-          <p>Scanned plats, old aerials and as-builts placed where they belong, so they line up with everything else.</p>
-        </div>
-        <div class="card">
-          <h3>Fix the data you have</h3>
-          <p>Duplicates removed, names made consistent, broken links between tables repaired.</p>
-        </div>
-        <div class="card">
-          <h3>Get on the map</h3>
-          <p>Your data on a clean map on your own website. No license, no monthly fees.</p>
-        </div>
-        <div class="card">
-          <h3>Addresses on a map</h3>
-          <p>A spreadsheet of addresses turned into points on a map, cleaned and checked.</p>
-        </div>
+      <div class="sit-grid">
+        <article class="sit-card">
+          <div class="sit-top">
+            <div>
+              <p class="sit-tag">Floor plans</p>
+              <h2>“Which units share the wall that keeps leaking?”</h2>
+            </div>
+            <svg class="sit-glyph" viewBox="0 0 34 26" aria-hidden="true"><path d="M2 18 L17 24 L32 18"/><path d="M2 12 L17 18 L32 12"/><path d="M2 6 L17 0.8 L32 6 L17 12 Z"/></svg>
+          </div>
+          <dl class="sit-rows">
+            <div><dt>You have</dt><dd>AutoCAD, Revit or PDF floor plans, even hand-drawn ones.</dd></div>
+            <div><dt class="sit-build">We build</dt><dd>Floor plans as map data, every room searchable.</dd></div>
+          </dl>
+          <div class="sit-path">
+            <p>Starts as: one building's plans</p>
+            <p>Can grow into: <a href="#build-cad">CAD/GIS integration</a></p>
+          </div>
+        </article>
+        <article class="sit-card">
+          <div class="sit-top">
+            <div>
+              <p class="sit-tag">Emergency info</p>
+              <h2>“Where’s the water shut-off for Building C, 3rd floor?”</h2>
+            </div>
+            <svg class="sit-glyph" viewBox="0 0 34 26" aria-hidden="true"><path d="M2 18 L17 24 L32 18"/><path d="M2 12 L17 18 L32 12"/><path d="M2 6 L17 0.8 L32 6 L17 12 Z"/></svg>
+          </div>
+          <dl class="sit-rows">
+            <div><dt>You have</dt><dd>A binder listing shut-offs, panels and who to call.</dd></div>
+            <div><dt class="sit-build">We build</dt><dd>One emergency map that opens on any phone.</dd></div>
+          </dl>
+          <div class="sit-path">
+            <p>Starts as: one building's binder</p>
+            <p>Can grow into: <a href="property-portal.html">the property portal</a> (in development)</p>
+          </div>
+        </article>
+        <article class="sit-card">
+          <div class="sit-top">
+            <div>
+              <p class="sit-tag">Rental portfolio</p>
+              <h2>“Which properties keep needing repairs in the same spot?”</h2>
+            </div>
+            <svg class="sit-glyph" viewBox="0 0 34 26" aria-hidden="true"><path d="M2 18 L17 24 L32 18"/><path d="M2 12 L17 18 L32 12"/><path d="M2 6 L17 0.8 L32 6 L17 12 Z"/></svg>
+          </div>
+          <dl class="sit-rows">
+            <div><dt>You have</dt><dd>Properties spread across towns, tracked in a spreadsheet of addresses.</dd></div>
+            <div><dt class="sit-build">We build</dt><dd>Every address on one map, cleaned and checked, with repairs pinned to the unit.</dd></div>
+          </dl>
+          <div class="sit-path">
+            <p>Starts as: your address list on a map</p>
+            <p>Can grow into: <a href="property-portal.html">the property portal</a> (in development)</p>
+          </div>
+        </article>
+        <article class="sit-card">
+          <div class="sit-top">
+            <div>
+              <p class="sit-tag">Old drawings</p>
+              <h2>“What do our old drawings show under the new parking lot?”</h2>
+            </div>
+            <svg class="sit-glyph" viewBox="0 0 34 26" aria-hidden="true"><path d="M2 18 L17 24 L32 18"/><path d="M2 12 L17 18 L32 12"/><path d="M2 6 L17 0.8 L32 6 L17 12 Z"/></svg>
+          </div>
+          <dl class="sit-rows">
+            <div><dt>You have</dt><dd>Scanned plats, old aerials and as-builts in a drawer.</dd></div>
+            <div><dt class="sit-build">We build</dt><dd>Georeferenced layers that line up with the ground and with each other.</dd></div>
+          </dl>
+          <div class="sit-path">
+            <p>Starts as: a few scans lined up</p>
+            <p>Can grow into: <a href="#build-cad">CAD/GIS integration</a></p>
+          </div>
+        </article>
+        <article class="sit-card">
+          <div class="sit-top">
+            <div>
+              <p class="sit-tag">Data review &amp; cleanup</p>
+              <h2>“Why don’t our two systems match?”</h2>
+            </div>
+            <svg class="sit-glyph" viewBox="0 0 34 26" aria-hidden="true"><path d="M2 18 L17 24 L32 18"/><path d="M2 12 L17 18 L32 12"/><path d="M2 6 L17 0.8 L32 6 L17 12 Z"/></svg>
+          </div>
+          <dl class="sit-rows">
+            <div><dt>You have</dt><dd>Map data with duplicates and odd names, or two systems that list the same rooms differently.</dd></div>
+            <div><dt class="sit-build">We build</dt><dd>A plain data review first: what's there, what's wrong, what to fix first and what it costs. Then the fixes.</dd></div>
+          </dl>
+          <div class="sit-path">
+            <p>Starts as: a data review</p>
+            <p>Can grow into: <a href="#build-integration">systems integration</a></p>
+          </div>
+        </article>
+        <article class="sit-card">
+          <div class="sit-top">
+            <div>
+              <p class="sit-tag">Site &amp; event maps</p>
+              <h2>“How long a walk is it from the Atrium to the Convocation Center?”</h2>
+            </div>
+            <svg class="sit-glyph" viewBox="0 0 34 26" aria-hidden="true"><path d="M2 18 L17 24 L32 18"/><path d="M2 12 L17 18 L32 12"/><path d="M2 6 L17 0.8 L32 6 L17 12 Z"/></svg>
+          </div>
+          <dl class="sit-rows">
+            <div><dt>You have</dt><dd>An office park, a large site or an event with a site plan.</dd></div>
+            <div><dt class="sit-build">We build</dt><dd>One good map on your website, or a wayfinding app with walking routes and times on a visitor's phone.</dd></div>
+          </dl>
+          <div class="sit-path">
+            <p>Starts as: one good map</p>
+            <p>Can grow into: <a href="#build-web">a wayfinding app</a></p>
+          </div>
+        </article>
       </div>
 
       <p id="consulting" class="svc-start"><strong>Consulting is $125 an hour. Every project gets a firm price before we start.</strong> Not sure which you need? Start with an hour of consulting, or send one floor plan for a free ballpark. <a href="pricing.html">How pricing works →</a></p>
@@ -174,13 +238,13 @@
     <div class="container">
 
       <div class="section-head">
-        <p class="eyebrow">Full builds</p>
-        <h2>Five ways we build lasting systems.</h2>
+        <p class="eyebrow">Bigger builds</p>
+        <h2>When a small job turns into a system.</h2>
         <p class="lede">Open any one to see what it covers. Each is quoted after a conversation about your situation.</p>
       </div>
 
       <div class="pr-acc svc-acc">
-        <details class="pr-d">
+        <details class="pr-d" id="build-web">
           <summary><span class="pr-d-t"><span class="svc-n">01</span>Custom web mapping &amp; apps</span><span class="pr-d-p">maps and dashboards people actually use</span></summary>
           <div class="pr-d-body">
             <p class="pr-d-lead">Interactive maps built for the people who'll actually use them — public-facing or internal, on Leaflet, ArcGIS Online, or Experience Builder. Each one is shaped around your data and your workflow.</p>
@@ -191,7 +255,7 @@
             </ul>
           </div>
         </details>
-        <details class="pr-d">
+        <details class="pr-d" id="build-integration">
           <summary><span class="pr-d-t"><span class="svc-n">02</span>GIS systems integration</span><span class="pr-d-p">your map and your other systems agree</span></summary>
           <div class="pr-d-body">
             <p class="pr-d-lead">Spatial data is only useful when it talks to the systems you already run on. We connect GIS to directories, scheduling platforms, and asset or work order systems so updates flow one way, automatically.</p>
@@ -202,7 +266,7 @@
             </ul>
           </div>
         </details>
-        <details class="pr-d">
+        <details class="pr-d" id="build-pipelines">
           <summary><span class="pr-d-t"><span class="svc-n">03</span>Spatial data pipelines</span><span class="pr-d-p">data that stays current without retyping</span></summary>
           <div class="pr-d-body">
             <p class="pr-d-lead">A dataset that's accurate once is a snapshot. We build the scripted pipelines that keep it accurate on a schedule — pulling from source systems, validating, and pushing updates without someone doing it by hand.</p>
@@ -213,7 +277,7 @@
             </ul>
           </div>
         </details>
-        <details class="pr-d">
+        <details class="pr-d" id="build-cad">
           <summary><span class="pr-d-t"><span class="svc-n">04</span>CAD/GIS integration</span><span class="pr-d-p">your drawings, turned into a searchable map</span></summary>
           <div class="pr-d-body">
             <p class="pr-d-lead">Most organizations' floor plans, site plans, and as-built drawings live in CAD — accurate, detailed, and disconnected from anything that can search or analyze them spatially. We bridge that gap so the drawings your team already trusts become part of a working GIS, not a one-time export that goes stale.</p>
@@ -226,7 +290,7 @@
             <p class="svc-honest">We're GIS specialists, not CAD drafters. We turn your CAD into GIS and help you sort out the drawing problems we find. If you need new CAD drawings made, we'll point you to a drafting firm.</p>
           </div>
         </details>
-        <details class="pr-d">
+        <details class="pr-d" id="build-program">
           <summary><span class="pr-d-t"><span class="svc-n">05</span>GIS program development</span><span class="pr-d-p">standards and a roadmap, so nothing starts over</span></summary>
           <div class="pr-d-body">
             <p class="pr-d-lead">For organizations without an existing GIS practice, or one that's outgrown its original setup. We help set standards, structure, and a roadmap so the next map or dataset builds on the last one instead of starting over.</p>
@@ -255,15 +319,15 @@
         </details>
         <details class="card">
           <summary style="cursor:pointer; font-weight:600; color:var(--paper);">How much does GIS consulting cost?</summary>
-          <p>Consulting is $125 an hour with no minimum. Projects, from digitizing one building's plans to a full system build, get a firm price once we've seen your files, so there's no running meter. What moves the price is size and detail: how big the job is, how good the drawings are, and how much goes on the map. Send one floor plan and we'll give you a ballpark, free, usually within a day.</p>
+          <p>Consulting is $125 an hour with no minimum. Projects, from digitizing one building's plans to a bigger system build, get a firm price once we've seen your files, so there's no running meter. What moves the price is size and detail: how big the job is, how good the drawings are, and how much goes on the map. Send one floor plan and we'll give you a ballpark, free, usually within a day.</p>
         </details>
         <details class="card">
           <summary style="cursor:pointer; font-weight:600; color:var(--paper);">Do I need an existing GIS program to hire a GIS consultant?</summary>
           <p>No. Many projects start with an organization that has spatial data somewhere — spreadsheets, CAD drawings, paper plans — but no GIS program yet. A consultant can build the first system from scratch, or help an existing GIS practice that has outgrown its original setup.</p>
         </details>
         <details class="card">
-          <summary style="cursor:pointer; font-weight:600; color:var(--paper);">Small job vs. full build: what's the difference?</summary>
-          <p>A small job has a clear finish line, a quick turnaround and one deliverable. A full system build — custom web mapping, systems integration, or automated data pipelines — is an ongoing platform meant to keep working and be maintained long after delivery.</p>
+          <summary style="cursor:pointer; font-weight:600; color:var(--paper);">Small job vs. bigger build: what's the difference?</summary>
+          <p>A small job has a clear finish line, a quick turnaround and one deliverable. A bigger system build — custom web mapping, systems integration, or automated data pipelines — is an ongoing platform meant to keep working and be maintained long after delivery.</p>
         </details>
       </div>
     </div>
@@ -272,8 +336,8 @@
   <section class="section-border-top">
     <div class="container">
       <div class="section-head" style="margin-bottom:0;">
-        <p class="eyebrow">Not sure where to start?</p>
-        <h2>Tell us what you're trying to see.</h2>
+        <p class="eyebrow">Don't see yours?</p>
+        <h2>Tell us what you have.</h2>
         <p class="lede">Most projects start with a conversation about a specific problem, not a specific platform.</p>
       </div>
       <div class="hero-cta" style="margin-top:28px;">
@@ -321,6 +385,6 @@
   </div>
 </footer>
 
-<script src="script.js?v=13"></script>
+<script src="script.js?v=14"></script>
 </body>
 </html>

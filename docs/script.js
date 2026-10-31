@@ -145,3 +145,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+// Services: a link to a closed "Bigger builds" accordion opens it (2026-10-31)
+(function () {
+  function openTarget() {
+    var id = location.hash.slice(1);
+    if (!id) return;
+    var el = document.getElementById(id);
+    if (el && el.tagName === 'DETAILS') el.open = true;
+  }
+  window.addEventListener('hashchange', openTarget);
+  openTarget();
+})();
