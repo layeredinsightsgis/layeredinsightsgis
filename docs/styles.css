@@ -1373,7 +1373,8 @@ text.hd-sm2[x="262"] { text-anchor: middle; }
 @media (max-width: 860px) { .approach-cols { grid-template-columns: 1fr; } }
 .approach-cols h3 { font-size: 1.15rem; line-height: 1.3; margin: 0 0 8px; }
 .approach-cols p { margin: 0; color: var(--paper-dim); }
-.approach-exp { margin: 28px 0 0; padding-top: 18px; border-top: 1px solid var(--border); color: var(--paper-dim); font-size: 0.95rem; max-width: 72ch; }
+.approach-exp { margin: 28px 0 0; padding-top: 18px; border-top: 1px solid var(--border); color: var(--paper); font-size: 1rem; max-width: 72ch; }
+.approach-pull { margin: 0 0 32px; font-size: clamp(1.35rem, 2.6vw, 1.9rem); line-height: 1.25; font-weight: 400; max-width: 30ch; padding-left: 16px; border-left: 3px solid var(--ochre); font-family: var(--font-display); color: var(--paper); }
 .mk-teaser-label { margin: 0 0 2px; font: 0.72rem var(--font-mono); letter-spacing: 0.06em; color: var(--muted); text-transform: uppercase; }
 
 /* Fourth problem tab: "It isn't about buildings" */
