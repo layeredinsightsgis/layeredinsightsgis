@@ -1518,3 +1518,14 @@ text.hd-sm2[x="262"] { text-anchor: middle; }
 .sit-path a { color: var(--ochre-pop); border-bottom: 1px solid var(--ochre-dim); text-decoration: none; }
 .sit-path a:hover { color: var(--paper); }
 #quick-start .svc-start { margin-top: 24px; }
+
+/* about page: founder bio with photo */
+.bio-grid { display: grid; grid-template-columns: 280px 1fr; gap: 48px; align-items: start; }
+.bio-photo { margin: 0; }
+.bio-photo img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 6px; border: 1px solid var(--border-strong); display: block; }
+.bio-photo figcaption { font-size: 0.86rem; color: var(--muted); font-style: italic; margin-top: 10px; line-height: 1.45; }
+.bio-text { max-width: 68ch; }
+@media (max-width: 880px) {
+  .bio-grid { grid-template-columns: 1fr; gap: 24px; }
+  .bio-photo { max-width: 280px; }
+}
