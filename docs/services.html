@@ -229,6 +229,22 @@
           </div>
         </article>
       </div>
+      <script>
+        // Shuffle the six situation cards on every visit so returning
+        // visitors see a fresh order. Runs inline, before first paint,
+        // so the original order never flashes. The 3-over-3 grid itself
+        // doesn't change; only which card sits in which spot.
+        (function () {
+          var grid = document.querySelector("#quick-start .sit-grid");
+          if (!grid) return;
+          var cards = Array.prototype.slice.call(grid.children);
+          for (var i = cards.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var t = cards[i]; cards[i] = cards[j]; cards[j] = t;
+          }
+          cards.forEach(function (c) { grid.appendChild(c); });
+        })();
+      </script>
 
       <p id="consulting" class="svc-start"><strong>Consulting is $125 an hour. Every project gets a firm price before we start.</strong> Not sure which you need? Start with an hour of consulting, or send one floor plan for a free ballpark, under NDA like every file. <a href="pricing.html">How pricing works →</a></p>
     </div>
