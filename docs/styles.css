@@ -1554,3 +1554,5 @@ text.hd-sm2[x="262"] { text-anchor: middle; }
 .guide-list li { padding: 16px 0; border-bottom: 1px solid var(--border); }
 .guide-list li a { display: block; margin-bottom: 4px; }
 .guide-list li span { color: var(--paper-dim); }
+.guide p + .guide-glance { margin-top: 14px; }
+.guide-glance + p { margin-top: 14px; }
