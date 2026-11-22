@@ -1529,3 +1529,28 @@ text.hd-sm2[x="262"] { text-anchor: middle; }
   .bio-grid { grid-template-columns: 1fr; gap: 24px; }
   .bio-photo { max-width: 280px; }
 }
+
+/* ---------------- guides (plain-language articles) ---------------- */
+.guide > * { max-width: 72ch; }
+.guide ul + p { margin-top: 12px; }
+.guide h2 { font-size: clamp(1.35rem, 2.4vw, 1.7rem); margin: 40px 0 12px; }
+.guide h2:first-child { margin-top: 0; }
+.guide h3 { font-family: var(--font-body, inherit); font-size: 1rem; font-weight: 600; margin: 20px 0 8px; color: var(--paper); }
+.guide p, .guide li, .guide dd { color: var(--paper-dim); line-height: 1.65; }
+.guide p + p { margin-top: 12px; }
+.guide ul { margin: 8px 0 0; padding-left: 1.2em; }
+.guide li + li { margin-top: 6px; }
+.guide strong { color: var(--paper); font-weight: 500; }
+.guide a { color: var(--ochre); }
+.guide-glance { display: grid; grid-template-columns: minmax(130px, 11rem) 1fr; gap: 10px 20px; margin: 0; padding: 18px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.guide-glance dt { font-family: var(--font-mono); font-size: 0.8rem; color: var(--muted); padding-top: 3px; }
+.guide-glance dd { margin: 0; }
+@media (max-width: 560px) { .guide-glance { grid-template-columns: 1fr; gap: 2px; } .guide-glance dd { margin-bottom: 10px; } }
+.guide-meta { margin-top: 14px; font-family: var(--font-mono); font-size: 0.78rem; color: var(--muted); }
+.guide-crumb { color: inherit; border-bottom: 1px solid var(--border-strong); }
+.guide-note { margin-top: 36px !important; padding: 14px 18px; border: 1px dashed var(--border-strong); border-radius: 10px; font-size: 0.92rem; }
+.guide-sources li { font-size: 0.92rem; }
+.guide-list { list-style: none; padding: 0 !important; margin: 0; }
+.guide-list li { padding: 16px 0; border-bottom: 1px solid var(--border); }
+.guide-list li a { display: block; margin-bottom: 4px; }
+.guide-list li span { color: var(--paper-dim); }
