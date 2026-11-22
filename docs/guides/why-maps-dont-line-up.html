@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Why Your Maps Don't Line Up, and Which One to Trust — Layered Insights GIS</title>
+<link rel="canonical" href="https://layeredinsightsgis.com/guides/why-maps-dont-line-up.html" />
+<meta name="description" content="A plain-language guide for property managers and facilities teams: why floor plans, GIS layers and Google Maps disagree, the difference between precision and accuracy, and how much accuracy a decision really needs." />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Layered Insights GIS" />
+<meta property="og:title" content="Why Your Maps Don't Line Up, and Which One to Trust — Layered Insights GIS" />
+<meta property="og:description" content="A plain-language guide for property managers and facilities teams: why floor plans, GIS layers and Google Maps disagree, the difference between precision and accuracy, and how much accuracy a decision really needs." />
+<meta property="og:url" content="https://layeredinsightsgis.com/guides/why-maps-dont-line-up.html" />
+<meta property="og:image" content="https://layeredinsightsgis.com/imgs/contours.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Why Your Maps Don't Line Up, and Which One to Trust — Layered Insights GIS" />
+<meta name="twitter:description" content="A plain-language guide for property managers and facilities teams: why floor plans, GIS layers and Google Maps disagree, the difference between precision and accuracy, and how much accuracy a decision really needs." />
+<meta name="twitter:image" content="https://layeredinsightsgis.com/imgs/contours.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css?v=62">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#1E2530">
+</head>
+<body class="contour-field">
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="wordmark">
+      <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path class="mark-top" d="M12 2.6 L21 7.8 L12 13 L3 7.8 Z"/><path class="mark-mid" d="M3 11.6 L12 16.8 L21 11.6" fill="none"/><path class="mark-low" d="M3 15.4 L12 20.6 L21 15.4" fill="none"/></svg></span>
+      Layered Insights GIS
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../services.html">Services</a></li>
+      <li><a href="../property-portal.html">Property portal</a></li>
+      <li><a href="../pricing.html">Pricing</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow"><a href="index.html" class="guide-crumb">Guides</a> · Maps and data</p>
+      <h1>Why your maps don&rsquo;t line up, and which one to trust.</h1>
+      <p class="lede">You lay a floor plan or a site map over Google Maps and the building sits fifteen feet off, in the parking lot. Usually neither map is simply &ldquo;wrong.&rdquo; Here&rsquo;s why maps disagree, and how to tell which one to rely on for the decision in front of you.</p>
+      <p class="guide-meta">Last reviewed November 2026 · For property managers, owners and facilities teams</p>
+    </div>
+  </section>
+
+  <section class="section-border-top">
+    <div class="container guide">
+
+      <h2>The short version</h2>
+      <dl class="guide-glance">
+        <dt>Photos aren&rsquo;t maps</dt>
+        <dd>An aerial or satellite photo looks like a map, but tall things lean in it, and the correction is never perfect.</dd>
+        <dt>Free basemaps vary</dt>
+        <dd>Google, Bing and Apple don&rsquo;t publish how accurate their imagery is, and it changes from one block to the next.</dd>
+        <dt>Agreement proves little</dt>
+        <dd>Two layers that line up may just share the same mistake.</dd>
+        <dt>Right isn&rsquo;t one thing</dt>
+        <dd>A plan can be perfect inside and still sit in the wrong spot on the earth.</dd>
+        <dt>Before you dig</dt>
+        <dd>Call 811. Every time, whatever any map shows.</dd>
+      </dl>
+
+      <h2>A photo from the air leans</h2>
+      <p>A camera in an airplane or satellite sees most of the ground at an angle, not straight down. Anything with height, like a building, a tree or a light pole, appears to lean away from the center of the picture. On a three-story office, the roof edge in the photo can sit several feet off from where the walls meet the ground, and more on taller buildings.</p>
+      <p>Imagery providers straighten photos out using elevation data and known points on the ground. The result is called an <strong>orthophoto</strong>, and it&rsquo;s much closer to a true map. But it&rsquo;s only as good as the elevation data and ground points behind it, and rooftops often still don&rsquo;t sit exactly over their foundations.</p>
+      <p>Why it matters to you: if someone traced your building outlines from the roofs in a photo, the outlines may be shifted by the same amount, and nothing on screen will warn you.</p>
+
+      <h2>Free basemaps are a patchwork</h2>
+      <p>The imagery behind Google Maps, Bing Maps and Apple Maps is stitched together from many flights and satellites, taken in different years by different companies. In one place it can be within a few feet of true. A mile away it can be off by ten, twenty or more. The companies don&rsquo;t publish accuracy figures for it, so there&rsquo;s no way to know how good a given spot is without checking it against something you trust.</p>
+      <p>That makes free imagery great for orientation, the &ldquo;which building is which&rdquo; kind of question. It&rsquo;s a poor yardstick for deciding whether your own map is right.</p>
+
+      <h2>Other reasons two maps disagree</h2>
+      <ul>
+        <li><strong>Different dates.</strong> The photo is from before the addition was built, or the parking lot was restriped since.</li>
+        <li><strong>Different reference points.</strong> Every survey or photo flight is tied to its own set of known points on the ground. Different jobs, slightly different results.</li>
+        <li><strong>Different versions of the coordinate system.</strong> The systems that turn coordinates into places on the ground have been updated over the years. The same numbers can land a foot or more apart depending on which version was used.</li>
+        <li><strong>Drawings that were never tied to the ground.</strong> Many floor plans and site plans have no coordinates at all. Someone has to fit them onto the map, and the fit is only as good as what they lined them up with.</li>
+      </ul>
+      <p>The trap is assuming that when two layers line up, both are right. If one was traced from the other, or both came from the same photo, they&rsquo;ll agree perfectly and share the same error.</p>
+
+      <h2>Right inside, wrong on the earth</h2>
+      <p>This one surprises people. A floor plan can be drawn beautifully: every room the right size, every hallway the right width, every door where it belongs. Then someone fits it onto the map by lining it up with a free satellite image that&rsquo;s twenty feet off. Now the whole building is twenty feet off, too, while every measurement inside it is still correct.</p>
+      <p>GIS people call this the difference between <strong>precision</strong>, how well the shapes match each other, and <strong>accuracy</strong>, how well they match the real ground. A plan like that is still excellent for:</p>
+      <ul>
+        <li>knowing which room is which, and sending a technician to the right door;</li>
+        <li>square footage and room layouts;</li>
+        <li>pinning repairs to the rooms where they happen.</li>
+      </ul>
+      <p>It is <strong>not</strong> good for deciding where a wall sits relative to a buried line, a setback or a property boundary. Those questions are about the ground, so they need data that&rsquo;s accurate on the ground.</p>
+
+      <h2>Match the accuracy to the decision</h2>
+      <p>&ldquo;How accurate is the map?&rdquo; matters less than &ldquo;is it accurate enough for what I&rsquo;m about to decide?&rdquo; A rough guide:</p>
+      <dl class="guide-glance">
+        <dt>Which building or unit?</dt>
+        <dd>Almost any decent map, free imagery included.</dd>
+        <dt>Rooms, square feet, work orders</dt>
+        <dd>A floor plan that&rsquo;s right inside. Where it sits on the earth matters much less.</dd>
+        <dt>Walking to a shut-off or cleanout</dt>
+        <dd>Features located in the field, by GPS or measured from the building, close enough that someone can find them in the dark.</dd>
+        <dt>Property lines, setbacks, construction</dt>
+        <dd>A licensed land surveyor. Maps, ours included, are not a substitute.</dd>
+        <dt>Digging</dt>
+        <dd>Call 811 and have the lines marked. No map is enough.</dd>
+      </dl>
+      <p>For mapping professionals, the formal yardstick is the American Society for Photogrammetry and Remote Sensing&rsquo;s positional accuracy standards. A good provider can tell you how their work measures up.</p>
+
+      <h2>When someone says your map is wrong</h2>
+      <p>Ask what they compared it to. A phone&rsquo;s GPS can easily be off by tens of feet, especially near buildings and under trees. A free basemap has no published accuracy at all. A contractor with survey-grade equipment and a clear discrepancy is worth listening to. Then check where your layer came from. Which brings us to the most useful habit of all.</p>
+
+      <h2>Good maps say where they came from</h2>
+      <p>For every layer you rely on, you should be able to find out:</p>
+      <ul>
+        <li>What it was made from: a survey, field GPS, a drawing, or tracing a photo?</li>
+        <li>How it was placed on the ground, and what it was lined up with.</li>
+        <li>About how accurate it is, in feet.</li>
+        <li>When someone last checked it against the real thing.</li>
+      </ul>
+      <p>If nobody can answer those questions, treat the layer as approximate until someone verifies it.</p>
+
+      <h2>Before anyone digs</h2>
+      <p>Maps of underground utilities show where lines are <em>thought</em> to be, based on drawings and records. Lines get moved, abandoned or installed without paperwork, and an error that looks tiny on screen is big enough to hit a gas line. In Georgia, the law requires contacting Georgia 811 before any mechanized digging. You call 811 or file a request online at least 48 hours, and no more than 10 working days, before you start, and the utilities mark their lines. It&rsquo;s worth doing for hand digging too.</p>
+
+      <p class="guide-note">This guide is a plain-language overview. It isn&rsquo;t surveying, engineering or legal advice. For property lines and construction layout, use a licensed land surveyor; for buried utilities, use 811.</p>
+
+      <h2>Sources</h2>
+      <ul class="guide-sources">
+        <li><a href="https://www.georgia811.com/" rel="noopener" target="_blank">Georgia 811</a>: when and how to request utility locates.</li>
+        <li><a href="https://www.asprs.org/" rel="noopener" target="_blank">ASPRS</a>: Positional Accuracy Standards for Digital Geospatial Data, Edition 2, Version 2 (2024).</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section-border-top">
+    <div class="container">
+      <div class="section-head" style="margin-bottom:0;">
+        <p class="eyebrow">Questions</p>
+        <h2>Not sure how far to trust your maps?</h2>
+      </div>
+      <div class="hero-cta" style="margin-top:28px;">
+        <a href="../contact.html" class="btn btn-ghost">Get in touch</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="wordmark">
+          <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path class="mark-top" d="M12 2.6 L21 7.8 L12 13 L3 7.8 Z"/><path class="mark-mid" d="M3 11.6 L12 16.8 L21 11.6" fill="none"/><path class="mark-low" d="M3 15.4 L12 20.6 L21 15.4" fill="none"/></svg></span>
+          Layered Insights GIS
+        </a>
+        <p class="footer-tagline">We document. We build. You ask.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Site</h4>
+          <ul>
+            <li><a href="../services.html">Services</a></li>
+            <li><a href="../pricing.html">Pricing</a></li>
+            <li><a href="../property-portal.html">Property portal</a></li>
+            <li><a href="../guides/">Guides</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:contact@layeredinsightsgis.com">contact@layeredinsightsgis.com</a></li>
+            <li><a href="tel:+17067018280">706.701.8280</a></li>
+            <li><a href="https://www.linkedin.com/company/layered-insights-gis/" rel="me noopener" target="_blank">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Layered Insights GIS, LLC</span>
+      <span>Dahlonega, Georgia</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../script.js?v=14"></script>
+</body>
+</html>
