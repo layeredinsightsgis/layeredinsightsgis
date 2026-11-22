@@ -18,7 +18,7 @@
 <meta name="twitter:image" content="https://layeredinsightsgis.com/imgs/contours.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css?v=63">
+<link rel="stylesheet" href="../styles.css?v=64">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -95,6 +95,54 @@
 
       <h2>Right inside, wrong on the earth</h2>
       <p>This one surprises people. A floor plan can be drawn beautifully: every room the right size, every hallway the right width, every door where it belongs. Then someone fits it onto the map by lining it up with a free satellite image that&rsquo;s twenty feet off. Now the whole building is twenty feet off, too, while every measurement inside it is still correct.</p>
+      <figure class="guide-fig">
+        <svg viewBox="0 0 600 390" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="figA-t figA-d">
+  <title id="figA-t">Right inside, wrong on the earth</title>
+  <desc id="figA-d">Illustration: a dashed outline shows where a building really is. The same floor plan, with identical rooms, sits about twenty feet away on the parking lot because it was lined up to a free satellite image.</desc>
+  <style>
+    .lbl{font-family:"IBM Plex Sans",-apple-system,sans-serif;font-size:17px;fill:#B9C0C4}
+    .lblb{font-family:"IBM Plex Sans",-apple-system,sans-serif;font-size:17px;font-weight:600}
+    .tag{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.12em;fill:#7E8D96}
+    .rm{font-family:"IBM Plex Mono",monospace;font-size:14px;fill:#B9C0C4}
+  </style>
+  <rect width="600" height="390" rx="12" fill="#151c22"/>
+  <text x="20" y="30" class="tag">ILLUSTRATION · PLAN VIEW</text>
+  <g fill="rgba(124,148,115,0.35)" stroke="#7C9473" stroke-width="1">
+    <circle cx="40" cy="150" r="12"/><circle cx="44" cy="250" r="11"/><circle cx="150" cy="292" r="13"/><circle cx="235" cy="300" r="10"/>
+  </g>
+  <rect x="300" y="70" width="280" height="245" fill="#1b232a" stroke="rgba(232,228,218,0.10)"/>
+  <g stroke="rgba(232,228,218,0.22)" stroke-width="1.5">
+    <line x1="300" y1="100" x2="580" y2="100"/><line x1="300" y1="285" x2="580" y2="285"/>
+    <line x1="340" y1="70" x2="340" y2="100"/><line x1="380" y1="70" x2="380" y2="100"/><line x1="420" y1="70" x2="420" y2="100"/><line x1="460" y1="70" x2="460" y2="100"/><line x1="500" y1="70" x2="500" y2="100"/><line x1="540" y1="70" x2="540" y2="100"/>
+    <line x1="340" y1="285" x2="340" y2="315"/><line x1="380" y1="285" x2="380" y2="315"/><line x1="420" y1="285" x2="420" y2="315"/><line x1="460" y1="285" x2="460" y2="315"/><line x1="500" y1="285" x2="500" y2="315"/><line x1="540" y1="285" x2="540" y2="315"/>
+  </g>
+  <rect x="0" y="335" width="600" height="38" fill="#222c35"/>
+  <line x1="0" y1="354" x2="600" y2="354" stroke="#C98A4B" stroke-opacity="0.55" stroke-width="2" stroke-dasharray="14 12"/>
+  <!-- true footprint -->
+  <rect x="70" y="110" width="160" height="120" fill="rgba(76,151,168,0.10)" stroke="#3FC4D9" stroke-width="2" stroke-dasharray="7 6"/>
+  <g stroke="#3FC4D9" stroke-opacity="0.45" stroke-width="1" stroke-dasharray="4 5">
+    <line x1="150" y1="110" x2="150" y2="230"/><line x1="70" y1="170" x2="230" y2="170"/>
+  </g>
+  <text x="70" y="98" class="lblb" fill="#3FC4D9">Where the building really is</text>
+  <!-- shifted plan -->
+  <g transform="translate(270,40)">
+    <rect x="70" y="110" width="160" height="120" fill="#1F2A33" stroke="#E9E4D8" stroke-width="3"/>
+    <g stroke="#E9E4D8" stroke-opacity="0.75" stroke-width="2">
+      <line x1="150" y1="110" x2="150" y2="230"/><line x1="70" y1="170" x2="230" y2="170"/>
+    </g>
+    <text x="96" y="146" class="rm">101</text><text x="176" y="146" class="rm">102</text>
+    <text x="96" y="206" class="rm">103</text><text x="176" y="206" class="rm">104</text>
+  </g>
+  <text x="440" y="122" class="lbl" text-anchor="middle">Same plan, lined up to</text>
+  <text x="440" y="142" class="lbl" text-anchor="middle">a free satellite image</text>
+  <!-- offset arrow -->
+  <line x1="236" y1="176" x2="328" y2="207" stroke="#E4A05C" stroke-width="2.5"/>
+  <polygon points="336,210 323,212 327,201" fill="#E4A05C"/>
+  <text x="272" y="176" class="lblb" fill="#E4A05C" text-anchor="middle">20 ft</text>
+  <text x="590" y="386" class="tag" text-anchor="end">ROOMS RIGHT · POSITION WRONG</text>
+</svg>
+        <figcaption>The rooms are drawn correctly, so the plan still works for room numbers, square footage and work orders. Its position on the ground doesn&rsquo;t.</figcaption>
+      </figure>
       <p>GIS people call this the difference between <strong>precision</strong>, how well the shapes match each other, and <strong>accuracy</strong>, how well they match the real ground. A plan like that is still excellent for:</p>
       <ul>
         <li>knowing which room is which, and sending a technician to the right door;</li>
@@ -135,6 +183,56 @@
       <h2>Before anyone digs</h2>
       <p>Maps of underground utilities show where lines are <em>thought</em> to be, based on drawings and records. Lines get moved, abandoned or installed without paperwork, and an error that looks tiny on screen is big enough to hit a gas line. In Georgia, the law requires contacting Georgia 811 before any mechanized digging. You call 811 or file a request online at least 48 hours, and no more than 10 working days, before you start, and the utilities mark their lines. It&rsquo;s worth doing for hand digging too.</p>
       <p><strong>But 811 isn&rsquo;t the whole answer.</strong> The utilities that respond mark only their own public lines, generally up to the meter or service point. Everything past that is private and the property owner&rsquo;s responsibility: the service lines into buildings, irrigation, site lighting, lines to outbuildings, propane, wells, and on campuses and larger properties, entire private water, sewer, power and data systems. Those need a private utility locator.</p>
+      <figure class="guide-fig">
+        <svg viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="figB-t figB-d">
+  <title id="figB-t">What 811 marks, and what it doesn't</title>
+  <desc id="figB-d">Illustration: a utility main runs under the street, and the utility's service line runs to the meter or service point at the property edge. 811 has the utility mark those. Past the meter, the lines to the building, a shed, a site light and the irrigation system are private, and the owner needs a private locator to find them.</desc>
+  <style>
+    .lbl{font-family:"IBM Plex Sans",-apple-system,sans-serif;font-size:17px;fill:#B9C0C4}
+    .lblb{font-family:"IBM Plex Sans",-apple-system,sans-serif;font-size:17px;font-weight:600}
+    .sm{font-family:"IBM Plex Sans",-apple-system,sans-serif;font-size:15px;fill:#B9C0C4}
+    .tag{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.12em;fill:#7E8D96}
+  </style>
+  <rect width="600" height="420" rx="12" fill="#151c22"/>
+  <text x="20" y="30" class="tag">ILLUSTRATION · PLAN VIEW</text>
+  <!-- legend -->
+  <line x1="330" y1="26" x2="360" y2="26" stroke="#3FC4D9" stroke-width="4"/>
+  <text x="368" y="31" class="sm">Utility&#8217;s line: 811 marks it</text>
+  <line x1="330" y1="48" x2="360" y2="48" stroke="#E4A05C" stroke-width="4" stroke-dasharray="8 6"/>
+  <text x="368" y="53" class="sm">Private: you find it</text>
+  <!-- property line -->
+  <rect x="24" y="70" width="552" height="250" fill="none" stroke="#7E8D96" stroke-opacity="0.6" stroke-width="1.5" stroke-dasharray="3 6"/>
+  <text x="566" y="88" class="tag" text-anchor="end">PROPERTY LINE</text>
+  <!-- street + main -->
+  <rect x="0" y="340" width="600" height="56" fill="#222c35"/>
+  <line x1="0" y1="368" x2="600" y2="368" stroke="#3FC4D9" stroke-width="4"/>
+  <text x="590" y="389" class="tag" text-anchor="end">STREET · UTILITY MAIN</text>
+  <!-- service to meter -->
+  <line x1="300" y1="368" x2="300" y2="318" stroke="#3FC4D9" stroke-width="4"/>
+  <rect x="290" y="300" width="20" height="18" rx="2" fill="#1F2A33" stroke="#E9E4D8" stroke-width="2"/>
+  <text x="318" y="314" class="sm">Meter / service point</text>
+  <!-- building -->
+  <rect x="210" y="110" width="180" height="110" fill="#1F2A33" stroke="#E9E4D8" stroke-width="3"/>
+  <text x="300" y="170" class="lbl" text-anchor="middle">Building</text>
+  <!-- shed -->
+  <rect x="470" y="120" width="70" height="56" fill="#1F2A33" stroke="#E9E4D8" stroke-width="2"/>
+  <text x="505" y="153" class="sm" text-anchor="middle">Shed</text>
+  <!-- light pole -->
+  <circle cx="466" cy="292" r="7" fill="#E4A05C"/><circle cx="466" cy="292" r="14" fill="none" stroke="#E4A05C" stroke-opacity="0.4"/>
+  <text x="488" y="297" class="sm">Site light</text>
+  <!-- irrigation heads -->
+  <g fill="none" stroke="#9BCB6E" stroke-width="1.5"><circle cx="70" cy="130" r="6"/><circle cx="70" cy="190" r="6"/><circle cx="70" cy="250" r="6"/></g>
+  <text x="88" y="135" class="sm">Irrigation</text>
+  <!-- private lines -->
+  <g fill="none" stroke="#E4A05C" stroke-width="3" stroke-dasharray="8 6">
+    <path d="M300 300 V220"/>
+    <path d="M300 262 H505 V176"/>
+    <path d="M466 262 V278"/>
+    <path d="M300 280 H70 V130"/>
+  </g>
+</svg>
+        <figcaption>811 has the utility mark its own line, up to the meter or service point. Everything past it is yours to find.</figcaption>
+      </figure>
       <p><strong>Even a good locator can miss a line.</strong> Locators find most lines by putting a signal on metal. Plastic, clay and concrete pipe give them nothing to follow unless a tracer wire or detectable tape was buried with it, and that wire is often missing, broken or corroded. Ground-penetrating radar helps in some soils but struggles in wet clay, and north Georgia has plenty of that. That&rsquo;s why first-hand knowledge matters: the maintenance tech who was there when the line went in, an as-built drawing someone actually checked, and careful hand digging or vacuum excavation to expose the line before machines get close.</p>
       <p>If you own private lines, the cheapest locate you&rsquo;ll ever get is the one done while the trench is open: when a line is exposed for a repair or a new install, get it mapped before it&rsquo;s buried again.</p>
       <p>If your organization has records scattered across old drawings and people&rsquo;s memories, or a crew just uncovered a line nobody knew was there, <a href="../contact.html">give us a call</a>. We can help get it documented in your systems while the information is fresh.</p>

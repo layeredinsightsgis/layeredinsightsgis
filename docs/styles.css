@@ -1560,3 +1560,6 @@ text.hd-sm2[x="262"] { text-anchor: middle; }
 
 /* seven menu items: tighter spacing on mid-width screens */
 @media (min-width: 821px) and (max-width: 1060px) { .nav-links { gap: 22px; } }
+.guide-fig { margin: 22px 0 8px !important; }
+.guide-fig svg { display: block; width: 100%; height: auto; border: 1px solid var(--border); border-radius: 12px; }
+.guide-fig figcaption { margin-top: 10px; font-size: 0.9rem; color: var(--muted); line-height: 1.5; }
