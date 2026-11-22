@@ -42,4 +42,12 @@
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://layeredinsightsgis.com/guides/</loc>
+    <lastmod>2026-11-21</lastmod>
+  </url>
+  <url>
+    <loc>https://layeredinsightsgis.com/guides/georgia-hb-268-school-mapping.html</loc>
+    <lastmod>2026-11-21</lastmod>
+  </url>
 </urlset>

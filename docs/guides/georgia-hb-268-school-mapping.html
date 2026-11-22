@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>What Georgia's HB 268 Requires of School Mapping Data — Layered Insights GIS</title>
+<link rel="canonical" href="https://layeredinsightsgis.com/guides/georgia-hb-268-school-mapping.html" />
+<meta name="description" content="A plain-language guide to the school mapping data requirements in Georgia HB 268 (O.C.G.A. 38-3-154): what has to be on the maps, the yearly in-person check, who signs off and who pays." />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Layered Insights GIS" />
+<meta property="og:title" content="What Georgia's HB 268 Requires of School Mapping Data — Layered Insights GIS" />
+<meta property="og:description" content="A plain-language guide to the school mapping data requirements in Georgia HB 268 (O.C.G.A. 38-3-154): what has to be on the maps, the yearly in-person check, who signs off and who pays." />
+<meta property="og:url" content="https://layeredinsightsgis.com/guides/georgia-hb-268-school-mapping.html" />
+<meta property="og:image" content="https://layeredinsightsgis.com/imgs/contours.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="What Georgia's HB 268 Requires of School Mapping Data — Layered Insights GIS" />
+<meta name="twitter:description" content="A plain-language guide to the school mapping data requirements in Georgia HB 268 (O.C.G.A. 38-3-154): what has to be on the maps, the yearly in-person check, who signs off and who pays." />
+<meta name="twitter:image" content="https://layeredinsightsgis.com/imgs/contours.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css?v=61">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#1E2530">
+</head>
+<body class="contour-field">
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="wordmark">
+      <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path class="mark-top" d="M12 2.6 L21 7.8 L12 13 L3 7.8 Z"/><path class="mark-mid" d="M3 11.6 L12 16.8 L21 11.6" fill="none"/><path class="mark-low" d="M3 15.4 L12 20.6 L21 15.4" fill="none"/></svg></span>
+      Layered Insights GIS
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../services.html">Services</a></li>
+      <li><a href="../property-portal.html">Property portal</a></li>
+      <li><a href="../pricing.html">Pricing</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow"><a href="index.html" class="guide-crumb">Guides</a> · Georgia schools</p>
+      <h1>What HB 268 requires of Georgia schools&rsquo; mapping data.</h1>
+      <p class="lede">Georgia&rsquo;s 2025 school safety law requires every public school to have maps that first responders can use, labeled the way people in the building talk, and checked in person every year. Here&rsquo;s what the mapping part of the law asks for, in plain language.</p>
+      <p class="guide-meta">Last reviewed November 2026 · Covers O.C.G.A. § 38-3-151(4) and § 38-3-154, added by HB 268</p>
+    </div>
+  </section>
+
+  <section class="section-border-top">
+    <div class="container guide">
+
+      <h2>At a glance</h2>
+      <dl class="guide-glance">
+        <dt>Who it covers</dt>
+        <dd>Every Georgia <strong>public</strong> school. The definition includes private schools, but the requirement to procure the data applies to public schools.</dd>
+        <dt>Deadline</dt>
+        <dd>In place by <strong>July 1, 2026</strong>, then verified in person by <strong>July 1 every year</strong> after that.</dd>
+        <dt>Who signs off</dt>
+        <dd>The school system must work with its primary local law enforcement agency and get its <strong>concurrence before</strong> buying the data.</dd>
+        <dt>Who pays</dt>
+        <dd>The school system. The mapping section of the law doesn&rsquo;t come with money of its own.</dd>
+        <dt>Cost to responders</dt>
+        <dd><strong>None.</strong> Agencies can&rsquo;t be required to buy extra software or pay to use the data.</dd>
+      </dl>
+
+      <h2>What counts as &ldquo;school mapping data&rdquo;</h2>
+      <p>The law defines it as building information, floor plans and aerial imagery of a school. In practice that means a map of the campus from above, a plan of every floor of every building, and the details responders need to find their way around.</p>
+
+      <h2>What has to be on the maps</h2>
+      <h3>Inside each building</h3>
+      <ul>
+        <li><strong>Access points:</strong> rooms, doors, stairwells and hallways, labeled with the names staff and students actually use. If everyone calls it &ldquo;the old gym,&rdquo; the map should too.</li>
+        <li><strong>Critical utilities</strong>, such as shut-offs and panels.</li>
+        <li><strong>Key boxes</strong>, <strong>AEDs</strong> and <strong>trauma kits</strong>.</li>
+      </ul>
+      <h3>Outside</h3>
+      <ul>
+        <li>Parking areas and athletic fields.</li>
+        <li>Surrounding roads, outbuildings and neighboring properties.</li>
+      </ul>
+
+      <h2>What formats it has to come in</h2>
+      <ul>
+        <li><strong>Works with what responders already use.</strong> It has to fit the software at the local 911 center and at the local, state and federal agencies that would respond, without making them buy anything or pay to view it. Future updates have to keep fitting.</li>
+        <li><strong>Printable</strong>, for when the screen or the network isn&rsquo;t an option.</li>
+        <li><strong>Shareable electronically.</strong></li>
+        <li><strong>Usable in interactive mobile platforms</strong>, when requested.</li>
+      </ul>
+      <p>The same law requires a mobile panic alert system in every public school, and that system has to integrate with the school mapping data.</p>
+
+      <h2>The yearly in-person check</h2>
+      <p>By July 1 every year, the maps have to be verified for accuracy <strong>by whoever produced them</strong>, through an in-person inspection of each school.</p>
+      <p>This is the part that keeps going after the first set of maps is delivered. Buildings change: rooms get renumbered, a wall moves in a renovation, an AED gets relocated, a portable classroom arrives. The yearly walk-through is when the map catches up with the building. Because the law ties the check to the producer, a school system&rsquo;s choice of provider is also a choice of who walks its schools every year.</p>
+
+      <h2>Who does what</h2>
+      <ul>
+        <li><strong>The school system</strong> chooses the provider, signs the contract, pays for it, and keeps the provider informed when buildings change.</li>
+        <li><strong>The primary local law enforcement agency</strong>, usually the sheriff&rsquo;s office or police department, collaborates with the school system and must concur before the data is bought. It approves; it doesn&rsquo;t buy.</li>
+        <li><strong>GEMA</strong> (the Georgia Emergency Management and Homeland Security Agency) is authorized to set rules for school mapping data, such as how it&rsquo;s used, encrypted and sent securely to first responders. Check with GEMA for the current rules.</li>
+        <li><strong>911 centers and responding agencies</strong> receive and use the data, at no cost to them.</li>
+      </ul>
+
+      <h2>Two other provisions worth knowing</h2>
+      <ul>
+        <li><strong>Open records.</strong> Information given to GEMA under this section is exempt from public disclosure, to the extent Georgia&rsquo;s open records law provides.</li>
+        <li><strong>Liability.</strong> School boards, school systems, public schools and local governments are immune from civil liability for damages arising from creating and using the data. Employees are too, unless they acted with gross negligence or bad faith.</li>
+      </ul>
+
+      <h2>Good questions to ask about your school&rsquo;s maps</h2>
+      <p>Whoever made your maps, these are worth asking once a year:</p>
+      <ul>
+        <li>Can our 911 center pull up the maps during a call, in the software it already runs?</li>
+        <li>Do the room names match what staff and students actually say?</li>
+        <li>When was each building last walked, and by whom?</li>
+        <li>Who tells the provider when something changes between inspections?</li>
+        <li>Are printed copies where responders and staff can reach them?</li>
+        <li>If we change providers, do we keep our data, in a format we can use?</li>
+      </ul>
+
+      <p class="guide-note">This guide is a plain-language summary to help you find your way around the law. It isn&rsquo;t legal advice. For the exact wording, read the law itself, and check with GEMA and your school system&rsquo;s attorney for anything that affects a decision.</p>
+
+      <h2>Sources</h2>
+      <ul class="guide-sources">
+        <li><a href="https://gov.georgia.gov/document/2025-signed-legislation/hb-268/download" rel="noopener" target="_blank">HB 268 as signed (Office of the Governor, 2025 signed legislation)</a>, Part I: Section 1-2 (O.C.G.A. § 38-3-151(4)), Section 1-3 (§ 38-3-154) and Section 1-1 (§ 20-2-591, mobile panic alert systems).</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section-border-top">
+    <div class="container">
+      <div class="section-head" style="margin-bottom:0;">
+        <p class="eyebrow">Questions</p>
+        <h2>Questions about your school&rsquo;s mapping data?</h2>
+      </div>
+      <div class="hero-cta" style="margin-top:28px;">
+        <a href="../contact.html" class="btn btn-ghost">Get in touch</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="wordmark">
+          <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path class="mark-top" d="M12 2.6 L21 7.8 L12 13 L3 7.8 Z"/><path class="mark-mid" d="M3 11.6 L12 16.8 L21 11.6" fill="none"/><path class="mark-low" d="M3 15.4 L12 20.6 L21 15.4" fill="none"/></svg></span>
+          Layered Insights GIS
+        </a>
+        <p class="footer-tagline">We document. We build. You ask.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Site</h4>
+          <ul>
+            <li><a href="../services.html">Services</a></li>
+            <li><a href="../pricing.html">Pricing</a></li>
+            <li><a href="../property-portal.html">Property portal</a></li>
+            <li><a href="../guides/">Guides</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:contact@layeredinsightsgis.com">contact@layeredinsightsgis.com</a></li>
+            <li><a href="tel:+17067018280">706.701.8280</a></li>
+            <li><a href="https://www.linkedin.com/company/layered-insights-gis/" rel="me noopener" target="_blank">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Layered Insights GIS, LLC</span>
+      <span>Dahlonega, Georgia</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../script.js?v=14"></script>
+</body>
+</html>
