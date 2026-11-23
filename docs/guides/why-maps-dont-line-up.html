@@ -5,16 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Why Your Maps Don't Line Up, and Which One to Trust — Layered Insights GIS</title>
 <link rel="canonical" href="https://layeredinsightsgis.com/guides/why-maps-dont-line-up.html" />
-<meta name="description" content="A plain-language guide for property managers and facilities teams: why floor plans, GIS layers and Google Maps disagree, the difference between precision and accuracy, and how much accuracy a decision really needs." />
+<meta name="description" content="A plain-language guide for property managers and facilities teams: why floor plans, GIS layers and Google Maps disagree, the difference between the right shape and the right place, and how much accuracy a decision really needs." />
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Layered Insights GIS" />
 <meta property="og:title" content="Why Your Maps Don't Line Up, and Which One to Trust — Layered Insights GIS" />
-<meta property="og:description" content="A plain-language guide for property managers and facilities teams: why floor plans, GIS layers and Google Maps disagree, the difference between precision and accuracy, and how much accuracy a decision really needs." />
+<meta property="og:description" content="A plain-language guide for property managers and facilities teams: why floor plans, GIS layers and Google Maps disagree, the difference between the right shape and the right place, and how much accuracy a decision really needs." />
 <meta property="og:url" content="https://layeredinsightsgis.com/guides/why-maps-dont-line-up.html" />
 <meta property="og:image" content="https://layeredinsightsgis.com/imgs/contours.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Why Your Maps Don't Line Up, and Which One to Trust — Layered Insights GIS" />
-<meta name="twitter:description" content="A plain-language guide for property managers and facilities teams: why floor plans, GIS layers and Google Maps disagree, the difference between precision and accuracy, and how much accuracy a decision really needs." />
+<meta name="twitter:description" content="A plain-language guide for property managers and facilities teams: why floor plans, GIS layers and Google Maps disagree, the difference between the right shape and the right place, and how much accuracy a decision really needs." />
 <meta name="twitter:image" content="https://layeredinsightsgis.com/imgs/contours.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -97,53 +97,39 @@
       <p>This one surprises people. A floor plan can be drawn beautifully: every room the right size, every hallway the right width, every door where it belongs. Then someone fits it onto the map by lining it up with a free satellite image that&rsquo;s twenty feet off. Now the whole building is twenty feet off, too, while every measurement inside it is still correct.</p>
       <figure class="guide-fig">
         <svg viewBox="0 0 600 390" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="figA-t figA-d">
-  <title id="figA-t">Right inside, wrong on the earth</title>
-  <desc id="figA-d">Illustration: a dashed outline shows where a building really is. The same floor plan, with identical rooms, sits about twenty feet away on the parking lot because it was lined up to a free satellite image.</desc>
+  <title id="figA-t">Right shape, wrong place</title>
+  <desc id="figA-d">Illustration: a building's rooftop seen from above, about 100 feet wide. The building's floor plan, drawn correctly room by room, sits on top of it but slid about 20 feet to one side, because it was lined up to a free satellite image. A strip of real rooftop shows on one side and the plan hangs past the building on the other.</desc>
   <style>
     .lbl{font-family:"IBM Plex Sans",-apple-system,sans-serif;font-size:17px;fill:#B9C0C4}
     .lblb{font-family:"IBM Plex Sans",-apple-system,sans-serif;font-size:17px;font-weight:600}
     .tag{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.12em;fill:#7E8D96}
-    .rm{font-family:"IBM Plex Mono",monospace;font-size:14px;fill:#B9C0C4}
+    .rm{font-family:"IBM Plex Mono",monospace;font-size:14px;fill:#E9E4D8}
   </style>
+  <defs><pattern id="roofA" width="8" height="8" patternUnits="userSpaceOnUse"><rect width="8" height="8" fill="#4a535b"/><circle cx="2" cy="2" r="1" fill="#566069"/></pattern></defs>
   <rect width="600" height="390" rx="12" fill="#151c22"/>
-  <text x="20" y="30" class="tag">ILLUSTRATION · PLAN VIEW</text>
-  <g fill="rgba(124,148,115,0.35)" stroke="#7C9473" stroke-width="1">
-    <circle cx="40" cy="150" r="12"/><circle cx="44" cy="250" r="11"/><circle cx="150" cy="292" r="13"/><circle cx="235" cy="300" r="10"/>
+  <text x="20" y="30" class="tag">ILLUSTRATION · PLAN VIEW · TO SCALE</text>
+  <rect x="0" y="320" width="600" height="40" fill="#222c35"/>
+  <line x1="0" y1="340" x2="600" y2="340" stroke="#C98A4B" stroke-opacity="0.55" stroke-width="2" stroke-dasharray="14 12"/>
+  <!-- rooftop as it appears in the photo: 250 units = about 100 ft -->
+  <rect x="150" y="110" width="250" height="170" fill="url(#roofA)" stroke="#6b757e" stroke-width="2"/>
+  <rect x="185" y="140" width="22" height="16" fill="#8a949c"/><rect x="330" y="225" width="28" height="18" fill="#8a949c"/>
+  <!-- the same plan, slid 50 units (20 ft) -->
+  <g transform="translate(50,0)">
+    <rect x="150" y="110" width="250" height="170" fill="rgba(31,42,51,0.55)" stroke="#E9E4D8" stroke-width="3"/>
+    <g stroke="#E9E4D8" stroke-opacity="0.8" stroke-width="2"><line x1="275" y1="110" x2="275" y2="280"/><line x1="150" y1="195" x2="400" y2="195"/></g>
+    <text x="200" y="160" class="rm">101</text><text x="325" y="160" class="rm">102</text>
+    <text x="200" y="245" class="rm">103</text><text x="325" y="245" class="rm">104</text>
   </g>
-  <rect x="300" y="70" width="280" height="245" fill="#1b232a" stroke="rgba(232,228,218,0.10)"/>
-  <g stroke="rgba(232,228,218,0.22)" stroke-width="1.5">
-    <line x1="300" y1="100" x2="580" y2="100"/><line x1="300" y1="285" x2="580" y2="285"/>
-    <line x1="340" y1="70" x2="340" y2="100"/><line x1="380" y1="70" x2="380" y2="100"/><line x1="420" y1="70" x2="420" y2="100"/><line x1="460" y1="70" x2="460" y2="100"/><line x1="500" y1="70" x2="500" y2="100"/><line x1="540" y1="70" x2="540" y2="100"/>
-    <line x1="340" y1="285" x2="340" y2="315"/><line x1="380" y1="285" x2="380" y2="315"/><line x1="420" y1="285" x2="420" y2="315"/><line x1="460" y1="285" x2="460" y2="315"/><line x1="500" y1="285" x2="500" y2="315"/><line x1="540" y1="285" x2="540" y2="315"/>
-  </g>
-  <rect x="0" y="335" width="600" height="38" fill="#222c35"/>
-  <line x1="0" y1="354" x2="600" y2="354" stroke="#C98A4B" stroke-opacity="0.55" stroke-width="2" stroke-dasharray="14 12"/>
-  <!-- true footprint -->
-  <rect x="70" y="110" width="160" height="120" fill="rgba(76,151,168,0.10)" stroke="#3FC4D9" stroke-width="2" stroke-dasharray="7 6"/>
-  <g stroke="#3FC4D9" stroke-opacity="0.45" stroke-width="1" stroke-dasharray="4 5">
-    <line x1="150" y1="110" x2="150" y2="230"/><line x1="70" y1="170" x2="230" y2="170"/>
-  </g>
-  <text x="70" y="98" class="lblb" fill="#3FC4D9">Where the building really is</text>
-  <!-- shifted plan -->
-  <g transform="translate(270,40)">
-    <rect x="70" y="110" width="160" height="120" fill="#1F2A33" stroke="#E9E4D8" stroke-width="3"/>
-    <g stroke="#E9E4D8" stroke-opacity="0.75" stroke-width="2">
-      <line x1="150" y1="110" x2="150" y2="230"/><line x1="70" y1="170" x2="230" y2="170"/>
-    </g>
-    <text x="96" y="146" class="rm">101</text><text x="176" y="146" class="rm">102</text>
-    <text x="96" y="206" class="rm">103</text><text x="176" y="206" class="rm">104</text>
-  </g>
-  <text x="440" y="122" class="lbl" text-anchor="middle">Same plan, lined up to</text>
-  <text x="440" y="142" class="lbl" text-anchor="middle">a free satellite image</text>
-  <!-- offset arrow -->
-  <line x1="236" y1="176" x2="328" y2="207" stroke="#E4A05C" stroke-width="2.5"/>
-  <polygon points="336,210 323,212 327,201" fill="#E4A05C"/>
-  <text x="272" y="176" class="lblb" fill="#E4A05C" text-anchor="middle">20 ft</text>
-  <text x="590" y="386" class="tag" text-anchor="end">ROOMS RIGHT · POSITION WRONG</text>
+  <!-- dimensions -->
+  <g stroke="#3FC4D9" stroke-width="2"><line x1="150" y1="88" x2="400" y2="88"/><line x1="150" y1="81" x2="150" y2="95"/><line x1="400" y1="81" x2="400" y2="95"/></g>
+  <text x="275" y="76" class="lblb" fill="#3FC4D9" text-anchor="middle">Building in the photo: about 100 ft</text>
+  <g stroke="#E4A05C" stroke-width="2.5"><line x1="400" y1="300" x2="450" y2="300"/><line x1="400" y1="292" x2="400" y2="308"/><line x1="450" y1="292" x2="450" y2="308"/></g>
+  <text x="460" y="306" class="lblb" fill="#E4A05C">20 ft off</text>
+  <text x="590" y="383" class="tag" text-anchor="end">RIGHT SHAPE · WRONG PLACE</text>
 </svg>
-        <figcaption>The rooms are drawn correctly, so the plan still works for room numbers, square footage and work orders. Its position on the ground doesn&rsquo;t.</figcaption>
+        <figcaption>The plan is right room by room, so it still works for room numbers, square footage and work orders. It&rsquo;s slid about 20 feet, a fifth of the building&rsquo;s width, so its position on the ground doesn&rsquo;t.</figcaption>
       </figure>
-      <p>GIS people call this the difference between <strong>precision</strong>, how well the shapes match each other, and <strong>accuracy</strong>, how well they match the real ground. A plan like that is still excellent for:</p>
+      <p>Mapping people call this the difference between <strong>relative accuracy</strong>, how well the shapes match each other (the right shape), and <strong>absolute accuracy</strong>, how well they match the real ground (the right place). A plan like that is still excellent for:</p>
       <ul>
         <li>knowing which room is which, and sending a technician to the right door;</li>
         <li>square footage and room layouts;</li>
